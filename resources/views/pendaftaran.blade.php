@@ -69,7 +69,165 @@
 
     </main>
 
+    <script>
+        function toggleInputPendidikan() {
+          const pendidikanAyah = document.querySelector('input[name="pendidikanAyah"]:checked');
+          const pendidikanIbu = document.querySelector('input[name="pendidikanIbu"]:checked');
 
+          const inputLainPendidikanAyah = document.getElementById('inputLainPendidikanAyah');
+          const inputLainPendidikanIbu = document.getElementById('inputLainPendidikanIbu');
+
+          // Menampilkan atau menyembunyikan input berdasarkan status radio button
+          inputLainPendidikanAyah.style.display = pendidikanAyah && pendidikanAyah.value === 'Lain-lain' ? 'block' : 'none';
+          inputLainPendidikanIbu.style.display = pendidikanIbu && pendidikanIbu.value === 'Lain-lain' ? 'block' : 'none';
+        }
+
+        function toggleInputRekreasi() {
+          const lainCheckbox = document.getElementById('rekreasi5');
+          const inputLainRekreasi = document.getElementById('inputLainRekreasi');
+
+          inputLainRekreasi.style.display = lainCheckbox.checked ? 'block' : 'none';
+        }
+
+        function updatePlaceholder() {
+          const select = document.getElementById('jobSelect');
+          const input = document.getElementById('detailInput');
+
+          // Ambil nilai yang dipilih
+          const selectedValue = select.value;
+
+          // Ubah placeholder dan tampilkan input berdasarkan pilihan
+          if (selectedValue >= 1 && selectedValue <= 7) {
+            input.placeholder = "Masukan detail golongan";
+            input.style.display = "block"; // Tampilkan input
+          } else if (selectedValue === "8") {
+            input.placeholder = "Masukan pekerjaan ayah";
+            input.style.display = "block"; // Tampilkan input
+          } else {
+            input.placeholder = ""; // Kosongkan placeholder
+            input.style.display = "none"; // Sembunyikan input
+          }
+        }
+    </script>
+
+
+    <!-- ini javascript jozu -->
+    <script>
+        let currentStep = 0;
+        const steps = document.querySelectorAll('.step');
+        const stepIndicator = document.querySelectorAll('.step-indicator div');
+        const btnNext = document.querySelectorAll('.btn-next');
+        const btnPrev = document.querySelectorAll('.btn-prev');
+
+        function showStep(step) {
+            steps.forEach((el, index) => {
+                el.classList.toggle('active', index === step);
+                stepIndicator[index].classList.toggle('active', index === step);
+            });
+        }
+
+        function validateStep(step) {
+            // Ambil hanya input yang memiliki atribut 'required'
+            const inputs = steps[step].querySelectorAll('input[required]');
+            let formIsValid = true;
+
+            // Cek semua input 'required' dan berhenti jika ada yang tidak valid
+            for (let input of inputs) {
+                if (!input.reportValidity()) {
+                    formIsValid = false;
+                    break; // Hentikan validasi setelah menemukan input yang tidak valid
+                }
+            }
+
+            return formIsValid;
+        }
+
+
+        btnNext.forEach(button => {
+            button.addEventListener('click', () => {
+                if (validateStep(currentStep)) { // Validasi menggunakan required
+                    currentStep++;
+                    showStep(currentStep);
+                }
+            });
+        });
+
+        btnPrev.forEach(button => {
+            button.addEventListener('click', () => {
+                currentStep--;
+                showStep(currentStep);
+            });
+        });
+
+        showStep(currentStep); // Show the first step on page load
+    </script>
+    <script>
+        // Ambil elemen checkbox dan input teks
+        const lainLainCheckbox = document.getElementById('lainLain');
+        const inputLainLain = document.getElementById('inputLainLain');
+
+        // Tambahkan event listener pada checkbox 'Lain-lain'
+        lainLainCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                inputLainLain.style.display = 'block'; // Tampilkan input teks jika dipilih
+            } else {
+                inputLainLain.style.display = 'none'; // Sembunyikan input teks jika tidak dipilih
+            }
+        });
+    </script>
+    <!-- Script untuk menampilkan input text jika suku lain-lain dipilih -->
+    <script>
+        const lainLainSukuRadio = document.getElementById('lainLainSuku');
+        const inputLainLainSuku = document.getElementById('inputLainLainSuku');
+
+        const sukuRadios = document.querySelectorAll('input[name="suku"]');
+
+        sukuRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (lainLainSukuRadio.checked) {
+                    inputLainLainSuku.style.display = 'block'; // Tampilkan input teks jika 'Lain-lain' dipilih
+                } else {
+                    inputLainLainSuku.style.display = 'none'; // Sembunyikan input teks jika 'Lain-lain' tidak dipilih
+                }
+            });
+        });
+    </script>
+    <!-- Script untuk menampilkan input text jika 'Lain-lain' dipilih -->
+    <script>
+        const lainLainKewarganegaraanRadio = document.getElementById('lainLainKewarganegaraan');
+        const indonesiaRadio = document.getElementById('indonesia');
+        const inputLainLainKewarganegaraan = document.getElementById('inputLainLainKewarganegaraan');
+
+        // Event listener untuk radio button kewarganegaraan
+        lainLainKewarganegaraanRadio.addEventListener('change', function() {
+            if (this.checked) {
+                inputLainLainKewarganegaraan.style.display = 'block'; // Tampilkan input teks jika 'Lain-lain' dipilih
+            }
+        });
+
+        indonesiaRadio.addEventListener('change', function() {
+            if (this.checked) {
+                inputLainLainKewarganegaraan.style.display = 'none'; // Sembunyikan input teks jika 'Indonesia' dipilih
+            }
+        });
+    </script>
+    <!-- Script untuk menampilkan input text jika 'Lain-lain' dipilih -->
+    <script>
+        const lainLainAgamaRadio = document.getElementById('lainLainAgama');
+        const inputLainLainAgama = document.getElementById('inputLainLainAgama');
+
+        const agamaRadios = document.querySelectorAll('input[name="agama"]');
+
+        agamaRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (lainLainAgamaRadio.checked) {
+                    inputLainLainAgama.style.display = 'block'; // Tampilkan input teks jika 'Lain-lain' dipilih
+                } else {
+                    inputLainLainAgama.style.display = 'none'; // Sembunyikan input teks jika 'Lain-lain' tidak dipilih
+                }
+            });
+        });
+    </script>
 
 @endsection
 
