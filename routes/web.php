@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +18,14 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/pendaftaran', function () {
-    return view('pendaftaran');
-});
+Route::get('/pendaftaran', [RegistrationController::class, 'showForm'])->name('pendaftaran');
 
-Route::get('/step1', function () {
-    return view('step1'); // Pastikan ini mengarah ke view yang benar
-})->name('step1');
+// Post routes for each step
+Route::post('/step1', [RegistrationController::class, 'postStep1'])->name('register.step1');
+Route::post('/step2', [RegistrationController::class, 'postStep2'])->name('register.step2');
+Route::post('/final', [RegistrationController::class, 'postStep3'])->name('register.final');
 
+// Success page route
+Route::get('/success', function () {
+    return view('success');
+})->name('successPage');

@@ -70,8 +70,8 @@
                     <div class="mb-3">
                         <label for="jumlahSaudaraAngkat" class="form-label">Jumlah Saudara Angkat<span
                                 class="text-danger">*</span></label>
-                        <input type="number" class="form-control" id="jumlahSaudaraAngkat" name="jumlahSaudaraAngkat"
-                            placeholder="Masukkan jumlah saudara angkat">
+                        <input type="number" class="form-control" id="jumlahSaudaraAngkat"
+                            name="jumlahSaudaraAngkat" placeholder="Masukkan jumlah saudara angkat">
                     </div>
                     <div class="mb-3">
                         <label for="bahasa" class="form-label">Bahasa yang digunakan dalam keluarga<span
@@ -274,9 +274,4 @@
             </div>
         </div>
     </div>
-
-
-</div>
-<div class="text-center mt-4">
-    <button type="button" class="btn btn-primary btn-next" id="nextButton">Berikutnya</button>
 </div>

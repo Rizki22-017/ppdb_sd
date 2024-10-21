@@ -278,66 +278,66 @@
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="pendidikanAyah"
-                                    id="pendidikanAyah3" value="SMA" onclick="toggleInputPendidikan()">
-                                <label class="form-check-label" for="pendidikanAyah3">DIII</label>
+                                    id="pendidikanAyah4" value="SMA" onclick="toggleInputPendidikan()">
+                                <label class="form-check-label" for="pendidikanAyah4">DIII</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="pendidikanAyah"
-                                    id="pendidikanAyah3" value="SMA" onclick="toggleInputPendidikan()">
-                                <label class="form-check-label" for="pendidikanAyah3">S1</label>
+                                    id="pendidikanAyah5" value="SMA" onclick="toggleInputPendidikan()">
+                                <label class="form-check-label" for="pendidikanAyah5">S1</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="pendidikanAyah"
-                                    id="pendidikanAyah3" value="SMA" onclick="toggleInputPendidikan()">
-                                <label class="form-check-label" for="pendidikanAyah3">S2</label>
+                                    id="pendidikanAyah6" value="SMA" onclick="toggleInputPendidikan()">
+                                <label class="form-check-label" for="pendidikanAyah6">S2</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="pendidikanAyah"
-                                    id="pendidikanAyah4" value="Lain-lain" onclick="toggleInputPendidikan()">
-                                <label class="form-check-label" for="pendidikanAyah4">Lain-lain, sebutkan...</label>
+                                    id="pendidikanAyah7" value="Lain-lain" onclick="toggleInputPendidikan()">
+                                <label class="form-check-label" for="pendidikanAyah7">Lain-lain, sebutkan...</label>
                             </div>
                             <input type="text" class="form-control mt-2" id="inputLainPendidikanAyah"
                                 name="inputLainPendidikanAyah" placeholder="Sebutkan..." style="display:none;">
                         </div>
                     </div>
 
-                    <div class="row mb-3">
+                    <div class="row mb-3" style="padding-top: 2rem">
                         <legend class="col-form-label col-sm-2 pt-0">Pendidikan Ibu</legend>
                         <div class="col-sm-10">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="pendidikanAyah"
-                                    id="pendidikanAyah1" value="SD" onclick="toggleInputPendidikan()">
-                                <label class="form-check-label" for="pendidikanAyah1">SD</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="pendidikanAyah"
-                                    id="pendidikanAyah2" value="SMP" onclick="toggleInputPendidikan()">
-                                <label class="form-check-label" for="pendidikanAyah2">SMP</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="pendidikanAyah"
-                                    id="pendidikanAyah3" value="SMA" onclick="toggleInputPendidikan()">
-                                <label class="form-check-label" for="pendidikanAyah3">SMA</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="pendidikanAyah"
-                                    id="pendidikanAyah3" value="SMA" onclick="toggleInputPendidikan()">
-                                <label class="form-check-label" for="pendidikanAyah3">DIII</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="pendidikanAyah"
-                                    id="pendidikanAyah3" value="SMA" onclick="toggleInputPendidikan()">
-                                <label class="form-check-label" for="pendidikanAyah3">S1</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="pendidikanAyah"
-                                    id="pendidikanAyah3" value="SMA" onclick="toggleInputPendidikan()">
-                                <label class="form-check-label" for="pendidikanAyah3">S2</label>
+                                <input class="form-check-input" type="radio" name="pendidikanIbu"
+                                    id="pendidikanIbu1" value="SD" onclick="toggleInputPendidikan()">
+                                <label class="form-check-label" for="pendidikanIbu1">SD</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="pendidikanIbu"
-                                    id="pendidikanIbu4" value="Lain-lain" onclick="toggleInputPendidikan()">
-                                <label class="form-check-label" for="pendidikanIbu4">Lain-lain, sebutkan...</label>
+                                    id="pendidikanIbu2" value="SMP" onclick="toggleInputPendidikan()">
+                                <label class="form-check-label" for="pendidikanIbu2">SMP</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pendidikanIbu"
+                                    id="pendidikanIbu3" value="SMA" onclick="toggleInputPendidikan()">
+                                <label class="form-check-label" for="pendidikanAyah3">SMA</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pendidikanIbu"
+                                    id="pendidikanIbu4" value="SMA" onclick="toggleInputPendidikan()">
+                                <label class="form-check-label" for="pendidikanIbu4">DIII</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pendidikanIbu"
+                                    id="pendidikanIbu5" value="SMA" onclick="toggleInputPendidikan()">
+                                <label class="form-check-label" for="pendidikanIbu5">S1</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pendidikanIbu"
+                                    id="pendidikanIbu6" value="SMA" onclick="toggleInputPendidikan()">
+                                <label class="form-check-label" for="pendidikanIbu6">S2</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pendidikanIbu"
+                                    id="pendidikanIbu7" value="Lain-lain" onclick="toggleInputPendidikan()">
+                                <label class="form-check-label" for="pendidikanIbu7">Lain-lain, sebutkan...</label>
                             </div>
                             <input type="text" class="form-control mt-2" id="inputLainPendidikanIbu"
                                 name="inputLainPendidikanIbu" placeholder="Sebutkan..." style="display:none;">
@@ -346,8 +346,8 @@
                     <div class="row mb-3">
                         <p class="mb-1">Pekerjaan Ayah Sebagai <span class="text-danger">*</span></p>
                         <div class="col-sm-12">
-                            <select class="form-select" aria-label="Default select example" id="jobSelect"
-                                onchange="updatePlaceholder()">
+                            <select class="form-select" aria-label="Default select example" id="jobSelectAyah"
+                                onchange="updatePlaceholderAyah()">
                                 <option selected>Klik untuk memilih</option>
                                 <option value="1">Pegawai Negeri, dengan Golongan</option>
                                 <option value="2">Pegawai Swasta, dengan Jabatan</option>
@@ -358,7 +358,7 @@
                                 <option value="7">Buruh, Petani, Nelayan</option>
                                 <option value="8">Lain-Lain, sebutkan</option>
                             </select>
-                            <input type="text" class="form-control mt-2" id="detailInput"
+                            <input type="text" class="form-control mt-2" id="detailInputAyah"
                                 placeholder="Masukan detail golongan" style="display: none;">
                         </div>
                     </div>
@@ -366,8 +366,8 @@
                     <div class="row mb-3">
                         <p class="mb-1">Pekerjaan Ibu Sebagai <span class="text-danger">*</span></p>
                         <div class="col-sm-12">
-                            <select class="form-select" aria-label="Default select example" id="jobSelect"
-                                onchange="updatePlaceholder()">
+                            <select class="form-select" aria-label="Default select example" id="jobSelectIbu"
+                                onchange="updatePlaceholderIbu()">
                                 <option selected>Klik untuk memilih</option>
                                 <option value="1">Pegawai Negeri, dengan Golongan</option>
                                 <option value="2">Pegawai Swasta, dengan Jabatan</option>
@@ -378,7 +378,7 @@
                                 <option value="7">Buruh, Petani, Nelayan</option>
                                 <option value="8">Lain-Lain, sebutkan</option>
                             </select>
-                            <input type="text" class="form-control mt-2" id="detailInput"
+                            <input type="text" class="form-control mt-2" id="detailInputIbu"
                                 placeholder="Masukan detail golongan" style="display: none;">
                         </div>
                     </div>
@@ -472,12 +472,5 @@
             </div>
             </form><!-- End General Form Elements -->
         </div>
-    </div>
-</div>
-
-<div class="col-lg-12">
-    <div class="d-flex justify-content-between mt-4">
-        <button type="button" class="btn btn-secondary btn-prev" data-bs-toggle="tab" data-bs-target="#features-tab-1">Sebelumnya</button>
-        <button type="button" class="btn btn-primary" data-bs-toggle="tab" data-bs-target="#features-tab-3">Berikutnya</button>
     </div>
 </div>
