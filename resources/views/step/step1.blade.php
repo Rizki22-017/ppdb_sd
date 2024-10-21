@@ -4,83 +4,76 @@
 
         <div class="card">
             <div class="card-body">
-
-                <!-- General Form Elements -->
-                <form>
-                    <div class="mb-3 mt-3">
-                        <label for="namaLengkap" class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="namaLengkap" name="namaLengkap" required autofocus
-                            placeholder="Masukkan nama lengkap">
-                        <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                <div class="mb-3 mt-3">
+                    <label for="namaLengkap" class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="namaLengkap" name="namaLengkap" required autofocus
+                        placeholder="Masukkan nama lengkap">
+                    <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                </div>
+                <div class="mb-3">
+                    <label for="jenisKelamin" class="form-label">Jenis Kelamin <span
+                            class="text-danger">*</span></label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="jenisKelamin" id="lakiLaki"
+                            value="Laki-laki" checked>
+                        <label class="form-check-label" for="lakiLaki">Laki-laki</label>
                     </div>
-                    <div class="mb-3">
-                        <label for="jenisKelamin" class="form-label">Jenis Kelamin <span
-                                class="text-danger">*</span></label><br>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="jenisKelamin" id="lakiLaki"
-                                value="Laki-laki" checked>
-                            <label class="form-check-label" for="lakiLaki">Laki-laki</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="jenisKelamin" id="perempuan"
-                                value="Perempuan">
-                            <label class="form-check-label" for="perempuan">Perempuan</label>
-                        </div>
-                        <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="jenisKelamin" id="perempuan"
+                            value="Perempuan">
+                        <label class="form-check-label" for="perempuan">Perempuan</label>
                     </div>
-                    <div>
-                        <label for="tempatLahir" class="form-label">Tempat Lahir<span
-                                class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="tempatLahir" name="tempatLahir"
-                            placeholder="Masukkan Tempat Lahir">
-                    </div>
-                    <div class="mb-3">
-                        <label for="tanggalLahir" class="form-label">Tanggal Lahir<span
-                                class="text-danger">*</span></label>
-                        <input type="date" class="form-control" id="tanggalLahir" name="tanggalLahir">
-                    </div>
-                    <div class="mb-3">
-                        <label for="tinggi" class="form-label">Tinggi (cm)<span class="text-danger">*</span></label>
-                        <input type="number" class="form-control" id="tinggi" name="tinggi"
-                            placeholder="Masukkan Tinggi Badan">
-                    </div>
-                    <div class="mb-3">
-                        <label for="berat" class="form-label">Berat (kg)<span class="text-danger">*</span></label>
-                        <input type="number" class="form-control" id="berat" name="berat"
-                            placeholder="Masukkan Berat Badan">
-                    </div>
-                    <div class="mb-3">
-                        <label for="anakke" class="form-label">Anak Ke Berapa dalam keluarga <span
-                                class="text-danger">*</span></label>
-                        <input type="number" class="form-control" id="anakke" name="anakke"
-                            placeholder="Masukkan Jumlah Saudara Kandung">
-                    </div>
-                    <div class="mb-3">
-                        <label for="jumlahSaudaraKandung" class="form-label">Jumlah Saudara Kandung<span
-                                class="text-danger">*</span></label>
-                        <input type="number" class="form-control" id="jumlahSaudaraKandung" name="jumlahSaudaraKandung"
-                            placeholder="Masukkan Jumlah Saudara Kandung">
-                    </div>
-                    <div class="mb-3">
-                        <label for="jumlahSaudaraTiri" class="form-label">Jumlah Saudara Tiri<span
-                                class="text-danger">*</span></label>
-                        <input type="number" class="form-control" id="jumlahSaudaraTiri" name="jumlahSaudaraTiri"
-                            placeholder="Masukkan Jumlah Saudara Tiri">
-                    </div>
-                    <div class="mb-3">
-                        <label for="jumlahSaudaraAngkat" class="form-label">Jumlah Saudara Angkat<span
-                                class="text-danger">*</span></label>
-                        <input type="number" class="form-control" id="jumlahSaudaraAngkat"
-                            name="jumlahSaudaraAngkat" placeholder="Masukkan jumlah saudara angkat">
-                    </div>
-                    <div class="mb-3">
-                        <label for="bahasa" class="form-label">Bahasa yang digunakan dalam keluarga<span
-                                class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="bahasa" name="bahasa"
-                            placeholder="Masukkan bahasa yang digunakan sehari-hari">
-                    </div>
-
-                </form><!-- End General Form Elements -->
+                    <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                </div>
+                <div>
+                    <label for="tempatLahir" class="form-label">Tempat Lahir<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="tempatLahir" name="tempatLahir"
+                        placeholder="Masukkan Tempat Lahir">
+                </div>
+                <div class="mb-3">
+                    <label for="tanggalLahir" class="form-label">Tanggal Lahir<span class="text-danger">*</span></label>
+                    <input type="date" class="form-control" id="tanggalLahir" name="tanggalLahir">
+                </div>
+                <div class="mb-3">
+                    <label for="tinggi" class="form-label">Tinggi (cm)<span class="text-danger">*</span></label>
+                    <input type="number" class="form-control" id="tinggi" name="tinggi"
+                        placeholder="Masukkan Tinggi Badan">
+                </div>
+                <div class="mb-3">
+                    <label for="berat" class="form-label">Berat (kg)<span class="text-danger">*</span></label>
+                    <input type="number" class="form-control" id="berat" name="berat"
+                        placeholder="Masukkan Berat Badan">
+                </div>
+                <div class="mb-3">
+                    <label for="anakke" class="form-label">Anak Ke Berapa dalam keluarga <span
+                            class="text-danger">*</span></label>
+                    <input type="number" class="form-control" id="anakke" name="anakke"
+                        placeholder="Masukkan Jumlah Saudara Kandung">
+                </div>
+                <div class="mb-3">
+                    <label for="jumlahSaudaraKandung" class="form-label">Jumlah Saudara Kandung<span
+                            class="text-danger">*</span></label>
+                    <input type="number" class="form-control" id="jumlahSaudaraKandung" name="jumlahSaudaraKandung"
+                        placeholder="Masukkan Jumlah Saudara Kandung">
+                </div>
+                <div class="mb-3">
+                    <label for="jumlahSaudaraTiri" class="form-label">Jumlah Saudara Tiri<span
+                            class="text-danger">*</span></label>
+                    <input type="number" class="form-control" id="jumlahSaudaraTiri" name="jumlahSaudaraTiri"
+                        placeholder="Masukkan Jumlah Saudara Tiri">
+                </div>
+                <div class="mb-3">
+                    <label for="jumlahSaudaraAngkat" class="form-label">Jumlah Saudara Angkat<span
+                            class="text-danger">*</span></label>
+                    <input type="number" class="form-control" id="jumlahSaudaraAngkat" name="jumlahSaudaraAngkat"
+                        placeholder="Masukkan jumlah saudara angkat">
+                </div>
+                <div class="mb-3">
+                    <label for="bahasa" class="form-label">Bahasa yang digunakan dalam keluarga<span
+                            class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="bahasa" name="bahasa"
+                        placeholder="Masukkan bahasa yang digunakan sehari-hari">
+                </div>
             </div>
         </div>
     </div>
