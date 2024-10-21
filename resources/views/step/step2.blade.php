@@ -240,47 +240,6 @@
                     </div>
 
                     <div class="row mb-3">
-                        <p class="mb-1">Jika mengajak anak untuk rekreasi kemana?</p>
-                        <div class="col-sm-10 d-flex flex-wrap justify-content-between">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="rekreasi1" name="rekreasi"
-                                    value="DalamKota">
-                                <label class="form-check-label" for="rekreasi1">
-                                    Dalam Kota
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="rekreasi2" name="rekreasi"
-                                    value="LuarKota">
-                                <label class="form-check-label" for="rekreasi2">
-                                    Luar Kota
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="rekreasi3" name="rekreasi"
-                                    value="LuarProvinsi">
-                                <label class="form-check-label" for="rekreasi3">
-                                    Luar Provinsi
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="rekreasi4" name="rekreasi"
-                                    value="LuarNegeri">
-                                <label class="form-check-label" for="rekreasi4">
-                                    Luar Negeri
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="rekreasi5" name="rekreasi"
-                                    value="Lain-lain" onclick="toggleInputRekreasi()">
-                                <label class="form-check-label" for="rekreasi5">
-                                    Lain-lain, sebutkan...
-                                </label>
-                            </div>
-                            <input type="text" class="form-control mt-2" id="inputLainRekreasi"
-                                name="inputLainRekreasi" placeholder="Sebutkan..." style="display:none;">
-                        </div>
-
                         <div class="mb-3" id="inputLain" style="display: none;">
                             <input type="text" class="form-control" id="inputLainDetail" name="inputLainDetail"
                                 placeholder="Masukan jawaban anda">
@@ -522,5 +481,3 @@
         <button type="button" class="btn btn-primary" data-bs-toggle="tab" data-bs-target="#features-tab-3">Berikutnya</button>
     </div>
 </div>
-
-
