@@ -50,32 +50,15 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Home</a></li>
-          <li class="dropdown"><a href="about.html"><span>About</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="team.html">Team</a></li>
-              <li><a href="testimonials.html">Testimonials</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="/" class="active">Home</a></li>
+
+          <li><a href="/pendaftaran">Pendaftaran Siswa Baru</a></li>
+
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="about.html">Get Started</a>
+      <a class="btn-getstarted" href="#">Login</a>
 
     </div>
   </header>
@@ -89,9 +72,9 @@
         <div class="col-lg-3 col-md-6 d-flex">
           <i class="bi bi-geo-alt icon"></i>
           <div class="address">
-            <h4>Address</h4>
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
+            <h4>Alamat</h4>
+            <p>Jl. Andalas Baru No. 25B</p>
+            <p>Kel. Simpang Haru, Kec. Padang Timur - Padang</p>
             <p></p>
           </div>
 
@@ -100,10 +83,10 @@
         <div class="col-lg-3 col-md-6 d-flex">
           <i class="bi bi-telephone icon"></i>
           <div>
-            <h4>Contact</h4>
+            <h4>Kontak</h4>
             <p>
-              <strong>Phone:</strong> <span>+1 5589 55488 55</span><br>
-              <strong>Email:</strong> <span>info@example.com</span><br>
+              <strong>Telepon</strong> <span>(0751) 32298</span><br>
+              <strong>Email:</strong> <span>sdsitpermata@gmail.com</span><br>
             </p>
           </div>
         </div>
@@ -111,21 +94,21 @@
         <div class="col-lg-3 col-md-6 d-flex">
           <i class="bi bi-clock icon"></i>
           <div>
-            <h4>Opening Hours</h4>
+            <h4>Jam Layanan</h4>
             <p>
-              <strong>Mon-Sat:</strong> <span>11AM - 23PM</span><br>
-              <strong>Sunday</strong>: <span>Closed</span>
+              <strong>Senin-Jumat</strong> <span>08.00 - 14.00</span><br>
+              <strong>Sabtu-Minggu</strong>: <span>Tutup</span>
             </p>
           </div>
         </div>
 
         <div class="col-lg-3 col-md-6">
-          <h4>Follow Us</h4>
+          <h4>Ikuti Kami</h4>
           <div class="social-links d-flex">
-            <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            <a href="https://twitter.com/HumasSdit?t=jNMiZzs161f5Ua3_YdkvwA&s=09" class="twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.facebook.com/sditpermatapadang" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/sdit.permata/?hl=id" class="instagram"><i class="bi bi-instagram"></i></a>
+
           </div>
         </div>
 
@@ -139,7 +122,7 @@
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by <a href="https://mediatamaweb.co.id/">Mediatama Web Indonesia</a>
       </div>
     </div>
 
