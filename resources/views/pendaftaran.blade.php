@@ -196,11 +196,20 @@
             const selectedValue = select.value;
 
             // Ubah placeholder dan tampilkan input berdasarkan pilihan
-            if (selectedValue >= 1 && selectedValue <= 7) {
+            if (selectedValue === "1") {
                 input.placeholder = "Masukan detail golongan";
                 input.style.display = "block"; // Tampilkan input
+            } else if (selectedValue === "2") {
+                input.placeholder = "Masukan jabatan Ayah";
+                input.style.display = "block"; // Tampilkan input
+            } else if (selectedValue >= 3 && selectedValue <= 4) {
+                input.placeholder = "Masukan bidang usaha Ayah";
+                input.style.display = "block"; // Tampilkan input
+            } else if (selectedValue >= 5 && selectedValue <= 6) {
+                input.placeholder = "Masukan pangkat Ayah";
+                input.style.display = "block"; // Tampilkan input
             } else if (selectedValue === "8") {
-                input.placeholder = "Masukan pekerjaan ayah";
+                input.placeholder = "Masukan pekerjaan Ayah";
                 input.style.display = "block"; // Tampilkan input
             } else {
                 input.placeholder = ""; // Kosongkan placeholder
@@ -216,8 +225,17 @@
             const selectedValue = select.value;
 
             // Ubah placeholder dan tampilkan input berdasarkan pilihan
-            if (selectedValue >= 1 && selectedValue <= 7) {
+            if (selectedValue === "1") {
                 input.placeholder = "Masukan detail golongan";
+                input.style.display = "block"; // Tampilkan input
+            } else if (selectedValue === "2") {
+                input.placeholder = "Masukan jabatan Ibu";
+                input.style.display = "block"; // Tampilkan input
+            } else if (selectedValue >= 3 && selectedValue <= 4) {
+                input.placeholder = "Masukan bidang usaha Ibu";
+                input.style.display = "block"; // Tampilkan input
+            } else if (selectedValue >= 5 && selectedValue <= 6) {
+                input.placeholder = "Masukan pangkat Ibu";
                 input.style.display = "block"; // Tampilkan input
             } else if (selectedValue === "8") {
                 input.placeholder = "Masukan pekerjaan Ibu";
