@@ -12,28 +12,28 @@
                                 class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="namaLengkapAyah" name="namaLengkapAyah" required
                             placeholder="Masukan nama lengkap ayah">
-                        <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                        <span class="error-message"></span>
                     </div>
                     <div class="mb-3">
                         <label for="nikAyah" class="form-label">NIK Ayah<span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="nikAyah" name="nikAyah" required
                             placeholder="Masukan NIK ayah" maxlength="16" pattern="\d{16}"
                             title="NIK harus 16 digit angka">
-                        <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                        <span class="error-message"></span>
                     </div>
                     <div class="mb-3">
                         <label for="namaLengkap" class="form-label">Nama Lengkap Ibu <span
                                 class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="namaLengkapIbu" name="namaLengkapIbu" required
                             placeholder="Masukan nama lengkap ayah">
-                        <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                        <span class="error-message"></span>
                     </div>
                     <div class="mb-3">
                         <label for="nikAyah" class="form-label">NIK Ibu<span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="nikIbu" name="nikIbu" required
                             placeholder="Masukan NIK ayah" maxlength="16" pattern="\d{16}"
                             title="NIK harus 16 digit angka">
-                        <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                        <span class="error-message"></span>
                     </div>
                     <div class="row mb-3">
                         <legend class="col-form-label col-sm-2 pt-0">Status Ayah</legend>
@@ -98,7 +98,7 @@
                                     required>
                             </div>
                         </div>
-                        <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                        <span class="error-message"></span>
                     </div>
                     <div class="mb-3">
                         <label for="namaLengkapAyah" class="form-label">Tempat/Tanggal Lahir Ibu <span
@@ -113,7 +113,7 @@
                                     required>
                             </div>
                         </div>
-                        <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                        <span class="error-message"></span>
                     </div>
 
                     <div class="mb-3">
@@ -148,7 +148,7 @@
                             <div class="col-sm-10">
                                 <input type="tel" class="form-control" id="kantorAyah" name="kantorAyah"
                                     required placeholder="Jl. Sudirman, Kota Padang">
-                                <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                                <span class="error-message"></span>
                             </div>
                         </div>
                         <div class="mb-3 row">
@@ -157,7 +157,7 @@
                             <div class="col-sm-10">
                                 <input type="tel" class="form-control" id="kantorIbu" name="kantorIbu" required
                                     placeholder="Jl. Sudirman, Kota Padang">
-                                <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                                <span class="error-message"></span>
                             </div>
                         </div>
                     </div>
@@ -171,7 +171,7 @@
                             <div class="col-sm-10">
                                 <input type="tel" class="form-control" id="nohpAyah" name="nohpAyah" required
                                     placeholder="Contoh : 6282123456789">
-                                <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                                <span class="error-message"></span>
                             </div>
                         </div>
                         <div class="mb-3 row">
@@ -180,7 +180,7 @@
                             <div class="col-sm-10">
                                 <input type="tel" class="form-control" id="nohpIbu" name="nohpIbu" required
                                     placeholder="Contoh : 6282123456789">
-                                <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                                <span class="error-message"></span>
                             </div>
                         </div>
                     </div>
@@ -417,16 +417,68 @@
                                 style="flex-grow: 1; margin-right: 10px;">
                             <span>Orang</span>
                         </div>
-                        <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                        <span class="error-message"></span>
                     </div>
 
                     <div class="mb-3">
                         <label for="dataTanggungan" class="form-label">Nama anak yang menjadi tanggungan<span
                                 class="text-danger">*</span></label>
-                        <div style="display: flex; align-items: center;">
-                            <button type="button" class="btn btn-warning">Tambahkan data tanggungan</button>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-warning" style="display: flex; align-items: center" data-bs-toggle="modal" data-bs-target="#tambahTanggungan">
+                            Tambahkan data tanggungan
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="tambahTanggungan" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Tambahkan data tanggungan</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="mb-3 mt-3">
+                                            <label for="namaLengkapTg" class="form-label">Nama Lengkap Tanggungan<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="namaLengkapTg" name="namaLengkapTg" required
+                                                placeholder="Masukkan nama lengkap tanggungan">
+                                            <span class="error-message"></span>
+                                        </div>
+                                        <div class="mb-3 mt-3">
+                                            <label for="sekolahTg" class="form-label">Sekolah/Kampus<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="sekolahTg" name="sekolahTg" required
+                                                placeholder="Masukkan nama sekolah/kampus">
+                                            <span class="error-message"></span>
+                                        </div>
+                                        <div class="mb-3 mt-3">
+                                            <label for="kelasTg" class="form-label">Kelas/Semester<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="kelasTg" name="kelasTg" required
+                                                placeholder="Masukkan kelas/semester(jika sedang berkuliah)">
+                                            <span class="error-message"></span>
+                                        </div>
+                                        <div class="mb-3 mt-3">
+                                            <label for="uangSekolahTg" class="form-label">Uang Sekolah<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="uangSekolahTg" name="uangSekolahTg" required
+                                                placeholder="Masukan nominal uang sekolah per semester">
+                                            <span class="error-message"></span>
+                                        </div>
+                                        <div class="mb-3 mt-3">
+                                            <label for="keteranganTg" class="form-label">Keterangan</label>
+                                            <input type="text" class="form-control" id="keteranganTg" name="keteranganTg"
+                                                placeholder="Berikan keterangan jika mendapat beasiswa">
+                                            <span class="error-message"></span>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                            <button type="button" class="btn btn-primary">Simpan perubahan</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                            </div>
                         </div>
-                        <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                        <span class="error-message"></span>
                     </div>
 
                     <table class="table table-striped table-bordered text-center">
@@ -450,7 +502,7 @@
                                 <td class="text-center">0</td>
                                 <td class="text-center">KIP</td>
                                 <td class="text-center">
-                                    Edit
+                                    Edit | Delete
                                 </td>
                             </tr>
                         </tbody>
@@ -474,3 +526,13 @@
         </div>
     </div>
 </div>
+
+<script>
+    const uangSekolahInput = document.getElementById('uangSekolahTg');
+
+    uangSekolahInput.addEventListener('input', function (e) {
+        let value = this.value.replace(/\D/g, '');
+        let formattedValue = new Intl.NumberFormat('id-ID').format(value);
+        this.value = 'Rp. ' + formattedValue;
+    });
+</script>
