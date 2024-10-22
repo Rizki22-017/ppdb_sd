@@ -7,11 +7,12 @@ use App\Models\Registration;
 
 class RegistrationController extends Controller
 {
-    public function showForm()
+    public function showForm(Request $request)
     {
-        // Render the first step of the form
-        return view('pendaftaran');
+        $step = $request->session()->get('current_step', 1); // Default to step 1
+        return view('pendaftaran', ['step' => $step]);
     }
+
     public function postStep1(Request $request)
     {
         $validatedData = $request->validate([

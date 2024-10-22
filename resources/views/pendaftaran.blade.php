@@ -48,72 +48,70 @@
 
                 <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
 
-                    <!-- Step 1: Data Siswa -->
-                    <div class="tab-pane fade active show" id="features-tab-1">
-                        @include('step.step1')
-                        <div class="d-flex justify-content-center mt-4">
-                            <button type="button" class="btn btn-primary btn-next">Berikutnya</button>
+                    <!-- One single form wraps all steps -->
+                    <form action="{{ route('register.final') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="step" value="{{ $step }}">
+                        <!-- Step 1: Data Siswa -->
+                        <div class="tab-pane fade @if ($step == 1) show active @endif" id="step1">
+                            @include('step.step1')
+                            <div class="d-flex justify-content-center mt-4">
+                                <button type="button" class="btn btn-primary btn-next">Berikutnya</button>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="tab-pane fade" id="features-tab-2">
-                        @include('step.step2')
-                        <div class="d-flex justify-content-between mt-4">
-                            <button type="button" class="btn btn-secondary btn-prev">Sebelumnya</button>
-                            <button type="button" class="btn btn-primary btn-next">Berikutnya</button>
+                        <div class="tab-pane fade @if ($step == 2) show active @endif" id="step2">
+                            @include('step.step2')
+                            <div class="d-flex justify-content-between mt-4">
+                                <button type="button" class="btn btn-secondary btn-prev">Sebelumnya</button>
+                                <button type="button" class="btn btn-primary btn-next">Berikutnya</button>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="tab-pane fade" id="features-tab-3">
-                        <form action="{{ route('register.final') }}" method="POST">
-                            @csrf
+                        <div class="tab-pane fade @if ($step == 3) show active @endif" id="step3">
                             @include('step.step3')
                             <div class="d-flex justify-content-between mt-4">
                                 <button type="button" class="btn btn-secondary btn-prev">Sebelumnya</button>
                                 <button type="submit" class="btn btn-primary">Lanjutkan</button>
                             </div>
-                        </form>
-                    </div>
 
+                            <!-- Modal for final confirmation -->
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Perhatian!</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p style="text-decoration: underline;"><b>Harap persiapkan data berikut :</b>
+                                            </p>
+                                            <ol>
+                                                <li>Fotocopy Akte Kelahiran</li>
+                                                <li>Fotocopy Kartu Keluarga</li>
+                                                <li>Fotocopy KTP Orang Tua/Wali Murid</li>
+                                                <li>Pas Photo Latar Merah</li>
+                                                <li>Fotocopy Ijazah TK (jika ada)</li>
+                                            </ol>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
 
-
-                    <!-- Modal for final confirmation -->
-                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Perhatian!</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <p style="text-decoration: underline;"><b>Harap persiapkan data berikut :</b>
-                                    </p>
-                                    <ol>
-                                        <li>Fotocopy Akte Kelahiran</li>
-                                        <li>Fotocopy Kartu Keluarga</li>
-                                        <li>Fotocopy KTP Orang Tua/Wali Murid</li>
-                                        <li>Pas Photo Latar Merah</li>
-                                        <li>Fotocopy Ijazah TK (jika ada)</li>
-                                    </ol>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <!-- Submit final form -->
-                                    <button type="submit" class="btn btn-primary">Lanjutkan</button>
+                                            <!-- Final form submit button -->
+                                            <button type="submit" class="btn btn-primary">Lanjutkan</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     </form>
                 </div>
 
             </div>
-            </div>
-
         </section><!-- /Features Section -->
-
     </main>
 
     <!-- JavaScript for step navigation -->
@@ -323,10 +321,10 @@
             radio.addEventListener('change', function() {
                 if (lainLainSukuRadio.checked) {
                     inputLainLainSuku.style.display =
-                    'block'; // Tampilkan input teks jika 'Lain-lain' dipilih
+                        'block'; // Tampilkan input teks jika 'Lain-lain' dipilih
                 } else {
                     inputLainLainSuku.style.display =
-                    'none'; // Sembunyikan input teks jika 'Lain-lain' tidak dipilih
+                        'none'; // Sembunyikan input teks jika 'Lain-lain' tidak dipilih
                 }
             });
         });
@@ -341,14 +339,14 @@
         lainLainKewarganegaraanRadio.addEventListener('change', function() {
             if (this.checked) {
                 inputLainLainKewarganegaraan.style.display =
-                'block'; // Tampilkan input teks jika 'Lain-lain' dipilih
+                    'block'; // Tampilkan input teks jika 'Lain-lain' dipilih
             }
         });
 
         indonesiaRadio.addEventListener('change', function() {
             if (this.checked) {
                 inputLainLainKewarganegaraan.style.display =
-                'none'; // Sembunyikan input teks jika 'Indonesia' dipilih
+                    'none'; // Sembunyikan input teks jika 'Indonesia' dipilih
             }
         });
     </script>
@@ -363,10 +361,10 @@
             radio.addEventListener('change', function() {
                 if (lainLainAgamaRadio.checked) {
                     inputLainLainAgama.style.display =
-                    'block'; // Tampilkan input teks jika 'Lain-lain' dipilih
+                        'block'; // Tampilkan input teks jika 'Lain-lain' dipilih
                 } else {
                     inputLainLainAgama.style.display =
-                    'none'; // Sembunyikan input teks jika 'Lain-lain' tidak dipilih
+                        'none'; // Sembunyikan input teks jika 'Lain-lain' tidak dipilih
                 }
             });
         });
