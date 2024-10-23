@@ -68,12 +68,28 @@ class RegistrationController extends Controller
             'pekerjaanIbu' => 'required|string',
             'penghasilanAyah' => 'required|string',
             'penghasilanIbu' => 'required|string',
-            'jumlahtanggungan' => 'required|numeric',
+            'tanggungan' => 'nullable|array',
+            'tanggungan.*.namaLengkap' => 'nullable|string|max:255',
+            'tanggungan.*.sekolah' => 'nullable|string|max:255',
+            'tanggungan.*.kelas' => 'nullable|string|max:50',
+            'tanggungan.*.uangSekolah' => 'nullable|numeric',
+            'tanggungan.*.keterangan' => 'nullable|string|max:255',
+
         ]);
 
-        // Store step 2 data in the session
-        $request->session()->put('step2', $validatedData);
+        // Store parent data (without tanggungan)
+        $parentData = $request->except('tanggungan');
+        $registration = Registration::create($parentData);
 
+        // Store tanggungan data if available
+        if ($request->has('tanggungan')) {
+            foreach ($request->tanggungan as $tanggungan) {
+                // Assuming you have a Tanggungan model
+                $registration->tanggungan()->create($tanggungan);
+            }
+        }
+
+        // Proceed to step 3 or wherever you need
         return redirect()->route('step3');
     }
 

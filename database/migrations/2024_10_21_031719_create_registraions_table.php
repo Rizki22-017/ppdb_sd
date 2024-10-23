@@ -27,22 +27,22 @@ return new class extends Migration
             $table->string('jumlahSaudaraAngkat')->nullable();
             $table->string('bahasa');
             $table->string('alamatAnak');
-            $table->string('nik', 16);
-            $table->string('nomorKK', 16);
+            $table->string('nik', 16)->unique(); // Added unique constraint for NIK
+            $table->string('nomorKK', 16)->unique(); // Added unique constraint for Family Card Number
             $table->string('noRegisAkta');
             $table->string('jarak');
             $table->string('tempatTinggal');
-            $table->json('transportasi'); // To store multiple transport options
+            $table->json('transportasi'); // Store multiple transport options as JSON
 
             // Step 2: Data Orang Tua
             $table->string('namaLengkapAyah');
-            $table->string('nikAyah', 16);
+            $table->string('nikAyah', 16)->unique(); // Added unique constraint for NIK Ayah
             $table->string('namaLengkapIbu');
-            $table->string('nikIbu', 16);
-            $table->string('tempatLahirAyah');
-            $table->date('tanggalLahirAyah');
-            $table->string('tempatLahirIbu');
-            $table->date('tanggalLahirIbu');
+            $table->string('nikIbu', 16)->unique(); // Added unique constraint for NIK Ibu
+            $table->string('tempatLahirA'); // Field name corrected
+            $table->date('tanggalLahirA');  // Field name corrected
+            $table->string('tempatLahirI'); // Field name corrected
+            $table->date('tanggalLahirI');  // Field name corrected
             $table->string('alamatOrtu');
             $table->string('kodeposOrtu');
             $table->string('notelpOrtu');
@@ -59,6 +59,11 @@ return new class extends Migration
             $table->string('penghasilanAyah');
             $table->string('penghasilanIbu');
             $table->string('jumlahtanggungan');
+            $table->string('namaLengkapTg')->nullable(); // Nullable since there may be no tanggungan
+            $table->string('sekolahTg')->nullable();
+            $table->string('kelasTg')->nullable();
+            $table->string('uangSekolahTg')->nullable();
+            $table->string('keteranganTg')->nullable();
 
             // Step 3: Data Wali
             $table->string('namaWali')->nullable();
@@ -82,6 +87,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('registraions');
+        Schema::dropIfExists('registrations'); // Fixed the typo in the table name
     }
 };

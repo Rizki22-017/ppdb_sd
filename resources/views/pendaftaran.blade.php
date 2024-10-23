@@ -162,14 +162,19 @@
         showStep(currentStep);
 
         function validateStep(step) {
-            const inputs = steps[step].querySelectorAll('input[required]');
+            const inputs = steps[step].querySelectorAll('input[required], select[required], textarea[required]');
             let formIsValid = true;
-            for (let input of inputs) {
-                if (!input.reportValidity()) {
+
+            inputs.forEach(input => {
+                if (!input.checkValidity()) {
+                    input.reportValidity(); // Show error message for invalid input
                     formIsValid = false;
-                    break;
+                    console.log("Validation failed on:", input.name || input.id, "Value:", input.value);
+                } else {
+                    console.log("Validation passed for:", input.name || input.id);
                 }
-            }
+            });
+
             return formIsValid;
         }
     </script>

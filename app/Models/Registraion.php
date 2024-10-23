@@ -9,7 +9,9 @@ class Registration extends Model
 {
     use HasFactory;
 
+    // Specify the fields that are mass assignable
     protected $fillable = [
+        // Step 1: Data Siswa
         'namaLengkap',
         'jenisKelamin',
         'tempatLahir',
@@ -28,14 +30,16 @@ class Registration extends Model
         'jarak',
         'tempatTinggal',
         'transportasi',
+
+        // Step 2: Data Orang Tua
         'namaLengkapAyah',
         'nikAyah',
         'namaLengkapIbu',
         'nikIbu',
-        'tempatLahirAyah',
-        'tanggalLahirAyah',
-        'tempatLahirIbu',
-        'tanggalLahirIbu',
+        'tempatLahirA', // Changed from 'tempatLahirAyah' to match controller
+        'tanggalLahirA', // Changed from 'tanggalLahirAyah' to match controller
+        'tempatLahirI', // Changed from 'tempatLahirIbu' to match controller
+        'tanggalLahirI', // Changed from 'tanggalLahirIbu' to match controller
         'alamatOrtu',
         'kodeposOrtu',
         'notelpOrtu',
@@ -52,6 +56,8 @@ class Registration extends Model
         'penghasilanAyah',
         'penghasilanIbu',
         'jumlahtanggungan',
+
+        // Step 3: Data Wali
         'namaWali',
         'tempatLahirWali',
         'tanggalLahirWali',
@@ -64,7 +70,14 @@ class Registration extends Model
         'alamatKantorWali'
     ];
 
+    // Cast the 'transportasi' field to an array
     protected $casts = [
         'transportasi' => 'array',
     ];
+
+    // Define the relationship with Tanggungan model
+    public function tanggungan()
+    {
+        return $this->hasMany(Tanggungan::class);
+    }
 }
