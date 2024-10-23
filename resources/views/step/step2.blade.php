@@ -557,6 +557,20 @@
 
         // Reset the form after submission
         document.getElementById('tanggunganForm').reset();
+
+        // Close the modal properly
+        const modalElement = document.getElementById('tambahTanggungan');
+        const modal = bootstrap.Modal.getInstance(modalElement);
+        modal.hide();
+        modalElement.classList.remove('show');
+        modalElement.style.display = 'none';
+
+        // Remove backdrop
+        const backdrop = document.querySelector('.modal-backdrop');
+        if (backdrop) {
+            backdrop.parentNode.removeChild(backdrop);
+        }
+
     });
 
     // Function to delete rows dynamically

@@ -92,7 +92,7 @@
                                                 <li>Fotocopy Akte Kelahiran</li>
                                                 <li>Fotocopy Kartu Keluarga</li>
                                                 <li>Fotocopy KTP Orang Tua/Wali Murid</li>
-                                                <li>Pas Photo Latar Merah</li>
+                                                <li>Pas Photo Ukuran 3x4 Sebanyak 1 Lembar</li>
                                                 <li>Fotocopy Ijazah TK (jika ada)</li>
                                             </ol>
                                         </div>
