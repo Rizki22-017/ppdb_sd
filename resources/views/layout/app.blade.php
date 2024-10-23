@@ -29,6 +29,18 @@
 
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet">
+
+    <style>
+        .tab-pane {
+            display: none;
+            /* Hide all tab contents */
+        }
+
+        .tab-pane.active {
+            display: block;
+            /* Show only the active tab */
+        }
+    </style>
 </head>
 
 <body class="index-page">

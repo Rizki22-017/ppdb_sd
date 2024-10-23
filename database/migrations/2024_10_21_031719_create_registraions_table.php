@@ -19,12 +19,12 @@ return new class extends Migration
             $table->string('jenisKelamin');
             $table->string('tempatLahir');
             $table->date('tanggalLahir');
-            $table->integer('tinggi');
-            $table->integer('berat');
-            $table->integer('anakke');
-            $table->integer('jumlahSaudaraKandung');
-            $table->integer('jumlahSaudaraTiri')->nullable();
-            $table->integer('jumlahSaudaraAngkat')->nullable();
+            $table->string('tinggi');
+            $table->string('berat');
+            $table->string('anakke')->nullable();
+            $table->string('jumlahSaudaraKandung')->nullable();
+            $table->string('jumlahSaudaraTiri')->nullable();
+            $table->string('jumlahSaudaraAngkat')->nullable();
             $table->string('bahasa');
             $table->string('alamatAnak');
             $table->string('nik', 16);
@@ -58,7 +58,7 @@ return new class extends Migration
             $table->string('pekerjaanIbu');
             $table->string('penghasilanAyah');
             $table->string('penghasilanIbu');
-            $table->integer('jumlahtanggungan');
+            $table->string('jumlahtanggungan');
 
             // Step 3: Data Wali
             $table->string('namaWali')->nullable();

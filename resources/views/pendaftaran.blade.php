@@ -123,13 +123,43 @@
         const btnPrev = document.querySelectorAll('.btn-prev');
 
         function showStep(step) {
+            // Remove 'show' and 'active' class from all steps and hide them
             steps.forEach((el, index) => {
-                el.classList.toggle('active', index === step);
-                el.classList.toggle('show', index === step);
-                stepIndicator[index].classList.toggle('active', index === step);
-                stepIndicator[index].classList.toggle('show', index === step);
+                el.classList.remove('show', 'active'); // Hide all steps
+                stepIndicator[index].classList.remove('active'); // Deactivate step indicator
+            });
+
+            // Show the current step and activate the respective tab
+            steps[step].classList.add('show', 'active');
+            stepIndicator[step].classList.add('active');
+
+            // Scroll to the top of the page whenever a new step is shown
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Smooth scrolling to the top
             });
         }
+
+        btnNext.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default behavior
+                if (validateStep(currentStep)) { // Validate the current step
+                    currentStep++; // Move to the next step
+                    showStep(currentStep); // Show the next step and scroll to the top
+                }
+            });
+        });
+
+        btnPrev.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default behavior
+                currentStep--; // Move to the previous step
+                showStep(currentStep); // Show the previous step and scroll to the top
+            });
+        });
+
+        // Initialize by showing the first step
+        showStep(currentStep);
 
         function validateStep(step) {
             const inputs = steps[step].querySelectorAll('input[required]');
@@ -142,28 +172,9 @@
             }
             return formIsValid;
         }
-
-        btnNext.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault(); // Prevent default behavior
-                if (validateStep(currentStep)) { // Validate the current step
-                    currentStep++; // Move to next step
-                    showStep(currentStep); // Show the next step
-                }
-            });
-        });
-
-        btnPrev.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault(); // Prevent default behavior
-                currentStep--; // Move to previous step
-                showStep(currentStep); // Show the previous step
-            });
-        });
-
-        // Initialize by showing the first step
-        showStep(currentStep);
     </script>
+
+
 
     <script>
         function toggleInputPendidikan() {
@@ -246,56 +257,6 @@
     </script>
 
 
-    <!-- ini javascript jozu -->
-    <script>
-        let currentStep = 0;
-        const steps = document.querySelectorAll('.step');
-        const stepIndicator = document.querySelectorAll('.step-indicator div');
-        const btnNext = document.querySelectorAll('.btn-next');
-        const btnPrev = document.querySelectorAll('.btn-prev');
-
-        function showStep(step) {
-            steps.forEach((el, index) => {
-                el.classList.toggle('active', index === step);
-                stepIndicator[index].classList.toggle('active', index === step);
-            });
-        }
-
-        function validateStep(step) {
-            // Ambil hanya input yang memiliki atribut 'required'
-            const inputs = steps[step].querySelectorAll('input[required]');
-            let formIsValid = true;
-
-            // Cek semua input 'required' dan berhenti jika ada yang tidak valid
-            for (let input of inputs) {
-                if (!input.reportValidity()) {
-                    formIsValid = false;
-                    break; // Hentikan validasi setelah menemukan input yang tidak valid
-                }
-            }
-
-            return formIsValid;
-        }
-
-
-        btnNext.forEach(button => {
-            button.addEventListener('click', () => {
-                if (validateStep(currentStep)) { // Validasi menggunakan required
-                    currentStep++;
-                    showStep(currentStep);
-                }
-            });
-        });
-
-        btnPrev.forEach(button => {
-            button.addEventListener('click', () => {
-                currentStep--;
-                showStep(currentStep);
-            });
-        });
-
-        showStep(currentStep); // Show the first step on page load
-    </script>
     <script>
         // Ambil elemen checkbox dan input teks
         const lainLainCheckbox = document.getElementById('lainLain');
