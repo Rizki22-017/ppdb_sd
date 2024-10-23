@@ -27,7 +27,7 @@
                         <div class="col-md-6">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="pendidikanWali" id="sd"
-                                    value="SD" checked>
+                                    value="SD">
                                 <label class="form-check-label" for="sd">SD</label>
                             </div>
                         </div>
@@ -91,7 +91,7 @@
                         <div class="col-md-6">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="hubunganMuridWali"
-                                    id="paman" value="Paman" checked>
+                                    id="paman" value="Paman" >
                                 <label class="form-check-label" for="paman">Sebagai Paman</label>
                             </div>
                         </div>
@@ -125,7 +125,7 @@
                         <div class="col-md-6">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="tanggunganWali"
-                                    id="uangSekolah" value="Menanggung Uang Sekokah" checked>
+                                    id="uangSekolah" value="Menanggung Uang Sekokah">
                                 <label class="form-check-label" for="uangSekolah">Menanggung Uang Sekolah</label>
                             </div>
                         </div>

@@ -15,7 +15,7 @@
                             class="text-danger">*</span></label><br>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="jenisKelamin" id="lakiLaki"
-                            value="Laki-laki" checked>
+                            value="Laki-laki">
                         <label class="form-check-label" for="lakiLaki">Laki-laki</label>
                     </div>
                     <div class="form-check form-check-inline">
@@ -117,7 +117,7 @@
                                 class="text-danger">*</span></label>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="tempatTinggal" id="rumahSendiri"
-                                value="Dirumah sendiri bersama orang tua" checked>
+                                value="Dirumah sendiri bersama orang tua">
                             <label class="form-check-label" for="rumahSendiri">Di rumah sendiri bersama orang
                                 tua</label>
                         </div>
