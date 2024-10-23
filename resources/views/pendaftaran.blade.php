@@ -25,19 +25,19 @@
                     <ul class="nav nav-tabs" data-aos="fade-up" data-aos-delay="100">
 
                         <li class="nav-item">
-                            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1">
+                            <a class="nav-link active show" href="#" aria-disabled="true">
                                 <h4>Step 1 : Data Siswa</h4>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-2">
+                            <a class="nav-link" href="#" aria-disabled="true">
                                 <h4>Step 2 : Data Orang Tua</h4>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
+                            <a class="nav-link" href="#" aria-disabled="true">
                                 <h4>Step 3 : Data Wali</h4>
                             </a>
                         </li>
