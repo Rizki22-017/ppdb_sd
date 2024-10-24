@@ -68,11 +68,13 @@
                             </div>
                         </div>
 
+                        <!-- Step 3: Data Wali -->
                         <div class="tab-pane fade @if ($step == 3) show active @endif" id="step3">
                             @include('step.step3')
                             <div class="d-flex justify-content-between mt-4">
                                 <button type="button" class="btn btn-secondary btn-prev">Sebelumnya</button>
-                                <button type="submit" class="btn btn-primary">Lanjutkan</button>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop">Lanjutkan</button>
                             </div>
 
                             <!-- Modal for final confirmation -->
@@ -99,9 +101,8 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-bs-dismiss="modal">Close</button>
-
-                                            <!-- Final form submit button -->
-                                            <button type="submit" class="btn btn-primary">Lanjutkan</button>
+                                            <button type="button" class="btn btn-primary"
+                                                id="confirmSubmit">Lanjutkan</button>
                                         </div>
                                     </div>
                                 </div>
@@ -178,6 +179,12 @@
 
             return formIsValid;
         }
+    </script>
+
+    <script>
+        document.getElementById('confirmSubmit').addEventListener('click', function() {
+            document.querySelector('form').submit(); // Submit the form
+        });
     </script>
 
 
