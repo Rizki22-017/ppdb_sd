@@ -133,16 +133,19 @@ class RegistrationController extends Controller
     public function postStep3(Request $request)
     {
         $validatedData = $request->validate([
-            'namaWali' => 'nullable|string|max:255',
-            'tempatLahirWali' => 'nullable|string|max:255',
-            'tanggalLahirWali' => 'nullable|date',
-            'pendidikanWali' => 'nullable|string',
-            'hubunganMuridWali' => 'nullable|string',
-            'tanggunganWali' => 'nullable|string',
-            'alamatWali' => 'nullable|string|max:255',
-            'kodeposWali' => 'nullable|numeric',
-            'teleponWali' => 'nullable|string|max:15',
-            'alamatKantorWali' => 'nullable|string|max:255',
+            'nama_wali' => 'nullable|string|max:255',
+            'tempat_lahir_wali' => 'nullable|string|max:255',
+            'tanggal_lahir_wali' => 'nullable|date',
+            'pendidikan_wali' => 'nullable|string',
+            'pendidikan_wali_lain' => 'nullable|string',
+            'hubungan_murid_wali' => 'nullable|string',
+            'hubungan_murid_wali_lain' => 'nullable|string',
+            'tanggungan_wali' => 'nullable|string',
+            'tanggungan_wali_lain' => 'nullable|string',
+            'alamat_wali' => 'nullable|string|max:255',
+            'kodepos_wali' => 'nullable|numeric',
+            'telepon_wali' => 'nullable|string|max:15',
+            'alamat_kantor_wali' => 'nullable|string|max:255',
         ]);
 
         $allData = array_merge(
