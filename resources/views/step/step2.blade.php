@@ -5,7 +5,7 @@
             <div class="card-body">
                 <h5 class="card-title">Data Orang Tua</h5>
                 <div class="mb-3">
-                    <label for="namaLengkap" class="form-label">Nama Lengkap Ayah <span
+                    <label for="namaLengkapAyah" class="form-label">Nama Lengkap Ayah <span
                             class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="namaLengkapAyah" name="namaLengkapAyah" required
                         placeholder="Masukan nama lengkap ayah">
@@ -18,7 +18,7 @@
                     <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
                 </div>
                 <div class="mb-3">
-                    <label for="namaLengkap" class="form-label">Nama Lengkap Ibu <span
+                    <label for="namaLengkapIbu" class="form-label">Nama Lengkap Ibu <span
                             class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="namaLengkapIbu" name="namaLengkapIbu" required
                         placeholder="Masukan nama lengkap ayah">
@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="namaLengkapAyah" class="form-label">Tempat/Tanggal Lahir Ayah <span
+                    <label for="tempatLahirA" class="form-label">Tempat/Tanggal Lahir Ayah <span
                             class="text-danger">*</span></label>
                     <div class="row">
                         <div class="col-12 col-md-6 mb-2">
@@ -96,7 +96,7 @@
                     <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
                 </div>
                 <div class="mb-3">
-                    <label for="namaLengkapAyah" class="form-label">Tempat/Tanggal Lahir Ibu <span
+                    <label for="tempatLahirI" class="form-label">Tempat/Tanggal Lahir Ibu <span
                             class="text-danger">*</span></label>
                     <div class="row">
                         <div class="col-12 col-md-6 mb-2">
@@ -112,8 +112,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="namaLengkap" class="form-label">Alamat Rumah<span
-                            class="text-danger">*</span></label>
+                    <label for="alamat" class="form-label">Alamat Rumah<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="alamat" name="alamat" required
                         placeholder="Contoh : Jl. Sudirman No. 00, Kota Padang">
                     <span class="error-message"></span>
@@ -127,7 +126,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="kodePos" class="form-label">Nomor Telepon<span class="text-danger">*</span></label>
+                    <label for="notelp" class="form-label">Nomor Telepon<span class="text-danger">*</span></label>
                     <input type="tel" class="form-control" id="notelp" name="notelp" required
                         placeholder="Contoh : 6282123456789">
                     <span class="error-message"></span>

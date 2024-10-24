@@ -61,7 +61,7 @@ return new class extends Migration
             $table->string('penghasilanAyah');
             $table->string('penghasilanIbu');
             $table->string('jumlahtanggungan');
-            $table->string('namaLengkapTg')->nullable();
+            $table->string('namaLengkapTg')->nullable(false);
             $table->string('sekolahTg')->nullable();
             $table->string('kelasTg')->nullable();
             $table->string('uangSekolahTg')->nullable();

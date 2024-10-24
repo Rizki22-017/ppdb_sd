@@ -109,6 +109,8 @@ class RegistrationController extends Controller
 
         // Ensure that only valid fields are passed into the create method
         $registration = Registration::create($parentData);
+        $request->session()->put('step2', $validatedData);
+
 
         // **3. Store Tanggungan Data in Tanggungans Table (if any)**
         if ($request->has('tanggungan')) {
@@ -148,8 +150,8 @@ class RegistrationController extends Controller
             $request->session()->get('step2', []),
             $validatedData
         );
-
         dd($allData);
+
 
         // Save the merged data to the Registration model
         Registration::create($allData);

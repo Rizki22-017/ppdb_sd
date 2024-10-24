@@ -166,35 +166,32 @@
     <div class="col-lg-6">
         <div class="card">
             <div class="card-body">
-                <form>
-                    <div class="mb-3">
-                        <h6 class="card-title" for="alamatWali">Alamat Wali</h6>
-                        <div class="container">
+                <div class="mb-3">
+                    <h6 class="card-title" for="alamatWali">Alamat Wali</h6>
+                    <div class="container">
 
-                            <div class="mb-3">
-                                <label for="" class="form-label">Rumah</label>
-                                <input type="text" class="form-control" id="" name=""
-                                    rows="3" placeholder="Masukkan Alamat Rumah"></input>
-                            </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Kode POS</label>
-                                <input type="number" class="form-control" id="" name=""
-                                    rows="3" placeholder="Masukkan Kode POS"></input>
-                            </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Nomor Telepon</label>
-                                <input type="number" class="form-control" id="" name=""
-                                    rows="3" placeholder="Masukkan Nomor Telepon"></input>
-                            </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Alamat Kantor/Tempat Kerja</label>
-                                <input type="text" class="form-control" id="" name=""
-                                    rows="3" placeholder="Masukkan Alamat Kantor/Tempat Kerja"></input>
-                            </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Rumah</label>
+                            <input type="text" class="form-control" id="" name="alamatWali"
+                                rows="3" placeholder="Masukkan Alamat Rumah"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Kode POS</label>
+                            <input type="number" class="form-control" id="" name="kodeposWali" rows="3"
+                                placeholder="Masukkan Kode POS"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Nomor Telepon</label>
+                            <input type="number" class="form-control" id="" name="" rows="3"
+                                placeholder="Masukkan Nomor Telepon"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Alamat Kantor/Tempat Kerja</label>
+                            <input type="text" class="form-control" id="" name="" rows="3"
+                                placeholder="Masukkan Alamat Kantor/Tempat Kerja"></input>
                         </div>
                     </div>
-                </form><!-- End General Form Elements -->
-
+                </div>
             </div>
         </div>
     </div>
