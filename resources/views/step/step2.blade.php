@@ -421,51 +421,56 @@
 
                     <!-- Modal -->
                     <!-- Modal for adding 'Tanggungan' -->
-                    <div class="modal fade" id="tambahTanggungan" data-bs-backdrop="static" tabindex="-1"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Tambahkan data tanggungan</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form id="tanggunganForm">
-                                        <div class="mb-3 mt-3">
-                                            <label for="namaLengkapTg" class="form-label">Nama Lengkap Tanggungan<span
-                                                    class="text-danger"></span></label>
-                                            <input type="text" class="form-control" id="namaLengkapTg"
-                                                name="namaLengkapTg[]" placeholder="Masukkan nama lengkap tanggungan">
-                                        </div>
-                                        <div class="mb-3 mt-3">
-                                            <label for="sekolahTg" class="form-label">Sekolah/Kampus<span
-                                                    class="text-danger"></span></label>
-                                            <input type="text" class="form-control" id="sekolahTg"
-                                                name="sekolahTg[]" placeholder="Masukkan nama sekolah/kampus">
-                                        </div>
-                                        <div class="mb-3 mt-3">
-                                            <label for="kelasTg" class="form-label">Kelas/Semester<span
-                                                    class="text-danger"></span></label>
-                                            <input type="text" class="form-control" id="kelasTg"
-                                                name="kelasTg[]" placeholder="Masukkan kelas/semester">
-                                        </div>
-                                        <div class="mb-3 mt-3">
-                                            <label for="uangSekolahTg" class="form-label">Uang Sekolah<span
-                                                    class="text-danger"></span></label>
-                                            <input type="text" class="form-control" id="uangSekolahTg"
-                                                name="uangSekolahTg[]" placeholder="Masukan nominal uang sekolah">
-                                        </div>
-                                        <div class="mb-3 mt-3">
-                                            <label for="keteranganTg" class="form-label">Keterangan</label>
-                                            <input type="text" class="form-control" id="keteranganTg"
-                                                name="keteranganTg[]"
-                                                placeholder="Berikan keterangan jika mendapat beasiswa">
-                                        </div>
-                                        <button type="button" class="btn btn-primary" id="saveTanggungan">Simpan
-                                            perubahan</button>
-                                    </form>
-
+                    <div id="tanggunganContainer">
+                        <div class="modal fade" id="tambahTanggungan" data-bs-backdrop="static" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Tambahkan data tanggungan
+                                        </h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="tanggunganForm">
+                                            <div class="mb-3 mt-3">
+                                                <label for="namaLengkapTg" class="form-label">Nama Lengkap
+                                                    Tanggungan<span class="text-danger"></span></label>
+                                                <input type="text" class="form-control" id="namaLengkapTg"
+                                                    name="tanggungan[0][namaLengkap]"
+                                                    placeholder="Masukkan nama lengkap tanggungan">
+                                            </div>
+                                            <div class="mb-3 mt-3">
+                                                <label for="sekolahTg" class="form-label">Sekolah/Kampus<span
+                                                        class="text-danger"></span></label>
+                                                <input type="text" class="form-control" id="sekolahTg"
+                                                    name="tanggungan[0][sekolah]"
+                                                    placeholder="Masukkan nama sekolah/kampus">
+                                            </div>
+                                            <div class="mb-3 mt-3">
+                                                <label for="kelasTg" class="form-label">Kelas/Semester<span
+                                                        class="text-danger"></span></label>
+                                                <input type="text" class="form-control" id="kelasTg"
+                                                    name="tanggungan[0][kelas]" placeholder="Masukkan kelas/semester">
+                                            </div>
+                                            <div class="mb-3 mt-3">
+                                                <label for="uangSekolahTg" class="form-label">Uang Sekolah<span
+                                                        class="text-danger"></span></label>
+                                                <input type="text" class="form-control" id="uangSekolahTg"
+                                                    name="tanggungan[0][uangSekolah]"
+                                                    placeholder="Masukan nominal uang sekolah">
+                                            </div>
+                                            <div class="mb-3 mt-3">
+                                                <label for="keteranganTg" class="form-label">Keterangan</label>
+                                                <input type="text" class="form-control" id="keteranganTg"
+                                                    name="tanggungan[0][keterangan]"
+                                                    placeholder="Berikan keterangan jika mendapat beasiswa">
+                                            </div>
+                                            <button type="button" class="btn btn-primary" id="saveTanggungan">Simpan
+                                                perubahan</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -499,10 +504,6 @@
                         saya.
                     </label>
                 </div>
-
-
-
-
             </div>
         </div>
     </div>
@@ -520,50 +521,83 @@
 
 <script>
     let tanggunganData = [];
+    let counter = 0; // Counter for tracking the tanggungan entries
 
+    // Event listener for uangSekolah input formatting
+    document.getElementById('uangSekolahTg').addEventListener('input', function() {
+        let value = this.value.replace(/\D/g, ''); // Remove non-numeric characters
+        let formattedValue = new Intl.NumberFormat('id-ID').format(value); // Format to currency
+        this.value = 'Rp. ' + formattedValue;
+    });
+
+    // Save tanggungan data and display it in the table
     document.getElementById('saveTanggungan').addEventListener('click', function() {
         // Get form values
         const namaLengkap = document.getElementById('namaLengkapTg').value;
         const sekolah = document.getElementById('sekolahTg').value;
         const kelas = document.getElementById('kelasTg').value;
-        const uangSekolah = document.getElementById('uangSekolahTg').value;
+        const uangSekolah = document.getElementById('uangSekolahTg').value.replace(/\D/g,
+        ''); // Keep only numeric
         const keterangan = document.getElementById('keteranganTg').value;
 
-        // Add to array of tanggungan data
-        tanggunganData.push({
+        // Add new tanggungan object to the array
+        const newTanggungan = {
             namaLengkap,
             sekolah,
             kelas,
             uangSekolah,
             keterangan
-        });
+        };
+        tanggunganData.push(newTanggungan);
 
-        // Add the data to the table dynamically
-        const tableBody = document.getElementById('tanggunganTableBody');
-        const newRow = document.createElement('tr');
-        const rowCount = tableBody.rows.length + 1; // Row number
+        // Update the table with the new entry
+        updateTable();
 
-        newRow.innerHTML = `
-        <td>${rowCount}</td>
-        <td>${namaLengkap}</td>
-        <td>${sekolah}</td>
-        <td>${kelas}</td>
-        <td>${uangSekolah}</td>
-        <td>${keterangan}</td>
-        <td><button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Delete</button></td>
-    `;
-
-        tableBody.appendChild(newRow);
-
-        // Reset the form after submission
+        // Reset the form
         document.getElementById('tanggunganForm').reset();
-
     });
 
-    // Function to delete rows dynamically
-    function deleteRow(button) {
-        const row = button.parentNode.parentNode;
-        row.remove();
-        // Optionally, update the tanggunganData array here if needed.
+    // Function to update the tanggungan table
+    function updateTable() {
+        const tableBody = document.getElementById('tanggunganTableBody');
+        tableBody.innerHTML = ''; // Clear existing rows
+
+        tanggunganData.forEach((tanggungan, index) => {
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${tanggungan.namaLengkap}</td>
+            <td>${tanggungan.sekolah}</td>
+            <td>${tanggungan.kelas}</td>
+            <td>Rp. ${new Intl.NumberFormat('id-ID').format(tanggungan.uangSekolah)}</td>
+            <td>${tanggungan.keterangan}</td>
+            <td><button class="btn btn-danger btn-sm" onclick="deleteRow(${index})">Delete</button></td>
+        `;
+            tableBody.appendChild(newRow);
+        });
+
+        updateHiddenInputs(); // Refresh hidden inputs
+    }
+
+    // Function to delete a row and update the array
+    function deleteRow(index) {
+        tanggunganData.splice(index, 1); // Remove the selected entry
+        updateTable(); // Re-render the table
+    }
+
+    // Function to create hidden inputs for form submission
+    function updateHiddenInputs() {
+        const form = document.getElementById('tanggunganForm');
+        form.querySelectorAll('input[type="hidden"]').forEach(input => input.remove()); // Clear old inputs
+
+        tanggunganData.forEach((tanggungan, index) => {
+            form.insertAdjacentHTML('beforeend', `
+            <input type="hidden" name="tanggungan[${index}][namaLengkap]" value="${tanggungan.namaLengkap}">
+            <input type="hidden" name="tanggungan[${index}][sekolah]" value="${tanggungan.sekolah}">
+            <input type="hidden" name="tanggungan[${index}][kelas]" value="${tanggungan.kelas}">
+            <input type="hidden" name="tanggungan[${index}][uangSekolah]" value="${tanggungan.uangSekolah}">
+            <input type="hidden" name="tanggungan[${index}][keterangan]" value="${tanggungan.keterangan}">
+        `);
+        });
     }
 </script>

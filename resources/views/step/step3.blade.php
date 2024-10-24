@@ -6,17 +6,16 @@
                 <h5 class="card-title">Data Wali</h5>
                 <div class="mb-3">
                     <label for="" class="form-label">Nama Wali</label>
-                    <input type="text" class="form-control" id="" name="" rows="3"
-                        placeholder="Masukkan Nama Wali"></input>
+                    <input type="text" class="form-control" name="namaWali" placeholder="Masukkan Nama Wali" />
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Tempat Lahir</label>
-                    <input type="text" class="form-control" id="" name="" rows="3"
-                        placeholder="Masukkan Tempat Lahir"></input>
+                    <input type="text" class="form-control" name="tempatLahirWali"
+                        placeholder="Masukkan Tempat Lahir" />
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Tanggal Lahir</label>
-                    <input type="date" class="form-control" id="" name="" rows="3"></input>
+                    <input type="date" class="form-control" name="tanggalLahirWali" />
                 </div>
 
 
@@ -91,7 +90,7 @@
                         <div class="col-md-6">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="hubunganMuridWali"
-                                    id="paman" value="Paman" >
+                                    id="paman" value="Paman">
                                 <label class="form-check-label" for="paman">Sebagai Paman</label>
                             </div>
                         </div>

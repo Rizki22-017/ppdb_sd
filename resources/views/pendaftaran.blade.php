@@ -142,13 +142,14 @@
 
         btnNext.forEach(button => {
             button.addEventListener('click', function(e) {
-                e.preventDefault(); // Prevent default behavior
-                if (validateStep(currentStep)) { // Validate the current step
-                    currentStep++; // Move to the next step
-                    showStep(currentStep); // Show the next step and scroll to the top
+                e.preventDefault(); // Only for next/prev buttons, not the submit button!
+                if (validateStep(currentStep)) {
+                    currentStep++;
+                    showStep(currentStep);
                 }
             });
         });
+
 
         btnPrev.forEach(button => {
             button.addEventListener('click', function(e) {

@@ -10,8 +10,20 @@ class RegistrationController extends Controller
     public function showForm(Request $request)
     {
         $step = $request->session()->get('current_step', 1); // Default to step 1
+
+        // Ensure the user follows the correct order
+        if ($step === 2 && !$request->session()->has('step1')) {
+            return redirect()->route('pendaftaran')->withErrors('Please complete Step 1 first.');
+        }
+        if ($step === 3 && !$request->session()->has('step2')) {
+            return redirect()->route('pendaftaran')->withErrors('Please complete Step 2 first.');
+        }
+
         return view('pendaftaran', ['step' => $step]);
     }
+
+
+
 
     public function postStep1(Request $request)
     {
@@ -42,13 +54,21 @@ class RegistrationController extends Controller
         return redirect()->route('step2');
     }
 
+
+    public function showStep2()
+    {
+        return view('step.step2'); // Render Step 2 view
+    }
+
     public function postStep2(Request $request)
     {
+        // **1. Validate Parent Data and Tanggungan Data**
         $validatedData = $request->validate([
+            // Parent Data
             'namaLengkapAyah' => 'required|string|max:255',
-            'nikAyah' => 'required|digits:16',
+            'nikAyah' => 'required|digits:16|unique:registrations,nikAyah',
             'namaLengkapIbu' => 'required|string|max:255',
-            'nikIbu' => 'required|digits:16',
+            'nikIbu' => 'required|digits:16|unique:registrations,nikIbu',
             'tempatLahirA' => 'required|string|max:255',
             'tanggalLahirA' => 'required|date',
             'tempatLahirI' => 'required|string|max:255',
@@ -68,29 +88,35 @@ class RegistrationController extends Controller
             'pekerjaanIbu' => 'required|string',
             'penghasilanAyah' => 'required|string',
             'penghasilanIbu' => 'required|string',
+
+            // Tanggungan Data
             'tanggungan' => 'nullable|array',
             'tanggungan.*.namaLengkap' => 'nullable|string|max:255',
             'tanggungan.*.sekolah' => 'nullable|string|max:255',
             'tanggungan.*.kelas' => 'nullable|string|max:50',
             'tanggungan.*.uangSekolah' => 'nullable|numeric',
             'tanggungan.*.keterangan' => 'nullable|string|max:255',
-
         ]);
 
-        // Store parent data (without tanggungan)
-        $parentData = $request->except('tanggungan');
+        // **2. Store Parent Data in Registrations Table**
+        $parentData = $request->except('tanggungan'); // Exclude tanggungan data
         $registration = Registration::create($parentData);
 
-        // Store tanggungan data if available
+        // **3. Store Tanggungan Data in Tanggungans Table (if any)**
         if ($request->has('tanggungan')) {
-            foreach ($request->tanggungan as $tanggungan) {
-                // Assuming you have a Tanggungan model
-                $registration->tanggungan()->create($tanggungan);
+            foreach ($request->input('tanggungan') as $tanggunganData) {
+                // Ensure 'registration_id' is associated with the current registration
+                $registration->tanggungan()->create($tanggunganData);
             }
         }
 
-        // Proceed to step 3 or wherever you need
+        // **4. Redirect to Step 3**
         return redirect()->route('step3');
+    }
+
+    public function showStep3()
+    {
+        return view('step.step3'); // Render Step 3 view
     }
 
     public function postStep3(Request $request)
@@ -108,22 +134,19 @@ class RegistrationController extends Controller
             'alamatKantorWali' => 'nullable|string|max:255',
         ]);
 
-        // Store step 3 data in the session
-        $request->session()->put('step3', $validatedData);
+        // Debugging step
+        dd($validatedData); // This will show if data from step3 is correctly captured
 
-        // Combine all data from the session into one array
         $allData = array_merge(
-            $request->session()->get('step1'),
-            $request->session()->get('step2'),
-            $request->session()->get('step3')
+            $request->session()->get('step1', []),
+            $request->session()->get('step2', []),
+            $validatedData
         );
 
-        // Save the data into the database
+        // Save the merged data
         Registration::create($allData);
 
-        // Clear the session data
         $request->session()->forget(['step1', 'step2', 'step3']);
-
-        return redirect()->route('successPage'); // Redirect to a success page
+        return redirect()->route('successPage');
     }
 }
