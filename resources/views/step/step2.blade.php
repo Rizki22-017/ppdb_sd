@@ -185,57 +185,44 @@
                     <div class="col-sm-10">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="kawasanTinggal"
-                                id="kawasanTinggal1" value="option1">
-                            <label class="form-check-label" for="kawasanTinggal1">
-                                Perumahan/Komplek
-                            </label>
+                                id="kawasanTinggal1" value="Perumahan/Komplek">
+                            <label class="form-check-label" for="kawasanTinggal1">Perumahan/Komplek</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="kawasanTinggal"
-                                id="kawasanTinggal2" value="option2">
-                            <label class="form-check-label" for="kawasanTinggal2">
-                                Ruko
-                            </label>
+                                id="kawasanTinggal2" value="Ruko">
+                            <label class="form-check-label" for="kawasanTinggal2">Ruko</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="kawasanTinggal"
-                                id="kawasanTinggal2" value="option3">
-                            <label class="form-check-label" for="kawasanTinggal3">
-                                Perkampungan
-                            </label>
+                                id="kawasanTinggal3" value="Perkampungan">
+                            <label class="form-check-label" for="kawasanTinggal3">Perkampungan</label>
                         </div>
                     </div>
                 </fieldset>
 
-                <div class="row mb-3">
-                    <fieldset class="row mb-3">
-                        <legend class="col-form-label col-sm-2 pt-0">Status Tempat Tinggal<span
-                                class="text-danger">*</span></legend>
-                        <div class="col-sm-10">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="statusTempatTinggal"
-                                    id="statusTempatTinggal1" value="option1">
-                                <label class="form-check-label" for="statusTempatTinggal1">
-                                    Milik Pribadi
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="statusTempatTinggal"
-                                    id="statusTempatTinggal2" value="option2">
-                                <label class="form-check-label" for="statusTempatTinggal2">
-                                    Sewa
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="statusTempatTinggal"
-                                    id="statusTempatTinggal2" value="option3">
-                                <label class="form-check-label" for="statusTempatTinggal3">
-                                    Tumpangan
-                                </label>
-                            </div>
+                <fieldset class="row mb-3">
+                    <legend class="col-form-label col-sm-2 pt-0">Status Tempat Tinggal<span
+                            class="text-danger">*</span></legend>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="statusTempatTinggal"
+                                id="statusTempatTinggal1" value="Milik Pribadi">
+                            <label class="form-check-label" for="statusTempatTinggal1">Milik Pribadi</label>
                         </div>
-                    </fieldset>
-                </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="statusTempatTinggal"
+                                id="statusTempatTinggal2" value="Sewa">
+                            <label class="form-check-label" for="statusTempatTinggal2">Sewa</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="statusTempatTinggal"
+                                id="statusTempatTinggal3" value="Tumpangan">
+                            <label class="form-check-label" for="statusTempatTinggal3">Tumpangan</label>
+                        </div>
+                    </div>
+                </fieldset>
+
 
                 <div class="row mb-3">
                     <div class="mb-3" id="inputLain" style="display: none;">

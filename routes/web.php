@@ -30,16 +30,13 @@ Route::get('/step3', [RegistrationController::class, 'showStep3'])->name('step3'
 Route::post('/final', [RegistrationController::class, 'postStep3'])->name('register.final');
 
 
-Route::get('/dashboard', [DashboardController::class, 'index'])
-    ->middleware(['auth'])
-    ->name('dashboard');
 
 // Dashboard and Profile (for authenticated users)
 Route::middleware('auth')->group(function () {
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->middleware('admin')->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])
+        ->middleware(['auth'])
+        ->name('dashboard');
 
     // Profile management
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -27,8 +27,8 @@ return new class extends Migration
             $table->string('jumlahSaudaraAngkat')->nullable();
             $table->string('bahasa');
             $table->string('alamatAnak');
-            $table->string('nik', 16)->unique(); // Added unique constraint for NIK
-            $table->string('nomorKK', 16)->unique(); // Added unique constraint for Family Card Number
+            $table->string('nik', 16);
+            $table->string('nomorKK', 16);
             $table->string('noRegisAkta');
             $table->string('jarak');
             $table->string('tempatTinggal');
@@ -36,13 +36,13 @@ return new class extends Migration
 
             // Step 2: Data Orang Tua
             $table->string('namaLengkapAyah');
-            $table->string('nikAyah', 16)->unique(); // Added unique constraint for NIK Ayah
+            $table->string('nikAyah', 16);
             $table->string('namaLengkapIbu');
-            $table->string('nikIbu', 16)->unique(); // Added unique constraint for NIK Ibu
-            $table->string('tempatLahirA'); // Field name corrected
-            $table->date('tanggalLahirA');  // Field name corrected
-            $table->string('tempatLahirI'); // Field name corrected
-            $table->date('tanggalLahirI');  // Field name corrected
+            $table->string('nikIbu', 16);
+            $table->string('tempatLahirA');
+            $table->date('tanggalLahirA');
+            $table->string('tempatLahirI');
+            $table->date('tanggalLahirI');
             $table->string('alamatOrtu');
             $table->string('kodeposOrtu');
             $table->string('notelpOrtu');
@@ -55,15 +55,23 @@ return new class extends Migration
             $table->string('pendidikanAyah');
             $table->string('pendidikanIbu');
             $table->string('pekerjaanAyah');
+            $table->string('pekerjaanAyahDetail')->nullable();
             $table->string('pekerjaanIbu');
+            $table->string('pekerjaanIbuDetail')->nullable();
             $table->string('penghasilanAyah');
             $table->string('penghasilanIbu');
             $table->string('jumlahtanggungan');
-            $table->string('namaLengkapTg')->nullable(); // Nullable since there may be no tanggungan
+            $table->string('namaLengkapTg')->nullable();
             $table->string('sekolahTg')->nullable();
             $table->string('kelasTg')->nullable();
             $table->string('uangSekolahTg')->nullable();
             $table->string('keteranganTg')->nullable();
+
+            // New fields for "Kawasan Tinggal" and "Status Tempat Tinggal"
+            $table->string('kawasanTinggal'); // To store "Perumahan/Komplek", "Ruko", or "Perkampungan"
+            $table->string('statusTempatTinggal'); // To store "Milik Pribadi", "Sewa", or "Tumpangan"
+
+
 
             // Step 3: Data Wali
             $table->string('namaWali')->nullable();
