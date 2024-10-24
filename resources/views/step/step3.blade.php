@@ -77,9 +77,9 @@
                     </div>
 
                     <!-- Input teks yang akan muncul jika 'Lain-lain' dipilih -->
-                    <div id="inputLainLainpendidikan_wali" class="mt-3" style="display:none;">
-                        <label for="pendidikan_wali_lain" class="form-label">Masukkan Pendidikan Lain</label>
-                        <input type="text" class="form-control" id="pendidikan_wali_lain" name="pendidikan_wali_lain"
+                    <div id="inputLainLainPendidikanWali" class="mt-3" style="display:none;">
+                        <label for="pendidikanWaliLain" class="form-label">Masukkan Pendidikan Lain</label>
+                        <input type="text" class="form-control" id="pendidikanWaliLain" name="pendidikan_wali_lain"
                             placeholder="Masukkan pendidikan lain">
                     </div>
                 </div>
@@ -112,8 +112,8 @@
 
                     <!-- Input teks yang akan muncul jika 'Lain-lain' dipilih -->
                     <div id="inputLainLainMuridWali" class="mt-3" style="display:none;">
-                        <label for="hubungan_murid_wali_lain" class="form-label">Lain-lain, sebutkan:</label>
-                        <input type="text" class="form-control" id="hubungan_murid_wali_lain"
+                        <label for="hubunganMuridWaliLain" class="form-label">Lain-lain, sebutkan:</label>
+                        <input type="text" class="form-control" id="hubunganMuridWaliLain"
                             name="hubungan_murid_wali_lain" placeholder="Masukkan hubungan lain">
                     </div>
                 </div>
@@ -152,9 +152,9 @@
                     </div>
 
                     <!-- Input teks yang akan muncul jika 'Lain-lain' dipilih -->
-                    <div id="input_hubungan_wali_lain" class="mt-3" style="display:none;">
-                        <label for="tanggungan_wali_lain" class="form-label">Lain-lain, sebutkan:</label>
-                        <input type="text" class="form-control" id="tanggungan_wali_lain" name="tanggungan_wali_lain"
+                    <div id="inputLainLainTanggunganWali" class="mt-3" style="display:none;">
+                        <label for="tanggunganWaliLain" class="form-label">Lain-lain, sebutkan:</label>
+                        <input type="text" class="form-control" id="tanggunganWaliLain" name="tanggungan_wali_lain"
                             placeholder="Masukkan tanggungan lain">
                     </div>
                 </div>
