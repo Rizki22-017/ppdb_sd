@@ -34,22 +34,22 @@
                     <legend class="col-form-label col-sm-2 pt-0">Status Ayah</legend>
                     <div class="col-sm-10 d-flex align-items-center gap-5">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck1">
-                            <label class="form-check-label" for="gridCheck1">
+                            <input class="form-check-input" type="checkbox" id="statusAyah1" name="statusAyah[]">
+                            <label class="form-check-label" for="statusAyah1">
                                 Kandung
                             </label>
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck2">
-                            <label class="form-check-label" for="gridCheck2">
+                            <input class="form-check-input" type="checkbox" id="statusAyah2" name="statusAyah[]">
+                            <label class="form-check-label" for="statusAyah2">
                                 Tiri
                             </label>
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck3">
-                            <label class="form-check-label" for="gridCheck3">
+                            <input class="form-check-input" type="checkbox" id="statusAyah3" name="statusAyah[]">
+                            <label class="form-check-label" for="statusAyah3">
                                 Angkat
                             </label>
                         </div>
@@ -59,22 +59,22 @@
                     <legend class="col-form-label col-sm-2 pt-0">Status Ibu</legend>
                     <div class="col-sm-10 d-flex align-items-center gap-5">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck1">
-                            <label class="form-check-label" for="gridCheck1">
+                            <input class="form-check-input" type="checkbox" id="statusIbu1" name="statusIbu[]">
+                            <label class="form-check-label" for="statusIbu1">
                                 Kandung
                             </label>
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck2">
-                            <label class="form-check-label" for="gridCheck2">
+                            <input class="form-check-input" type="checkbox" id="statusIbu2" name="statusIbu[]">
+                            <label class="form-check-label" for="statusIbu2">
                                 Tiri
                             </label>
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck3">
-                            <label class="form-check-label" for="gridCheck3">
+                            <input class="form-check-input" type="checkbox" id="statusIbu3" name="statusIbu[]">
+                            <label class="form-check-label" for="statusIbu3">
                                 Angkat
                             </label>
                         </div>
@@ -113,21 +113,21 @@
 
                 <div class="mb-3">
                     <label for="alamat" class="form-label">Alamat Rumah<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="alamat" name="alamat" required
+                    <input type="text" class="form-control" id="alamat" name="alamatOrtu" required
                         placeholder="Contoh : Jl. Sudirman No. 00, Kota Padang">
                     <span class="error-message"></span>
                 </div>
 
                 <div class="mb-3">
                     <label for="kodePos" class="form-label">Kode Pos<span class="text-danger">*</span></label>
-                    <input type="number" class="form-control" id="kodepos" name="kodepos" required
+                    <input type="number" class="form-control" id="kodepos" name="kodeposOrtu" required
                         placeholder="Masukan kode pos anda">
                     <span class="error-message"></span>
                 </div>
 
                 <div class="mb-3">
                     <label for="notelp" class="form-label">Nomor Telepon<span class="text-danger">*</span></label>
-                    <input type="tel" class="form-control" id="notelp" name="notelp" required
+                    <input type="tel" class="form-control" id="notelp" name="notelpOrtu" required
                         placeholder="Contoh : 6282123456789">
                     <span class="error-message"></span>
                 </div>
@@ -222,13 +222,13 @@
                 </fieldset>
 
 
-                <div class="row mb-3">
+                <!-- <div class="row mb-3">
                     <div class="mb-3" id="inputLain" style="display: none;">
                         <input type="text" class="form-control" id="inputLainDetail" name="inputLainDetail"
                             placeholder="Masukan jawaban anda">
                         <span class="error-message"></span>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -325,7 +325,7 @@
                 <div class="row mb-3">
                     <p class="mb-1">Pekerjaan Ayah Sebagai <span class="text-danger">*</span></p>
                     <div class="col-sm-12">
-                        <select class="form-select" aria-label="Default select example" id="jobSelectAyah"
+                        <select class="form-select" aria-label="Default select example" id="jobSelectAyah" name="pekerjaanAyah"
                             onchange="updatePlaceholderAyah()">
                             <option selected>Klik untuk memilih</option>
                             <option value="1">Pegawai Negeri, dengan Golongan</option>
@@ -337,7 +337,7 @@
                             <option value="7">Buruh, Petani, Nelayan</option>
                             <option value="8">Lain-Lain, sebutkan</option>
                         </select>
-                        <input type="text" class="form-control mt-2" id="detailInputAyah"
+                        <input type="text" class="form-control mt-2" id="detailInputAyah" name="pekerjaanAyahDetail"
                             placeholder="Masukan detail golongan" style="display: none;">
                     </div>
                 </div>
@@ -345,7 +345,7 @@
                 <div class="row mb-3">
                     <p class="mb-1">Pekerjaan Ibu Sebagai <span class="text-danger">*</span></p>
                     <div class="col-sm-12">
-                        <select class="form-select" aria-label="Default select example" id="jobSelectIbu"
+                        <select class="form-select" aria-label="Default select example" id="jobSelectIbu" name="pekerjaanIbu"
                             onchange="updatePlaceholderIbu()">
                             <option selected>Klik untuk memilih</option>
                             <option value="1">Pegawai Negeri, dengan Golongan</option>
@@ -357,7 +357,7 @@
                             <option value="7">Buruh, Petani, Nelayan</option>
                             <option value="8">Lain-Lain, sebutkan</option>
                         </select>
-                        <input type="text" class="form-control mt-2" id="detailInputIbu"
+                        <input type="text" class="form-control mt-2" id="detailInputIbu" name="pekerjaanIbuDetail"
                             placeholder="Masukan detail golongan" style="display: none;">
                     </div>
                 </div>
@@ -366,7 +366,7 @@
                     <p class="mb-1">Penghasilan Sebulan yang diperoleh Ayah<span class="text-danger">*</span>
                     </p>
                     <div class="col-sm-12">
-                        <select class="form-select" aria-label="Default select example" id="penghasilan">
+                        <select class="form-select" aria-label="Default select example" id="penghasilan" name="penghasilanAyah">
                             <option selected>Klik untuk memilih</option>
                             <option value="1">Kurang dari Rp.2.000.000</option>
                             <option value="2">Rp.5.000.000 s/d Rp.10.000.000</option>
@@ -378,7 +378,7 @@
                 <div class="row mb-3">
                     <p class="mb-1">Penghasilan Sebulan yang diperoleh Ibu<span class="text-danger">*</span></p>
                     <div class="col-sm-12">
-                        <select class="form-select" aria-label="Default select example" id="penghasilanIbu">
+                        <select class="form-select" aria-label="Default select example" id="penghasilanIbu" name="penghasilanIbu">
                             <option selected>Klik untuk memilih</option>
                             <option value="1">Kurang dari Rp.2.000.000</option>
                             <option value="2">Rp.5.000.000 s/d Rp.10.000.000</option>
@@ -485,14 +485,14 @@
                 </table>
 
 
-                <div class="form-check mb-3">
+                <!-- <div class="form-check mb-3">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                     <label class="form-check-label" for="flexCheckDefault">
                         Data-data dalam formulir pendaftaran ini saya isi dengan sebenar-benarnya dan sejujurnya
                         sesuai dengan keadaan yang sebenarnya untuk dipergunakan bagi perkembangan pendidikan anak
                         saya.
                     </label>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

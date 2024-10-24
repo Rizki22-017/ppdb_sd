@@ -15,75 +15,74 @@ return new class extends Migration
             $table->id();
 
             // Step 1: Data Siswa
-            $table->string('namaLengkap');
-            $table->string('jenisKelamin');
-            $table->string('tempatLahir');
-            $table->date('tanggalLahir');
+            $table->string('nama_lengkap');
+            $table->string('jenis_kelamin');
+            $table->string('tempat_lahir');
+            $table->date('tanggal_lahir');
             $table->string('tinggi');
             $table->string('berat');
-            $table->string('anakke')->nullable();
-            $table->string('jumlahSaudaraKandung')->nullable();
-            $table->string('jumlahSaudaraTiri')->nullable();
-            $table->string('jumlahSaudaraAngkat')->nullable();
+            $table->string('anak_ke')->nullable();
+            $table->string('jumlah_saudara_kandung')->nullable();
+            $table->string('jumlah_saudara_tiri')->nullable();
+            $table->string('jumlah_saudara_angkat')->nullable();
             $table->string('bahasa');
-            $table->string('alamatAnak');
+            $table->string('alamat_anak');
             $table->string('nik', 16);
-            $table->string('nomorKK', 16);
-            $table->string('noRegisAkta');
+            $table->string('nomor_kk', 16);
+            $table->string('no_regis_akta');
             $table->string('jarak');
-            $table->string('tempatTinggal');
+            $table->string('tempat_tinggal');
             $table->json('transportasi'); // Store multiple transport options as JSON
 
             // Step 2: Data Orang Tua
-            $table->string('namaLengkapAyah');
-            $table->string('nikAyah', 16);
-            $table->string('namaLengkapIbu');
-            $table->string('nikIbu', 16);
-            $table->string('tempatLahirA');
-            $table->date('tanggalLahirA');
-            $table->string('tempatLahirI');
-            $table->date('tanggalLahirI');
-            $table->string('alamatOrtu');
-            $table->string('kodeposOrtu');
-            $table->string('notelpOrtu');
-            $table->string('kantorAyah');
-            $table->string('kantorIbu');
-            $table->string('nohpAyah');
-            $table->string('nohpIbu');
-            $table->string('statusAyah');
-            $table->string('statusIbu');
-            $table->string('pendidikanAyah');
-            $table->string('pendidikanIbu');
-            $table->string('pekerjaanAyah');
-            $table->string('pekerjaanAyahDetail')->nullable();
-            $table->string('pekerjaanIbu');
-            $table->string('pekerjaanIbuDetail')->nullable();
-            $table->string('penghasilanAyah');
-            $table->string('penghasilanIbu');
-            $table->string('jumlahtanggungan');
-            $table->string('namaLengkapTg')->nullable(false);
-            $table->string('sekolahTg')->nullable();
-            $table->string('kelasTg')->nullable();
-            $table->string('uangSekolahTg')->nullable();
-            $table->string('keteranganTg')->nullable();
-
-            // New fields for "Kawasan Tinggal" and "Status Tempat Tinggal"
-            $table->string('kawasanTinggal'); // To store "Perumahan/Komplek", "Ruko", or "Perkampungan"
-            $table->string('statusTempatTinggal'); // To store "Milik Pribadi", "Sewa", or "Tumpangan"
-
+            $table->string('nama_lengkap_ayah');
+            $table->string('nik_ayah', 16);
+            $table->string('nama_lengkap_ibu');
+            $table->string('nik_ibu', 16);
+            $table->string('status_ayah');
+            $table->string('status_ibu');
+            $table->string('tempat_lahir_ayah');
+            $table->date('tanggal_lahir_ayah');
+            $table->string('tempat_lahir_ibu');
+            $table->date('tanggal_lahir_ibu');
+            $table->string('alamat_ortu');
+            $table->string('kode_pos_ortu');
+            $table->string('no_telp_ortu');
+            $table->string('kantor_ayah');
+            $table->string('kantor_ibu');
+            $table->string('no_hp_ayah');
+            $table->string('no_hp_ibu');
+            $table->string('kawasan_tinggal');
+            $table->string('status_tempat_tinggal');
+            $table->string('pendidikan_ayah');
+            $table->string('pendidikan_ayah_lain')->nullable();
+            $table->string('pendidikan_ibu');
+            $table->string('pendidikan_ibu_lain')->nullable();
+            $table->string('pekerjaan_ayah');
+            $table->string('pekerjaan_ayah_detail')->nullable();
+            $table->string('pekerjaan_ibu');
+            $table->string('pekerjaan_ibu_detail')->nullable();
+            $table->string('penghasilan_ayah');
+            $table->string('penghasilan_ibu');
+            $table->string('jumlah_tanggungan');
+            $table->string('nama_lengkap_tanggungan')->nullable(false);
+            $table->string('sekolah_tanggungan')->nullable();
+            $table->string('kelas_tanggungan')->nullable();
+            $table->string('uang_sekolah_tanggungan')->nullable();
+            $table->string('keterangan_tanggungan')->nullable();
 
 
             // Step 3: Data Wali
-            $table->string('namaWali')->nullable();
-            $table->string('tempatLahirWali')->nullable();
-            $table->date('tanggalLahirWali')->nullable();
-            $table->string('pendidikanWali')->nullable();
-            $table->string('hubunganMuridWali')->nullable();
-            $table->string('tanggunganWali')->nullable();
-            $table->string('alamatWali')->nullable();
-            $table->string('kodeposWali')->nullable();
-            $table->string('teleponWali')->nullable();
-            $table->string('alamatKantorWali')->nullable();
+            $table->string('nama_wali')->nullable();
+            $table->string('tempat_lahir_wali')->nullable();
+            $table->date('tanggal_lahir_wali')->nullable();
+            $table->string('pendidikan_wali')->nullable();
+            $table->string('hubungan_murid_wali')->nullable();
+            $table->string('tanggungan_wali')->nullable();
+            $table->string('alamat_wali')->nullable();
+            $table->string('kodepos_wali')->nullable();
+            $table->string('telepon_wali')->nullable();
+            $table->string('alamat_kantor_wali')->nullable();
 
             // Timestamps
             $table->timestamps();

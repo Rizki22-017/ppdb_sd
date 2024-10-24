@@ -28,23 +28,23 @@ class RegistrationController extends Controller
     public function postStep1(Request $request)
     {
         $validatedData = $request->validate([
-            'namaLengkap' => 'required|string|max:255',
-            'jenisKelamin' => 'required|string',
-            'tempatLahir' => 'required|string|max:255',
-            'tanggalLahir' => 'required|date',
+            'nama_lengkap' => 'required|string|max:255',
+            'jenis_kelamin' => 'required|string',
+            'tempat_lahir' => 'required|string|max:255',
+            'tanggal_lahir' => 'required|date',
             'tinggi' => 'required|numeric',
             'berat' => 'required|numeric',
-            'anakke' => 'required|numeric',
-            'jumlahSaudaraKandung' => 'required|numeric',
-            'jumlahSaudaraTiri' => 'nullable|numeric',
-            'jumlahSaudaraAngkat' => 'nullable|numeric',
+            'anak_ke' => 'required|numeric',
+            'jumlah_saudara_kandung' => 'required|numeric',
+            'jumlah_saudara_tiri' => 'nullable|numeric',
+            'jumlah_saudara_angkat' => 'nullable|numeric',
             'bahasa' => 'required|string|max:255',
-            'alamatAnak' => 'required|string|max:255',
+            'alamat_anak' => 'required|string|max:255',
             'nik' => 'required|digits:16',
-            'nomorKK' => 'required|digits:16',
-            'noRegisAkta' => 'required|string|max:255',
+            'nomor_kk' => 'required|digits:16',
+            'no_regis_akta' => 'required|string|max:255',
             'jarak' => 'required|string|max:255',
-            'tempatTinggal' => 'required|string',
+            'tempat_tinggal' => 'required|string',
             'transportasi' => 'required|array',
         ]);
 
@@ -150,7 +150,6 @@ class RegistrationController extends Controller
             $request->session()->get('step2', []),
             $validatedData
         );
-        dd($allData);
 
 
         // Save the merged data to the Registration model
