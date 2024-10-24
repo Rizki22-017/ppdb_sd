@@ -62,13 +62,13 @@ class RegistrationController extends Controller
 
     public function postStep2(Request $request)
     {
-        // **1. Validate Parent Data and Tanggungan Data**
+        // **1. Validate Parent Data, Tanggungan Data, Kawasan Tinggal, and Status Tempat Tinggal**
         $validatedData = $request->validate([
             // Parent Data
             'namaLengkapAyah' => 'required|string|max:255',
-            'nikAyah' => 'required|digits:16|unique:registrations,nikAyah',
+            'nikAyah' => 'required|digits:16|nikAyah',
             'namaLengkapIbu' => 'required|string|max:255',
-            'nikIbu' => 'required|digits:16|unique:registrations,nikIbu',
+            'nikIbu' => 'required|digits:16|nikIbu',
             'tempatLahirA' => 'required|string|max:255',
             'tanggalLahirA' => 'required|date',
             'tempatLahirI' => 'required|string|max:255',
@@ -85,9 +85,15 @@ class RegistrationController extends Controller
             'pendidikanAyah' => 'required|string',
             'pendidikanIbu' => 'required|string',
             'pekerjaanAyah' => 'required|string',
+            'pekerjaanAyahDetail' => 'nullable|string|max:255',
             'pekerjaanIbu' => 'required|string',
+            'pekerjaanIbuDetail' => 'nullable|string|max:255',
             'penghasilanAyah' => 'required|string',
             'penghasilanIbu' => 'required|string',
+
+            // New Kawasan Tinggal and Status Tempat Tinggal fields
+            'kawasanTinggal' => 'required|string', // Ensure it's required and a valid option
+            'statusTempatTinggal' => 'required|string', // Ensure it's required and a valid option
 
             // Tanggungan Data
             'tanggungan' => 'nullable|array',
@@ -100,6 +106,8 @@ class RegistrationController extends Controller
 
         // **2. Store Parent Data in Registrations Table**
         $parentData = $request->except('tanggungan'); // Exclude tanggungan data
+
+        // Ensure that only valid fields are passed into the create method
         $registration = Registration::create($parentData);
 
         // **3. Store Tanggungan Data in Tanggungans Table (if any)**
@@ -113,6 +121,7 @@ class RegistrationController extends Controller
         // **4. Redirect to Step 3**
         return redirect()->route('step3');
     }
+
 
     public function showStep3()
     {
@@ -134,19 +143,21 @@ class RegistrationController extends Controller
             'alamatKantorWali' => 'nullable|string|max:255',
         ]);
 
-        // Debugging step
-        dd($validatedData); // This will show if data from step3 is correctly captured
-
         $allData = array_merge(
             $request->session()->get('step1', []),
             $request->session()->get('step2', []),
             $validatedData
         );
 
-        // Save the merged data
+        dd($allData);
+
+        // Save the merged data to the Registration model
         Registration::create($allData);
 
+        // Clear the session data for the steps
         $request->session()->forget(['step1', 'step2', 'step3']);
+
+        // Redirect to the success page
         return redirect()->route('successPage');
     }
 }

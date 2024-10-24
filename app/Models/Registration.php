@@ -36,10 +36,10 @@ class Registration extends Model
         'nikAyah',
         'namaLengkapIbu',
         'nikIbu',
-        'tempatLahirA', // Changed from 'tempatLahirAyah' to match controller
-        'tanggalLahirA', // Changed from 'tanggalLahirAyah' to match controller
-        'tempatLahirI', // Changed from 'tempatLahirIbu' to match controller
-        'tanggalLahirI', // Changed from 'tanggalLahirIbu' to match controller
+        'tempatLahirA',
+        'tanggalLahirA',
+        'tempatLahirI',
+        'tanggalLahirI',
         'alamatOrtu',
         'kodeposOrtu',
         'notelpOrtu',
@@ -52,10 +52,14 @@ class Registration extends Model
         'pendidikanAyah',
         'pendidikanIbu',
         'pekerjaanAyah',
+        'pekerjaanAyahDetail', // New field for Ayah's job detail
         'pekerjaanIbu',
+        'pekerjaanIbuDetail', // New field for Ibu's job detail
         'penghasilanAyah',
         'penghasilanIbu',
         'jumlahtanggungan',
+        'kawasanTinggal', // New field for Kawasan Tinggal
+        'statusTempatTinggal', // New field for Status Tempat Tinggal
 
         // Step 3: Data Wali
         'namaWali',

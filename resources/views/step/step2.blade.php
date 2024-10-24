@@ -120,15 +120,14 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="namaLengkap" class="form-label">Kode Pos<span class="text-danger">*</span></label>
+                    <label for="kodePos" class="form-label">Kode Pos<span class="text-danger">*</span></label>
                     <input type="number" class="form-control" id="kodepos" name="kodepos" required
                         placeholder="Masukan kode pos anda">
                     <span class="error-message"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label for="namaLengkap" class="form-label">Nomor Telepon<span
-                            class="text-danger">*</span></label>
+                    <label for="kodePos" class="form-label">Nomor Telepon<span class="text-danger">*</span></label>
                     <input type="tel" class="form-control" id="notelp" name="notelp" required
                         placeholder="Contoh : 6282123456789">
                     <span class="error-message"></span>
