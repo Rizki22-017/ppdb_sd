@@ -49,7 +49,7 @@
                 <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
 
                     <!-- One single form wraps all steps -->
-                    <form action="{{ route('register.final') }}" method="POST">
+                    <form id="formdata">
                         @csrf
                         <input type="hidden" name="step" value="{{ $step }}">
                         <!-- Step 1: Data Siswa -->
@@ -182,8 +182,12 @@
     </script>
 
     <script>
-        document.getElementById('confirmSubmit').addEventListener('click', function() {
+        document.getElementById('confirmSubmit').addEventListener('click', function(e) {
             document.querySelector('form').submit(); // Submit the form
+            e.preventDefault()
+
+            var data = new FormData(this)
+
         });
     </script>
 

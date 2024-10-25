@@ -22,9 +22,6 @@ class RegistrationController extends Controller
         return view('pendaftaran', ['step' => $step]);
     }
 
-
-
-
     public function postStep1(Request $request)
     {
         $validatedData = $request->validate([
@@ -54,7 +51,6 @@ class RegistrationController extends Controller
         return redirect()->route('step2');
     }
 
-
     public function showStep2()
     {
         return view('step.step2'); // Render Step 2 view
@@ -65,43 +61,49 @@ class RegistrationController extends Controller
         // **1. Validate Parent Data, Tanggungan Data, Kawasan Tinggal, and Status Tempat Tinggal**
         $validatedData = $request->validate([
             // Parent Data
-            'namaLengkapAyah' => 'required|string|max:255',
-            'nikAyah' => 'required|digits:16|nikAyah',
-            'namaLengkapIbu' => 'required|string|max:255',
-            'nikIbu' => 'required|digits:16|nikIbu',
-            'tempatLahirA' => 'required|string|max:255',
-            'tanggalLahirA' => 'required|date',
-            'tempatLahirI' => 'required|string|max:255',
-            'tanggalLahirI' => 'required|date',
-            'alamatOrtu' => 'required|string|max:255',
-            'kodeposOrtu' => 'required|numeric',
-            'notelpOrtu' => 'required|string|max:15',
-            'kantorAyah' => 'required|string|max:255',
-            'kantorIbu' => 'required|string|max:255',
-            'nohpAyah' => 'required|string|max:15',
-            'nohpIbu' => 'required|string|max:15',
-            'statusAyah' => 'required|string',
-            'statusIbu' => 'required|string',
-            'pendidikanAyah' => 'required|string',
-            'pendidikanIbu' => 'required|string',
-            'pekerjaanAyah' => 'required|string',
-            'pekerjaanAyahDetail' => 'nullable|string|max:255',
-            'pekerjaanIbu' => 'required|string',
-            'pekerjaanIbuDetail' => 'nullable|string|max:255',
-            'penghasilanAyah' => 'required|string',
-            'penghasilanIbu' => 'required|string',
+            'nama_lengkap_ayah' => 'required|string|max:255',
+            'nik_ayah' => 'required|digits:16|nikAyah',
+            'nama_lengkap_ibu' => 'required|string|max:255',
+            'nik_ibu' => 'required|digits:16|nikIbu',
+            'status_ayah' => 'required|string|max:255',
+            'status_ibu' => 'required|date',
+            'tempat_lahir_ayah' => 'required|string|max:255',
+            'tanggal_lahir_ayah' => 'required|date',
+            'tempat_lahir_ibu' => 'required|string|max:255',
+            'tanggal_lahir_ibu' => 'required|numeric',
 
-            // New Kawasan Tinggal and Status Tempat Tinggal fields
-            'kawasanTinggal' => 'required|string', // Ensure it's required and a valid option
-            'statusTempatTinggal' => 'required|string', // Ensure it's required and a valid option
+
+            'alamat_ortu' => 'required|string|max:15',
+            'kode_pos_ortu' => 'required|string|max:255',
+            'no_telp_ortu' => 'required|string|max:255',
+            'kantor_ayah' => 'required|string|max:15',
+            'kantor_ibu' => 'required|string|max:15',
+            'no_hp_ayah' => 'required|string',
+            'no_hp_ibu' => 'required|string',
+            'kawasan_tinggal' => 'required|string',
+            'status_tempat_tinggal' => 'required|string',
+            'pendidikan_ayah' => 'required|string',
+
+
+            'pendidikan_ayah_lain' => 'nullable|string|max:255',
+            'pendidikan_ibu' => 'required|string',
+            'pendidikan_ibu_lain' => 'nullable|string|max:255',
+            'pekerjaan_ayah' => 'required|string',
+            'pekerjaan_ayah_detail' => 'required|string',
+            'pekerjaan_ibu' => 'required|string',
+            'pekerjaan_ibu_detail' => 'required|string',
+            'penghasilan_ayah' => 'required|string',
+            'penghasilan_ibu' => 'required|string',
+
 
             // Tanggungan Data
+            'jumlah_tanggungan' => 'required|string',
             'tanggungan' => 'nullable|array',
-            'tanggungan.*.namaLengkap' => 'nullable|string|max:255',
-            'tanggungan.*.sekolah' => 'nullable|string|max:255',
-            'tanggungan.*.kelas' => 'nullable|string|max:50',
-            'tanggungan.*.uangSekolah' => 'nullable|numeric',
-            'tanggungan.*.keterangan' => 'nullable|string|max:255',
+            'tanggungan.*.nama_lengkap_tanggungan' => 'nullable|string|max:255',
+            'tanggungan.*.sekolah_tanggungan' => 'nullable|string|max:255',
+            'tanggungan.*.kelas_tanggungan' => 'nullable|string|max:50',
+            'tanggungan.*.uang_sekolah_tanggungan' => 'nullable|numeric',
+            'tanggungan.*.keterangan_tanggungan' => 'nullable|string|max:255',
         ]);
 
         // **2. Store Parent Data in Registrations Table**
@@ -123,7 +125,6 @@ class RegistrationController extends Controller
         // **4. Redirect to Step 3**
         return redirect()->route('step3');
     }
-
 
     public function showStep3()
     {
@@ -154,7 +155,7 @@ class RegistrationController extends Controller
             $validatedData
         );
 
-
+        dd($request->all());
         // Save the merged data to the Registration model
         Registration::create($allData);
 
