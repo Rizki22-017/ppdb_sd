@@ -275,7 +275,7 @@
                                 id="pendidikanAyah7" value="Lain-lain" onclick="toggleInputPendidikan()">
                             <label class="form-check-label" for="pendidikanAyah7">Lain-lain, sebutkan...</label>
                         </div>
-                        <input type="text" class="form-control mt-2" id="inputLainPendidikanAyah"
+                        <input type="text" class="form-control mt-2" id="inputLainpendidikan_ayah_lain"
                             name="pendidikan_ayah_lain" placeholder="Sebutkan..." style="display:none;">
                     </div>
                 </div>

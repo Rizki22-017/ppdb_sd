@@ -191,8 +191,8 @@
 
     <script>
         function toggleInputPendidikan() {
-            const pendidikanAyah = document.querySelector('input[name="pendidikanAyah"]:checked');
-            const pendidikanIbu = document.querySelector('input[name="pendidikanIbu"]:checked');
+            const pendidikanAyah = document.querySelector('input[name="pendidikan_ayah"]:checked');
+            const pendidikanIbu = document.querySelector('input[name="pendidikan_ibu"]:checked');
 
             const inputLainPendidikanAyah = document.getElementById('inputLainPendidikanAyah');
             const inputLainPendidikanIbu = document.getElementById('inputLainPendidikanIbu');
