@@ -4,16 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Registration;
-use Illuminate\Support\Facades\Log;
+
 
 class RegistrationController extends Controller
 {
-    // Step 1: Display the form for Step 1
+    // Example in showStep1, apply similar logic to showStep2 and showStep3 if needed
     public function showStep1()
     {
-        $registration = Registration::where('user_id', auth()->id())->first();
+        // Retrieve registration or return a new instance with default values
+        $registration = Registration::where('user_id', auth()->id())->first() ?? new Registration(['user_id' => auth()->id()]);
         return view('pendaftaran', ['step' => 1, 'registration' => $registration]);
     }
+
 
     // Step 1: Handle POST for Step 1
     public function postStep1(Request $request)
@@ -39,24 +41,24 @@ class RegistrationController extends Controller
             'transportasi' => 'required|array',
         ]);
 
-        Log::info('Validated Step 1 data:', $validatedData);
 
-
-        // Create or update the registration record
+        // Create or update registration entry
         $registration = Registration::updateOrCreate(
-            ['user_id' => auth()->id()],  // Find by user_id
-            array_merge($validatedData, ['user_id' => auth()->id()]) // Ensure user_id is included
+            ['user_id' => auth()->id()],
+            array_merge($validatedData, ['user_id' => auth()->id()])
         );
 
-        return redirect()->route('step2.show');
+        // Redirect to Step 2, passing the user_id
+        return redirect()->route('step2.show', ['user_id' => auth()->id()]);
     }
 
     // Step 2: Show the form for Step 2
-    public function showStep2()
+    public function showStep2($user_id)
     {
-        $registration = Registration::where('user_id', auth()->id())->first();
+        $registration = Registration::where('user_id', auth()->id())->first() ?? new Registration(['user_id' => auth()->id()]);
         return view('pendaftaran', ['step' => 2, 'registration' => $registration]);
     }
+
 
     // Step 2: Handle POST for Step 2
     public function postStep2(Request $request)
@@ -88,13 +90,13 @@ class RegistrationController extends Controller
         $registration = Registration::where('user_id', auth()->id())->first();
         $registration->update($validatedData);
 
-        return redirect()->route('step3.show');
+        return redirect()->route('step3.show', ['user_id' => $registration->user_id]);
     }
 
     // Step 3: Show the form for Step 3
     public function showStep3()
     {
-        $registration = Registration::where('user_id', auth()->id())->first();
+        $registration = Registration::where('user_id', auth()->id())->first() ?? new Registration(['user_id' => auth()->id()]);
         return view('pendaftaran', ['step' => 3, 'registration' => $registration]);
     }
 

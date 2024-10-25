@@ -47,10 +47,12 @@
                 </div>
 
                 <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
-                    <!-- One single form wraps all steps -->
+                    <!-- Form untuk Step 1 -->
                     <form action="{{ route('step1.post') }}" method="POST" id="formdata-step1">
                         @csrf
-                        <input type="hidden" name="step" value="{{ $step }}">
+                        <input type="hidden" name="step" value="1">
+                        <input type="hidden" name="user_id" value="{{ $registration->user_id }}">
+                        <!-- Input hidden untuk user_id -->
 
                         <!-- Include Step 1 partial -->
                         <div class="tab-pane fade @if ($step == 1) show active @endif" id="step1">
@@ -61,32 +63,40 @@
                         </div>
                     </form>
 
-
                     <form action="{{ route('step2.post') }}" method="POST" id="formdata-step2">
                         @csrf
-                        <input type="hidden" name="step" value="{{ $step }}">
+                        <input type="hidden" name="step" value="2">
+                        <input type="hidden" name="user_id" value="{{ $registration->user_id }}">
+                        <!-- Input hidden untuk user_id -->
 
                         <!-- Include Step 2 partial -->
                         <div class="tab-pane fade @if ($step == 2) show active @endif" id="step2">
                             @include('step.step2')
                             <div class="d-flex justify-content-between mt-4">
-                                <a href="{{ route('step1.show') }}" class="btn btn-secondary">Sebelumnya</a>
+                                <!-- Use optional($registration)->user_id to avoid errors if $registration is null -->
+                                <a href="{{ route('step1.show', ['user_id' => optional($registration)->user_id]) }}"
+                                    class="btn btn-secondary">Sebelumnya</a>
+
+
                                 <button type="submit" class="btn btn-primary">Berikutnya</button>
                             </div>
                         </div>
                     </form>
 
-
                     <!-- Step 3: Data Wali -->
                     <form action="{{ route('step3.post') }}" method="POST" id="formdata-step3">
                         @csrf
-                        <input type="hidden" name="step" value="{{ $step }}">
+                        <input type="hidden" name="step" value="2">
+                        <input type="hidden" name="user_id" value="{{ $registration->user_id }}">
+                        <!-- Input hidden untuk user_id -->
 
                         <div class="tab-pane fade @if ($step == 3) show active @endif" id="step3">
                             @include('step.step3')
-
                             <div class="d-flex justify-content-between mt-4">
-                                <a href="{{ route('step2.show') }}" class="btn btn-secondary">Sebelumnya</a>
+                                <!-- In the Step 2 form -->
+                                <a href="{{ route('step2.show', ['user_id' => $registration->user_id]) }}"
+                                    class="btn btn-secondary">Sebelumnya</a>
+
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#staticBackdrop">
                                     Lanjutkan
@@ -221,7 +231,6 @@
                 'none';
             inputLainPendidikanIbu.style.display = pendidikanIbu && pendidikanIbu.value === 'Lain-lain' ? 'block' : 'none';
         }
-
 
         function toggleInputRekreasi() {
             const lainCheckbox = document.getElementById('rekreasi5');
