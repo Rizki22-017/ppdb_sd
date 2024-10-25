@@ -11,6 +11,8 @@ class Registration extends Model
 
     // Specify the fields that are mass assignable
     protected $fillable = [
+        'user_id', // Track the user who submits the registration
+
         // Step 1: Data Siswa
         'nama_lengkap',
         'jenis_kelamin',
@@ -49,8 +51,8 @@ class Registration extends Model
         'kantor_ibu',
         'no_hp_ayah',
         'no_hp_ibu',
-        'kawasan_tinggal', // New field for Kawasan Tinggal
-        'status_tempat_tinggal', // New field for Status Tempat Tinggal
+        'kawasan_tinggal',
+        'status_tempat_tinggal',
         'pendidikan_ayah',
         'pendidikan_ayah_lain',
         'pendidikan_ibu',
@@ -67,11 +69,6 @@ class Registration extends Model
         'kelas_tanggungan',
         'uang_sekolah_tanggungan',
         'keterangan_tanggungan',
-        'kawasan_tinggal',
-        'status_tempat_tinggal',
-
-
-        // data tanggungan yang modal belum ada
 
         // Step 3: Data Wali
         'nama_wali',
@@ -90,4 +87,10 @@ class Registration extends Model
     protected $casts = [
         'transportasi' => 'array',
     ];
+
+    // Define the relationship to the user
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -47,34 +47,50 @@
                 </div>
 
                 <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
-
                     <!-- One single form wraps all steps -->
-                    <form id="formdata">
+                    <form action="{{ route('step1.post') }}" method="POST" id="formdata-step1">
                         @csrf
                         <input type="hidden" name="step" value="{{ $step }}">
-                        <!-- Step 1: Data Siswa -->
+
+                        <!-- Include Step 1 partial -->
                         <div class="tab-pane fade @if ($step == 1) show active @endif" id="step1">
                             @include('step.step1')
                             <div class="d-flex justify-content-center mt-4">
-                                <button type="button" class="btn btn-primary btn-next">Berikutnya</button>
+                                <button type="submit" class="btn btn-primary">Berikutnya</button>
                             </div>
                         </div>
+                    </form>
 
+
+                    <form action="{{ route('step2.post') }}" method="POST" id="formdata-step2">
+                        @csrf
+                        <input type="hidden" name="step" value="{{ $step }}">
+
+                        <!-- Include Step 2 partial -->
                         <div class="tab-pane fade @if ($step == 2) show active @endif" id="step2">
                             @include('step.step2')
                             <div class="d-flex justify-content-between mt-4">
-                                <button type="button" class="btn btn-secondary btn-prev">Sebelumnya</button>
-                                <button type="button" class="btn btn-primary btn-next">Berikutnya</button>
+                                <a href="{{ route('step1.show') }}" class="btn btn-secondary">Sebelumnya</a>
+                                <button type="submit" class="btn btn-primary">Berikutnya</button>
                             </div>
                         </div>
+                    </form>
 
-                        <!-- Step 3: Data Wali -->
+
+                    <!-- Step 3: Data Wali -->
+                    <form action="{{ route('step3.post') }}" method="POST" id="formdata-step3">
+                        @csrf
+                        <input type="hidden" name="step" value="{{ $step }}">
+
                         <div class="tab-pane fade @if ($step == 3) show active @endif" id="step3">
                             @include('step.step3')
+
                             <div class="d-flex justify-content-between mt-4">
-                                <button type="button" class="btn btn-secondary btn-prev">Sebelumnya</button>
+                                <a href="{{ route('step2.show') }}" class="btn btn-secondary">Sebelumnya</a>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#staticBackdrop">Lanjutkan</button>
+                                    data-bs-target="#staticBackdrop">
+                                    Lanjutkan
+                                </button>
                             </div>
 
                             <!-- Modal for final confirmation -->
@@ -101,8 +117,8 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary"
-                                                id="confirmSubmit">Lanjutkan</button>
+                                            <!-- This button will submit the form on confirmation -->
+                                            <button type="submit" class="btn btn-primary">Lanjutkan</button>
                                         </div>
                                     </div>
                                 </div>
@@ -110,7 +126,6 @@
                         </div>
                     </form>
                 </div>
-
             </div>
         </section><!-- /Features Section -->
     </main>

@@ -14,7 +14,10 @@ return new class extends Migration
         Schema::create('registrations', function (Blueprint $table) {
             $table->id();
 
-            // Step 1: Data Siswa
+            // Foreign key for user tracking
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+
+            // Step 1: Data Siswa (Cannot be nullable as it's filled first)
             $table->string('nama_lengkap');
             $table->string('jenis_kelamin');
             $table->string('tempat_lahir');
@@ -34,45 +37,44 @@ return new class extends Migration
             $table->string('tempat_tinggal');
             $table->json('transportasi'); // Store multiple transport options as JSON
 
-            // Step 2: Data Orang Tua
-            $table->string('nama_lengkap_ayah');
-            $table->string('nik_ayah', 16);
-            $table->string('nama_lengkap_ibu');
-            $table->string('nik_ibu', 16);
-            $table->string('status_ayah');
-            $table->string('status_ibu');
-            $table->string('tempat_lahir_ayah');
-            $table->date('tanggal_lahir_ayah');
-            $table->string('tempat_lahir_ibu');
-            $table->date('tanggal_lahir_ibu');
-            $table->string('alamat_ortu');
-            $table->string('kode_pos_ortu');
-            $table->string('no_telp_ortu');
-            $table->string('kantor_ayah');
-            $table->string('kantor_ibu');
-            $table->string('no_hp_ayah');
-            $table->string('no_hp_ibu');
-            $table->string('kawasan_tinggal');
-            $table->string('status_tempat_tinggal');
-            $table->string('pendidikan_ayah');
+            // Step 2: Data Orang Tua (Make nullable, filled in later step)
+            $table->string('nama_lengkap_ayah')->nullable();
+            $table->string('nik_ayah', 16)->nullable();
+            $table->string('nama_lengkap_ibu')->nullable();
+            $table->string('nik_ibu', 16)->nullable();
+            $table->string('status_ayah')->nullable();
+            $table->string('status_ibu')->nullable();
+            $table->string('tempat_lahir_ayah')->nullable();
+            $table->date('tanggal_lahir_ayah')->nullable();
+            $table->string('tempat_lahir_ibu')->nullable();
+            $table->date('tanggal_lahir_ibu')->nullable();
+            $table->string('alamat_ortu')->nullable();
+            $table->string('kode_pos_ortu')->nullable();
+            $table->string('no_telp_ortu')->nullable();
+            $table->string('kantor_ayah')->nullable();
+            $table->string('kantor_ibu')->nullable();
+            $table->string('no_hp_ayah')->nullable();
+            $table->string('no_hp_ibu')->nullable();
+            $table->string('kawasan_tinggal')->nullable();
+            $table->string('status_tempat_tinggal')->nullable();
+            $table->string('pendidikan_ayah')->nullable();
             $table->string('pendidikan_ayah_lain')->nullable();
-            $table->string('pendidikan_ibu');
+            $table->string('pendidikan_ibu')->nullable();
             $table->string('pendidikan_ibu_lain')->nullable();
-            $table->string('pekerjaan_ayah');
+            $table->string('pekerjaan_ayah')->nullable();
             $table->string('pekerjaan_ayah_detail')->nullable();
-            $table->string('pekerjaan_ibu');
+            $table->string('pekerjaan_ibu')->nullable();
             $table->string('pekerjaan_ibu_detail')->nullable();
-            $table->string('penghasilan_ayah');
-            $table->string('penghasilan_ibu');
-            $table->string('jumlah_tanggungan');
-            $table->string('nama_lengkap_tanggungan')->nullable(false);
+            $table->string('penghasilan_ayah')->nullable();
+            $table->string('penghasilan_ibu')->nullable();
+            $table->string('jumlah_tanggungan')->nullable();
+            $table->string('nama_lengkap_tanggungan')->nullable();
             $table->string('sekolah_tanggungan')->nullable();
             $table->string('kelas_tanggungan')->nullable();
             $table->string('uang_sekolah_tanggungan')->nullable();
             $table->string('keterangan_tanggungan')->nullable();
 
-
-            // Step 3: Data Wali
+            // Step 3: Data Wali (Make nullable, filled in later step)
             $table->string('nama_wali')->nullable();
             $table->string('tempat_lahir_wali')->nullable();
             $table->date('tanggal_lahir_wali')->nullable();
@@ -94,6 +96,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('registrations'); // Fixed the typo in the table name
+        Schema::dropIfExists('registrations');
     }
 };

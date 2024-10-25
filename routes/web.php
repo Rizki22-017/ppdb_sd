@@ -16,27 +16,25 @@ Route::get('/success', function () {
 })->name('successPage');
 
 // Registration routes for multi-step form
-Route::get('/pendaftaran', [RegistrationController::class, 'showForm'])->name('pendaftaran');
 
-// Step 1: Student data
-Route::post('/step1', [RegistrationController::class, 'postStep1'])->name('register.step1');
+// Step 1: Show Step 1 form
+Route::get('/pendaftaran', [RegistrationController::class, 'showStep1'])->name('step1.show');
+// Step 1: Submit Step 1 form data
+Route::post('/pendaftaran/step1', [RegistrationController::class, 'postStep1'])->name('step1.post');
 
-// Step 2: Parent data and tanggungan
-Route::get('/step2', [RegistrationController::class, 'showStep2'])->name('step2');
-Route::post('/step2', [RegistrationController::class, 'postStep2'])->name('register.step2');
+// Step 2: Show Step 2 form
+Route::get('/pendaftaran/step2', [RegistrationController::class, 'showStep2'])->name('step2.show');
+// Step 2: Submit Step 2 form data
+Route::post('/pendaftaran/step2', [RegistrationController::class, 'postStep2'])->name('step2.post');
 
-// Step 3: Wali data
-Route::get('/step3', [RegistrationController::class, 'showStep3'])->name('step3');
-Route::post('/final', [RegistrationController::class, 'postStep3'])->name('register.final');
+// Step 3: Show Step 3 form
+Route::get('/pendaftaran/step3', [RegistrationController::class, 'showStep3'])->name('step3.show');
+// Step 3: Submit Step 3 form data and finalize registration
+Route::post('/pendaftaran/step3', [RegistrationController::class, 'postStep3'])->name('step3.post');
 
-
-
-// Dashboard and Profile (for authenticated users)
+// Dashboard and Profile routes (for authenticated users)
 Route::middleware('auth')->group(function () {
-
-    Route::get('/dashboard', [DashboardController::class, 'index'])
-        ->middleware(['auth'])
-        ->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // Profile management
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
