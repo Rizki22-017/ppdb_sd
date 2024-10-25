@@ -9,16 +9,20 @@ use App\Models\Registration;
 class RegistrationController extends Controller
 {
     // Example in showStep1, apply similar logic to showStep2 and showStep3 if needed
-    public function showStep1()
+    public function showStep1($id = null)
     {
+        if ($id != null) {
+            $data['register'] = Registration::where('user_id', auth()->id())->first();
+        }
+        $data['step'] = 1;
         // Retrieve registration or return a new instance with default values
-        $registration = Registration::where('user_id', auth()->id())->first() ?? new Registration(['user_id' => auth()->id()]);
-        return view('pendaftaran', ['step' => 1, 'registration' => $registration]);
+        // $registration = Registration::where('user_id', auth()->id())->first() ?? new Registration(['user_id' => auth()->id()]);
+        return view('pendaftaran', $data);
     }
 
 
     // Step 1: Handle POST for Step 1
-    public function postStep1(Request $request)
+    public function postStep1(Request $request, $register_id = null)
     {
         $validatedData = $request->validate([
             'nama_lengkap' => 'required|string|max:255',
@@ -41,27 +45,33 @@ class RegistrationController extends Controller
             'transportasi' => 'required|array',
         ]);
 
-
         // Create or update registration entry
-        $registration = Registration::updateOrCreate(
-            ['user_id' => auth()->id()],
-            array_merge($validatedData, ['user_id' => auth()->id()])
-        );
+        if ($register_id != null) {
+            $registration = Registration::updateOrCreate(
+                ['id' => $register_id],
+                array_merge($validatedData, ['user_id' => auth()->id()])
+            );
+        } else {
+            $registration = Registration::updateOrCreate(array_merge($validatedData, ['user_id' => auth()->id()]));
+        }
 
         // Redirect to Step 2, passing the user_id
-        return redirect()->route('step2.show', ['user_id' => auth()->id()]);
+        return redirect()->route('step2.show', ['form_id' => $registration->id]);
     }
 
     // Step 2: Show the form for Step 2
-    public function showStep2($user_id)
+    public function showStep2($register_id)
     {
-        $registration = Registration::where('user_id', auth()->id())->first() ?? new Registration(['user_id' => auth()->id()]);
-        return view('pendaftaran', ['step' => 2, 'registration' => $registration]);
+        $data['register_id'] = $register_id;
+        $data['step'] = 3;
+        $data['register'] = Registration::where('id', $register_id)->first();
+
+        return view('pendaftaran', $data);
     }
 
 
     // Step 2: Handle POST for Step 2
-    public function postStep2(Request $request)
+    public function postStep2(Request $request, $register_id)
     {
         $validatedData = $request->validate([
             'nama_lengkap_ayah' => 'required|string|max:255',
@@ -87,21 +97,23 @@ class RegistrationController extends Controller
             'pendidikan_ibu' => 'required|string|max:255',
         ]);
 
-        $registration = Registration::where('user_id', auth()->id())->first();
-        $registration->update($validatedData);
+        $registration = Registration::where('id', $register_id)->updateOrCreate($validatedData);
 
-        return redirect()->route('step3.show', ['user_id' => $registration->user_id]);
+        return redirect()->route('step3.show', ['register_id' => $register_id]);
     }
 
     // Step 3: Show the form for Step 3
-    public function showStep3()
+    public function showStep3($register_id)
     {
-        $registration = Registration::where('user_id', auth()->id())->first() ?? new Registration(['user_id' => auth()->id()]);
-        return view('pendaftaran', ['step' => 3, 'registration' => $registration]);
+        $data['register_id'] = $register_id;
+        $data['step'] = 3;
+        $data['register'] = Registration::where('id', $register_id)->first();
+
+        return view('pendaftaran', $data);
     }
 
     // Step 3: Handle POST for Step 3
-    public function postStep3(Request $request)
+    public function postStep3(Request $request, $register_id)
     {
         $validatedData = $request->validate([
             'nama_wali' => 'nullable|string|max:255',
@@ -115,8 +127,7 @@ class RegistrationController extends Controller
             'alamat_kantor_wali' => 'nullable|string|max:255',
         ]);
 
-        $registration = Registration::where('user_id', auth()->id())->first();
-        $registration->update($validatedData);
+        $registration = Registration::where('id', $register_id)->updateOrCreate($validatedData);
 
         return redirect()->route('successPage');
     }
