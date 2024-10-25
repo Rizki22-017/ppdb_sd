@@ -222,6 +222,7 @@
             inputLainPendidikanIbu.style.display = pendidikanIbu && pendidikanIbu.value === 'Lain-lain' ? 'block' : 'none';
         }
 
+
         function toggleInputRekreasi() {
             const lainCheckbox = document.getElementById('rekreasi5');
             const inputLainRekreasi = document.getElementById('inputLainRekreasi');
