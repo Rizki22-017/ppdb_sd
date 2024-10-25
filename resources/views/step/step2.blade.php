@@ -85,8 +85,8 @@
                             class="text-danger">*</span></label>
                     <div class="row">
                         <div class="col-12 col-md-6 mb-2">
-                            <input type="text" class="form-control" id="tempatLahirA" name="tempat_lahir_ayah" required
-                                placeholder="Masukan tempat lahir ayah">
+                            <input type="text" class="form-control" id="tempatLahirA" name="tempat_lahir_ayah"
+                                required placeholder="Masukan tempat lahir ayah">
                         </div>
                         <div class="col-12 col-md-6 mb-2">
                             <input type="date" class="form-control" id="tanggalLahirA" name="tanggal_lahir_ayah"
@@ -275,7 +275,7 @@
                                 id="pendidikanAyah7" value="Lain-lain" onclick="toggleInputPendidikan()">
                             <label class="form-check-label" for="pendidikanAyah7">Lain-lain, sebutkan...</label>
                         </div>
-                        <input type="text" class="form-control mt-2" id="inputLainPendidikanAyah"
+                        <input type="text" class="form-control mt-2" id="inputLainpendidikan_ayah_lain"
                             name="pendidikan_ayah_lain" placeholder="Sebutkan..." style="display:none;">
                     </div>
                 </div>
@@ -325,8 +325,8 @@
                 <div class="row mb-3">
                     <p class="mb-1">Pekerjaan Ayah Sebagai <span class="text-danger">*</span></p>
                     <div class="col-sm-12">
-                        <select class="form-select" aria-label="Default select example" id="jobSelectAyah" name="pekerjaan_ayah"
-                            onchange="updatePlaceholderAyah()">
+                        <select class="form-select" aria-label="Default select example" id="jobSelectAyah"
+                            name="pekerjaan_ayah" onchange="updatePlaceholderAyah()">
                             <option selected>Klik untuk memilih</option>
                             <option value="1">Pegawai Negeri, dengan Golongan</option>
                             <option value="2">Pegawai Swasta, dengan Jabatan</option>
@@ -337,16 +337,17 @@
                             <option value="7">Buruh, Petani, Nelayan</option>
                             <option value="8">Lain-Lain, sebutkan</option>
                         </select>
-                        <input type="text" class="form-control mt-2" id="detailInputAyah" name="pekerjaan_ayah_detail"
-                            placeholder="Masukan detail golongan" style="display: none;">
+                        <input type="text" class="form-control mt-2" id="detailInputAyah"
+                            name="pekerjaan_ayah_detail" placeholder="Masukan detail golongan"
+                            style="display: none;">
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <p class="mb-1">Pekerjaan Ibu Sebagai <span class="text-danger">*</span></p>
                     <div class="col-sm-12">
-                        <select class="form-select" aria-label="Default select example" id="jobSelectIbu" name="pekerjaan_ibu"
-                            onchange="updatePlaceholderIbu()">
+                        <select class="form-select" aria-label="Default select example" id="jobSelectIbu"
+                            name="pekerjaan_ibu" onchange="updatePlaceholderIbu()">
                             <option selected>Klik untuk memilih</option>
                             <option value="1">Pegawai Negeri, dengan Golongan</option>
                             <option value="2">Pegawai Swasta, dengan Jabatan</option>
@@ -357,8 +358,8 @@
                             <option value="7">Buruh, Petani, Nelayan</option>
                             <option value="8">Lain-Lain, sebutkan</option>
                         </select>
-                        <input type="text" class="form-control mt-2" id="detailInputIbu" name="pekerjaan_ibu_detail"
-                            placeholder="Masukan detail golongan" style="display: none;">
+                        <input type="text" class="form-control mt-2" id="detailInputIbu"
+                            name="pekerjaan_ibu_detail" placeholder="Masukan detail golongan" style="display: none;">
                     </div>
                 </div>
 
@@ -366,7 +367,8 @@
                     <p class="mb-1">Penghasilan Sebulan yang diperoleh Ayah<span class="text-danger">*</span>
                     </p>
                     <div class="col-sm-12">
-                        <select class="form-select" aria-label="Default select example" id="penghasilan" name="penghasilan_ayah">
+                        <select class="form-select" aria-label="Default select example" id="penghasilan"
+                            name="penghasilan_ayah">
                             <option selected>Klik untuk memilih</option>
                             <option value="1">Kurang dari Rp.2.000.000</option>
                             <option value="2">Rp.5.000.000 s/d Rp.10.000.000</option>
@@ -378,7 +380,8 @@
                 <div class="row mb-3">
                     <p class="mb-1">Penghasilan Sebulan yang diperoleh Ibu<span class="text-danger">*</span></p>
                     <div class="col-sm-12">
-                        <select class="form-select" aria-label="Default select example" id="penghasilanIbu" name="penghasilan_ibu">
+                        <select class="form-select" aria-label="Default select example" id="penghasilanIbu"
+                            name="penghasilan_ibu">
                             <option selected>Klik untuk memilih</option>
                             <option value="1">Kurang dari Rp.2.000.000</option>
                             <option value="2">Rp.5.000.000 s/d Rp.10.000.000</option>
@@ -441,7 +444,8 @@
                                                 <label for="kelasTg" class="form-label">Kelas/Semester<span
                                                         class="text-danger"></span></label>
                                                 <input type="text" class="form-control" id="kelasTg"
-                                                    name="tanggungan[0][kelas_tanggungan]" placeholder="Masukkan kelas/semester">
+                                                    name="tanggungan[0][kelas_tanggungan]"
+                                                    placeholder="Masukkan kelas/semester">
                                             </div>
                                             <div class="mb-3 mt-3">
                                                 <label for="uangSekolahTg" class="form-label">Uang Sekolah<span
