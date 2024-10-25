@@ -194,7 +194,7 @@
             const pendidikanAyah = document.querySelector('input[name="pendidikan_ayah"]:checked');
             const pendidikanIbu = document.querySelector('input[name="pendidikan_ibu"]:checked');
 
-            const inputLainPendidikanAyah = document.getElementById('inputLainPendidikanAyah');
+            const inputLainPendidikanAyah = document.getElementById('inputLainpendidikan_ayah_lain');
             const inputLainPendidikanIbu = document.getElementById('inputLainPendidikanIbu');
 
             // Menampilkan atau menyembunyikan input berdasarkan status radio button
@@ -202,6 +202,7 @@
                 'none';
             inputLainPendidikanIbu.style.display = pendidikanIbu && pendidikanIbu.value === 'Lain-lain' ? 'block' : 'none';
         }
+
 
         function toggleInputRekreasi() {
             const lainCheckbox = document.getElementById('rekreasi5');
