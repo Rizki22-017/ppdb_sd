@@ -49,6 +49,7 @@
         <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
             <a href="/" class="logo d-flex align-items-center me-auto">
+                <img src="assets/img/sdit_logo.png" alt="">
                 <h1 class="sitename">SD IT Permata</h1>
             </a>
 
@@ -180,7 +181,7 @@
     <script src={{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+
 
 
     <!-- Main JS File -->
