@@ -28,9 +28,10 @@
                 </div>
 
                 <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
-                    <form action="{{ route('step2.post', $register_id) }}" method="POST" id="step2Form">
+                    <form action="{{ route('step2.post', $register_id) }}" method="POST" id="formdata-step2">
                         @csrf
-
+                        <input type="hidden" name="step" value="2">
+                        <input type="hidden" name="user_id" value="{{ optional($registration)->user_id }}">
                         <!-- Parent Information Section -->
                         <div class="row">
                             <div class="col-lg-6">

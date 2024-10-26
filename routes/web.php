@@ -42,14 +42,24 @@ Route::middleware('auth')->group(function () {
     Route::post('/pendaftaran/proof_payment/{user_id}', [RegistrationController::class, 'postProofPayment'])->name('proofPayment.post');
 });
 
-// Dashboard and Profile routes (for authenticated users)
+// Profile management routes for all authenticated users
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
-    // Profile management
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+// Dashboard routes restricted to admin users
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard/registration/{id}', [DashboardController::class, 'show'])->name('registration.show');
+    Route::get('/dashboard/registration/{id}/edit', [DashboardController::class, 'edit'])->name('registration.edit');
+    Route::put('/dashboard/registration/{id}', [DashboardController::class, 'update'])->name('registration.update');
+    Route::delete('/dashboard/registration/{id}', [DashboardController::class, 'destroy'])->name('registration.destroy');
+    Route::patch('/dashboard/registration/{id}/status', [DashboardController::class, 'updateStatus'])->name('registration.updateStatus');
+    // routes/web.php
+
+    Route::put('/registrations/{id}/update-status', [DashboardController::class, 'updateStatus'])->name('registrations.updateStatus');
 });
 
 // Authentication routes

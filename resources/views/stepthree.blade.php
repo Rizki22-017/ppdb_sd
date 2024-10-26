@@ -51,7 +51,7 @@
                     <form action="{{ route('step3.post') }}" method="POST" id="formdata-step3">
                         @csrf
                         <input type="hidden" name="step" value="2">
-                        <input type="hidden" name="user_id" value="{{ $registration->user_id }}">
+                        <input type="hidden" name="user_id" value="{{ optional($registration)->user_id }}">
 
                         <div class="tab-pane fade @if ($step == 3) show active @endif" id="step3">
                             @include('step.step3')

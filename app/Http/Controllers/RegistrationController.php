@@ -81,7 +81,7 @@ class RegistrationController extends Controller
     public function showStep2($userId)
     {
         // Assuming $userId is the parameter for user ID or registration ID
-        return view('step.step2', ['register_id' => $userId]);
+        return view('steptwo', ['register_id' => $userId]);
     }
 
 
@@ -120,14 +120,14 @@ class RegistrationController extends Controller
         $registration = Registration::where('user_id', $user_id)->first();
         $registration->update($validatedData);
 
-        return redirect()->route('step3.show', ['user_id' => $user_id]);
+        return redirect()->route('stepthree.show', ['user_id' => $user_id]);
     }
 
     // Step 3: Show the form for Step 3
     public function showStep3($userId)
     {
         // Assuming $userId is the parameter for user ID or registration ID
-        return view('step.step3', ['register_id' => $userId]);
+        return view('stepthree', ['register_id' => $userId]);
     }
 
     // Step 3: Handle POST for Step 3
@@ -174,6 +174,20 @@ class RegistrationController extends Controller
         }
 
         return redirect()->route('successPage');
+    }
+
+
+    public function updateStatus(Request $request, $id)
+    {
+        $request->validate([
+            'status' => 'required|in:Pending,Incomplete,Complete',
+        ]);
+
+        $registration = Registration::findOrFail($id);
+        $registration->status = $request->status;
+        $registration->save();
+
+        return redirect()->route('dashboard')->with('success', 'Status updated successfully.');
     }
 
     // Success page after completing registration
