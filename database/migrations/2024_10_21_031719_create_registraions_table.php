@@ -17,7 +17,10 @@ return new class extends Migration
             // Foreign key for user tracking
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
 
-            // Step 1: Data Siswa (Cannot be nullable as it's filled first)
+            // Custom Form ID for each registration
+            $table->string('form_id')->unique()->nullable();
+
+            // Step 1: Data Siswa (cannot be nullable as it's filled first)
             $table->string('nama_lengkap');
             $table->string('jenis_kelamin');
             $table->string('tempat_lahir');
@@ -30,14 +33,14 @@ return new class extends Migration
             $table->string('jumlah_saudara_angkat')->nullable();
             $table->string('bahasa');
             $table->string('alamat_anak');
-            $table->string('nik', 16);
+            $table->string('nik', 16)->unique();
             $table->string('nomor_kk', 16);
             $table->string('no_regis_akta');
             $table->string('jarak');
             $table->string('tempat_tinggal');
             $table->json('transportasi'); // Store multiple transport options as JSON
 
-            // Step 2: Data Orang Tua (Make nullable, filled in later step)
+            // Step 2: Data Orang Tua (make nullable, filled in later step)
             $table->string('nama_lengkap_ayah')->nullable();
             $table->string('nik_ayah', 16)->nullable();
             $table->string('nama_lengkap_ibu')->nullable();
@@ -68,13 +71,13 @@ return new class extends Migration
             $table->string('penghasilan_ayah')->nullable();
             $table->string('penghasilan_ibu')->nullable();
             $table->string('jumlah_tanggungan')->nullable();
-            $table->string('nama_lengkap_tanggungan')->nullable();
-            $table->string('sekolah_tanggungan')->nullable();
-            $table->string('kelas_tanggungan')->nullable();
-            $table->string('uang_sekolah_tanggungan')->nullable();
-            $table->string('keterangan_tanggungan')->nullable();
+            $table->json('nama_lengkap_tanggungan')->nullable();
+            $table->json('sekolah_tanggungan')->nullable();
+            $table->json('kelas_tanggungan')->nullable();
+            $table->json('uang_sekolah_tanggungan')->nullable();
+            $table->json('keterangan_tanggungan')->nullable();
 
-            // Step 3: Data Wali (Make nullable, filled in later step)
+            // Step 3: Data Wali (make nullable, filled in later step)
             $table->string('nama_wali')->nullable();
             $table->string('tempat_lahir_wali')->nullable();
             $table->date('tanggal_lahir_wali')->nullable();
@@ -85,6 +88,10 @@ return new class extends Migration
             $table->string('kodepos_wali')->nullable();
             $table->string('telepon_wali')->nullable();
             $table->string('alamat_kantor_wali')->nullable();
+
+            // File path for proof of payment
+            $table->string('bukti_pembayaran')->nullable();
+            $table->string('status')->default('pending');
 
             // Timestamps
             $table->timestamps();

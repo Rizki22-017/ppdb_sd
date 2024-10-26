@@ -13,6 +13,8 @@ class Registration extends Model
     protected $fillable = [
         'user_id', // Track the user who submits the registration
 
+        'form_id',
+
         // Step 1: Data Siswa
         'nama_lengkap',
         'jenis_kelamin',
@@ -80,12 +82,19 @@ class Registration extends Model
         'alamat_wali',
         'kodepos_wali',
         'telepon_wali',
-        'alamat_kantor_wali'
+        'alamat_kantor_wali',
+        'bukti_pembayaran',
+        'status',
     ];
 
     // Cast the 'transportasi' field to an array
     protected $casts = [
         'transportasi' => 'array',
+        'nama_lengkap_tanggungan' => 'array',
+        'sekolah_tanggungan' => 'array',
+        'kelas_tanggungan' => 'array',
+        'uang_sekolah_tanggungan' => 'array',
+        'keterangan_tanggungan' => 'array',
     ];
 
     // Define the relationship to the user

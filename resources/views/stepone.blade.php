@@ -1,7 +1,6 @@
 @extends('layout.app')
 @section('content')
     <main class="main">
-
         <!-- Page Title -->
         <div class="page-title light-background">
             <div class="container">
@@ -17,11 +16,8 @@
 
         <!-- Features Section -->
         <section id="features" class="features section">
-
             <div class="container">
-
                 <div class="d-flex justify-content-center">
-
                     <ul class="nav nav-tabs" data-aos="fade-up" data-aos-delay="100">
 
                         <li class="nav-item">
@@ -41,16 +37,16 @@
                                 <h4>Step 3 : Data Wali</h4>
                             </a>
                         </li>
-
                     </ul>
 
                 </div>
 
                 <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+
                     <form action="{{ route('step1.post') }}" method="POST" id="formdata-step1">
                         @csrf
                         <input type="hidden" name="step" value="1">
-                        <input type="hidden" name="user_id" value="{{ $registration->user_id }}">
+                        <input type="hidden" name="user_id" value="{{ optional($registration)->user_id }}">
                         <div class="tab-pane fade @if ($step == 1) show active @endif" id="step1">
                             @if ($errors->any())
                                 <div class="alert alert-danger">
@@ -385,72 +381,6 @@
                             </div>
                         </div>
                     </form>
-                    <!--
-                        <form action="{{ route('step2.post') }}" method="POST" id="formdata-step2">
-                            @csrf
-                            <input type="hidden" name="step" value="2">
-                            <input type="hidden" name="user_id" value="{{ $registration->user_id }}">
-                            <div class="tab-pane fade @if ($step == 2) show active @endif" id="step2">
-                                @include('step.step2')
-                                <div class="d-flex justify-content-between mt-4">
-                                    <a href="{{ route('step1.show', ['user_id' => optional($registration)->user_id]) }}"
-                                        class="btn btn-secondary">Sebelumnya</a>
-
-
-                                    <button type="submit" class="btn btn-primary">Berikutnya</button>
-                                </div>
-                            </div>
-                        </form>
-
-
-                        <form action="{{ route('step3.post') }}" method="POST" id="formdata-step3">
-                            @csrf
-                            <input type="hidden" name="step" value="2">
-                            <input type="hidden" name="user_id" value="{{ $registration->user_id }}">
-
-                            <div class="tab-pane fade @if ($step == 3) show active @endif" id="step3">
-                                @include('step.step3')
-                                <div class="d-flex justify-content-between mt-4">
-                                    <a href="{{ route('step2.show', ['user_id' => $registration->user_id]) }}"
-                                        class="btn btn-secondary">Sebelumnya</a>
-
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">
-                                        Lanjutkan
-                                    </button>
-                                </div>
-
-                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Perhatian!</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p style="text-decoration: underline;"><b>Harap persiapkan data berikut :</b>
-                                                </p>
-                                                <ol>
-                                                    <li>Fotocopy Akte Kelahiran</li>
-                                                    <li>Fotocopy Kartu Keluarga</li>
-                                                    <li>Fotocopy KTP Orang Tua/Wali Murid</li>
-                                                    <li>Pas Photo Ukuran 3x4 Sebanyak 1 Lembar</li>
-                                                    <li>Fotocopy Ijazah TK (jika ada)</li>
-                                                </ol>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Lanjutkan</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div> -->
                 </div>
         </section>
     </main>

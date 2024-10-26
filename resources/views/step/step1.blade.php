@@ -105,19 +105,26 @@
                                     placeholder="Masukkan alamat tempat tinggal">
                             </div>
                             <div class="mb-3">
-                                <label for="nik" class="form-label">NIK (Nomor Induk Kependudukan)<span class="text-danger">*</span></label>
+                                <label for="nik" class="form-label">NIK (Nomor Induk Kependudukan)<span
+                                        class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="nik" name="nik"
-                                    placeholder="Masukkan nomor NIK" maxlength="16" pattern="\d{16}" title="NIK harus 16 digit angka" required>
+                                    placeholder="Masukkan nomor NIK" maxlength="16" pattern="\d{16}"
+                                    title="NIK harus 16 digit angka" required>
                             </div>
                             <div class="mb-3">
-                                <label for="nomor_kk" class="form-label">Nomor Kartu Keluarga<span class="text-danger">*</span></label>
+                                <label for="nomor_kk" class="form-label">Nomor Kartu Keluarga<span
+                                        class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="nomor_kk" name="nomor_kk"
-                                    placeholder="Masukkan nomor KK" maxlength="16" pattern="\d{16}" title="Nomor KK harus 16 digit angka" required>
+                                    placeholder="Masukkan nomor KK" maxlength="16" pattern="\d{16}"
+                                    title="Nomor KK harus 16 digit angka" required>
                             </div>
                             <div class="mb-3">
-                                <label for="no_regis_akta" class="form-label">Nomor Registrasi Akta Kelahiran<span class="text-danger">*</span></label>
+                                <label for="no_regis_akta" class="form-label">Nomor Registrasi Akta Kelahiran<span
+                                        class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="no_regis_akta" name="no_regis_akta"
-                                    placeholder="Masukkan nomor Registrasi Akta Kelahiran" maxlength="16" pattern="\d{16}" title="Nomor Registrasi Akta Kelahiran harus 16 digit angka" required>
+                                    placeholder="Masukkan nomor Registrasi Akta Kelahiran" maxlength="16"
+                                    pattern="\d{16}" title="Nomor Registrasi Akta Kelahiran harus 16 digit angka"
+                                    required>
                             </div>
 
                             <div class="mb-3">

@@ -4,25 +4,45 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Registration;
-
+use Illuminate\Support\Facades\Storage;
 
 class RegistrationController extends Controller
 {
-    // Example in showStep1, apply similar logic to showStep2 and showStep3 if needed
-    public function showStep1($id = null)
+    // Generate a new form ID with the format 001-OL-YYYY
+    private function generateFormId()
     {
-        if ($id != null) {
-            $data['register'] = Registration::where('user_id', auth()->id())->first();
+        $year = date('Y');
+        $prefix = '-OL-';
+
+        // Fetch the latest registration record for the current year
+        $latestRegistration = Registration::where('form_id', 'LIKE', "%$year")->latest('created_at')->first();
+
+        if ($latestRegistration) {
+            // Extract the numeric part of the latest form_id and increment it
+            $lastNumber = (int)substr($latestRegistration->form_id, 0, 3);
+            $newNumber = str_pad($lastNumber + 1, 3, '0', STR_PAD_LEFT);
+        } else {
+            // Start numbering from 001 if no records found for the current year
+            $newNumber = '001';
         }
-        $data['step'] = 1;
-        // Retrieve registration or return a new instance with default values
-        // $registration = Registration::where('user_id', auth()->id())->first() ?? new Registration(['user_id' => auth()->id()]);
-        return view('pendaftaran', $data);
+
+        return $newNumber . $prefix . $year;
+    }
+
+    // Show Step 1 form
+    public function showStep1()
+    {
+        $registration = Registration::where('user_id', auth()->id())->first();
+
+        return view('stepone', [
+            'registration' => $registration,
+            'step' => 1,
+        ]);
     }
 
 
     // Step 1: Handle POST for Step 1
-    public function postStep1(Request $request, $register_id = null)
+    public function postStep1(Request $request)
     {
         $validatedData = $request->validate([
             'nama_lengkap' => 'required|string|max:255',
@@ -37,7 +57,7 @@ class RegistrationController extends Controller
             'jumlah_saudara_angkat' => 'nullable|numeric',
             'bahasa' => 'required|string|max:255',
             'alamat_anak' => 'required|string|max:255',
-            'nik' => 'required|digits:16',
+            'nik' => 'required|digits:16|unique:registrations,nik',
             'nomor_kk' => 'required|digits:16',
             'no_regis_akta' => 'required|string|max:255',
             'jarak' => 'required|string|max:255',
@@ -45,33 +65,28 @@ class RegistrationController extends Controller
             'transportasi' => 'required|array',
         ]);
 
-        // Create or update registration entry
-        if ($register_id != null) {
-            $registration = Registration::updateOrCreate(
-                ['id' => $register_id],
-                array_merge($validatedData, ['user_id' => auth()->id()])
-            );
-        } else {
-            $registration = Registration::updateOrCreate(array_merge($validatedData, ['user_id' => auth()->id()]));
-        }
+        // Generate form ID and associate with authenticated user
+        $validatedData['form_id'] = $this->generateFormId();
+        $validatedData['user_id'] = auth()->id();
 
-        // Redirect to Step 2, passing the user_id
-        return redirect()->route('step2.show', ['form_id' => $registration->id]);
+        // Save registration data
+        $registration = Registration::create($validatedData);
+
+        // Redirect to Step 2 with the user ID parameter
+        return redirect()->route('step2.show', ['user_id' => auth()->id()]);
     }
 
-    // Step 2: Show the form for Step 2
-    public function showStep2($register_id)
-    {
-        $data['register_id'] = $register_id;
-        $data['step'] = 3;
-        $data['register'] = Registration::where('id', $register_id)->first();
 
-        return view('pendaftaran', $data);
+    // Step 2: Show the form for Step 2
+    public function showStep2($userId)
+    {
+        // Assuming $userId is the parameter for user ID or registration ID
+        return view('step.step2', ['register_id' => $userId]);
     }
 
 
     // Step 2: Handle POST for Step 2
-    public function postStep2(Request $request, $register_id)
+    public function postStep2(Request $request, $user_id)
     {
         $validatedData = $request->validate([
             'nama_lengkap_ayah' => 'required|string|max:255',
@@ -95,25 +110,28 @@ class RegistrationController extends Controller
             'status_tempat_tinggal' => 'required|string|max:255',
             'pendidikan_ayah' => 'required|string|max:255',
             'pendidikan_ibu' => 'required|string|max:255',
+            'nama_lengkap_tanggungan' => 'nullable|array',
+            'sekolah_tanggungan' => 'nullable|array',
+            'kelas_tanggungan' => 'nullable|array',
+            'uang_sekolah_tanggungan' => 'nullable|array',
+            'keterangan_tanggungan' => 'nullable|array',
         ]);
 
-        $registration = Registration::where('id', $register_id)->updateOrCreate($validatedData);
+        $registration = Registration::where('user_id', $user_id)->first();
+        $registration->update($validatedData);
 
-        return redirect()->route('step3.show', ['register_id' => $register_id]);
+        return redirect()->route('step3.show', ['user_id' => $user_id]);
     }
 
     // Step 3: Show the form for Step 3
-    public function showStep3($register_id)
+    public function showStep3($userId)
     {
-        $data['register_id'] = $register_id;
-        $data['step'] = 3;
-        $data['register'] = Registration::where('id', $register_id)->first();
-
-        return view('pendaftaran', $data);
+        // Assuming $userId is the parameter for user ID or registration ID
+        return view('step.step3', ['register_id' => $userId]);
     }
 
     // Step 3: Handle POST for Step 3
-    public function postStep3(Request $request, $register_id)
+    public function postStep3(Request $request, $user_id)
     {
         $validatedData = $request->validate([
             'nama_wali' => 'nullable|string|max:255',
@@ -127,7 +145,33 @@ class RegistrationController extends Controller
             'alamat_kantor_wali' => 'nullable|string|max:255',
         ]);
 
-        $registration = Registration::where('id', $register_id)->updateOrCreate($validatedData);
+        $registration = Registration::where('user_id', $user_id)->first();
+        $registration->update($validatedData);
+
+        return redirect()->route('proofPayment.show', ['user_id' => $user_id]);
+    }
+
+    // Show form for uploading proof of payment
+    public function showProofPayment($user_id)
+    {
+        $data['user_id'] = $user_id;
+        $data['register'] = Registration::where('user_id', $user_id)->first();
+
+        return view('proof_payment', $data);
+    }
+
+    // Handle proof of payment upload
+    public function postProofPayment(Request $request, $user_id)
+    {
+        $validatedData = $request->validate([
+            'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        if ($request->hasFile('bukti_pembayaran')) {
+            $filePath = $request->file('bukti_pembayaran')->store('proof_payments', 'public');
+            $registration = Registration::where('user_id', $user_id)->first();
+            $registration->update(['bukti_pembayaran' => $filePath]);
+        }
 
         return redirect()->route('successPage');
     }
