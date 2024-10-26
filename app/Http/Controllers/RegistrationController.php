@@ -93,8 +93,8 @@ class RegistrationController extends Controller
             'nik_ayah' => 'required|digits:16',
             'nama_lengkap_ibu' => 'required|string|max:255',
             'nik_ibu' => 'required|digits:16',
-            'status_ayah' => 'required|string|max:255',
-            'status_ibu' => 'required|string|max:255',
+            'status_ayah' => 'array',
+            'status_ibu' => 'array',
             'tempat_lahir_ayah' => 'required|string|max:255',
             'tanggal_lahir_ayah' => 'required|date',
             'tempat_lahir_ibu' => 'required|string|max:255',
@@ -110,6 +110,10 @@ class RegistrationController extends Controller
             'status_tempat_tinggal' => 'required|string|max:255',
             'pendidikan_ayah' => 'required|string|max:255',
             'pendidikan_ibu' => 'required|string|max:255',
+            'pekerjaan_ayah' => 'required|string|max:255',
+            'pekerjaan_ibu' => 'required|string|max:255',
+            'penghasilan_ayah' => 'required|string|max:255',
+            'penghasilan_ibu' => 'required|string|max:255',
             'nama_lengkap_tanggungan' => 'nullable|array',
             'sekolah_tanggungan' => 'nullable|array',
             'kelas_tanggungan' => 'nullable|array',
@@ -120,7 +124,16 @@ class RegistrationController extends Controller
         $registration = Registration::where('user_id', $user_id)->first();
         $registration->update($validatedData);
 
-        return redirect()->route('stepthree.show', ['user_id' => $user_id]);
+        // Save array fields for tanggungan
+        $registration->update([
+            'nama_lengkap_tanggungan' => $validatedData['nama_lengkap_tanggungan'] ?? [],
+            'sekolah_tanggungan' => $validatedData['sekolah_tanggungan'] ?? [],
+            'kelas_tanggungan' => $validatedData['kelas_tanggungan'] ?? [],
+            'uang_sekolah_tanggungan' => $validatedData['uang_sekolah_tanggungan'] ?? [],
+            'keterangan_tanggungan' => $validatedData['keterangan_tanggungan'] ?? [],
+        ]);
+
+        return redirect()->route('step3.show', ['user_id' => $user_id]);
     }
 
     // Step 3: Show the form for Step 3
