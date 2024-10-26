@@ -81,7 +81,7 @@ class RegistrationController extends Controller
     public function showStep2($userId)
     {
         // Assuming $userId is the parameter for user ID or registration ID
-        return view('step.step2', ['register_id' => $userId]);
+        return view('steptwo', ['register_id' => $userId]);
     }
 
 
@@ -127,7 +127,7 @@ class RegistrationController extends Controller
     public function showStep3($userId)
     {
         // Assuming $userId is the parameter for user ID or registration ID
-        return view('step.step3', ['register_id' => $userId]);
+        return view('stepthree', ['register_id' => $userId]);
     }
 
     // Step 3: Handle POST for Step 3
