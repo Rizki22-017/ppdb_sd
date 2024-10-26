@@ -9,12 +9,9 @@ class Registration extends Model
 {
     use HasFactory;
 
-    // Specify the fields that are mass assignable
     protected $fillable = [
-        'user_id', // Track the user who submits the registration
-
+        'user_id',
         'form_id',
-
         // Step 1: Data Siswa
         'nama_lengkap',
         'jenis_kelamin',
@@ -33,8 +30,7 @@ class Registration extends Model
         'no_regis_akta',
         'jarak',
         'tempat_tinggal',
-        'transportasi',
-
+        'transportasi', // Array
         // Step 2: Data Orang Tua
         'nama_lengkap_ayah',
         'nik_ayah',
@@ -70,8 +66,7 @@ class Registration extends Model
         'sekolah_tanggungan',
         'kelas_tanggungan',
         'uang_sekolah_tanggungan',
-        'keterangan_tanggungan',
-
+        'keterangan_tanggungan', // Array fields
         // Step 3: Data Wali
         'nama_wali',
         'tempat_lahir_wali',
@@ -84,10 +79,9 @@ class Registration extends Model
         'telepon_wali',
         'alamat_kantor_wali',
         'bukti_pembayaran',
-        'status',
+        'status'
     ];
 
-    // Cast the 'transportasi' field to an array
     protected $casts = [
         'transportasi' => 'array',
         'nama_lengkap_tanggungan' => 'array',
@@ -97,9 +91,26 @@ class Registration extends Model
         'keterangan_tanggungan' => 'array',
     ];
 
-    // Define the relationship to the user
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Helper function to retrieve all registration data as an associative array.
+     * Useful for populating PDFs or other structured outputs.
+     */
+    public function getFormattedData()
+    {
+        return [
+            'nama_lengkap' => $this->nama_lengkap,
+            'jenis_kelamin' => $this->jenis_kelamin,
+            'tanggal_lahir' => $this->tanggal_lahir,
+            'alamat' => $this->alamat_anak,
+            'nik' => $this->nik,
+            'status' => $this->status,
+            'transportasi' => implode(', ', $this->transportasi ?? []), // Join array values for easy display
+            // Add more fields as needed, with custom formatting if required
+        ];
     }
 }

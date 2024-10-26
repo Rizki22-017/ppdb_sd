@@ -47,6 +47,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    // routes/web.php
+
+    Route::get('/profile/pdf', [ProfileController::class, 'downloadPdf'])->name('profile.downloadPdf');
 });
 
 // Dashboard routes restricted to admin users
@@ -58,7 +61,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('/dashboard/registration/{id}', [DashboardController::class, 'destroy'])->name('registration.destroy');
     Route::patch('/dashboard/registration/{id}/status', [DashboardController::class, 'updateStatus'])->name('registration.updateStatus');
     // routes/web.php
-
+    Route::post('/dashboard/reset', [DashboardController::class, 'reset'])->name('dashboard.reset');
     Route::put('/registrations/{id}/update-status', [DashboardController::class, 'updateStatus'])->name('registrations.updateStatus');
 });
 

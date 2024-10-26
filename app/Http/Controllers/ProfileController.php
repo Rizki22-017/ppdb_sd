@@ -3,14 +3,45 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use Dompdf\Dompdf;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use PhpOffice\PhpWord\TemplateProcessor;
 
 class ProfileController extends Controller
 {
+
+
+    public function downloadPdf(Request $request)
+    {
+        $user = $request->user();
+
+        // Load a Word template with placeholders
+        $templatePath = resource_path('templates/profile_template.docx');
+        $templateProcessor = new TemplateProcessor($templatePath);
+
+        // Fill placeholders with user data
+        $templateProcessor->setValue('NAME', $user->name);
+        $templateProcessor->setValue('EMAIL', $user->email);
+        $templateProcessor->setValue('CREATED_AT', $user->created_at->format('Y-m-d'));
+        // Add more fields as needed
+
+        // Save the filled template as HTML
+        $htmlFilePath = storage_path('app/temp_profile.html');
+        $templateProcessor->saveAs($htmlFilePath);
+        $htmlContent = file_get_contents($htmlFilePath);
+
+        // Convert HTML to PDF using Dompdf
+        $dompdf = new Dompdf();
+        $dompdf->loadHtml($htmlContent);
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+
+        return $dompdf->stream('profile_' . $user->id . '.pdf');
+    }
     /**
      * Display the user's profile form.
      */

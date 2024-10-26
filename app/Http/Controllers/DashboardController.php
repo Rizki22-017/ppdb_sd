@@ -55,4 +55,12 @@ class DashboardController extends Controller
 
         return redirect()->route('dashboard')->with('success', 'Status updated successfully.');
     }
+
+    public function reset()
+    {
+        // Delete all registrations
+        Registration::truncate();
+
+        return redirect()->route('dashboard')->with('success', 'All registrations have been deleted successfully.');
+    }
 }
