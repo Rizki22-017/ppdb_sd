@@ -43,12 +43,404 @@
                                                     class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="namaLengkapAyah"
                                                 name="nama_lengkap_ayah" required placeholder="Masukan nama lengkap ayah">
+                                            <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
                                         </div>
                                         <div class="mb-3">
                                             <label for="nikAyah" class="form-label">NIK Ayah<span
                                                     class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="nikAyah" name="nik_ayah"
-                                                required placeholder="Masukan NIK ayah" maxlength="16" pattern="\d{16}">
+                                                required placeholder="Masukan NIK ayah" maxlength="16" pattern="\d{16}"
+                                                title="NIK harus 16 digit angka">
+                                            <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="namaLengkapIbu" class="form-label">Nama Lengkap Ibu <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="namaLengkapIbu"
+                                                name="nama_lengkap_ibu" required placeholder="Masukan nama lengkap ayah">
+                                            <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="nikAyah" class="form-label">NIK Ibu<span
+                                                    class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="nikIbu" name="nik_ibu"
+                                                required placeholder="Masukan NIK ayah" maxlength="16" pattern="\d{16}"
+                                                title="NIK harus 16 digit angka">
+                                            <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                                        </div>
+                                        <div class="row mb-3">
+                                            <legend class="col-form-label col-sm-2 pt-0">Status Ayah</legend>
+                                            <div class="col-sm-10 d-flex align-items-center gap-5">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="statusAyah1"
+                                                        name="status_ayah[]">
+                                                    <label class="form-check-label" for="statusAyah1">
+                                                        Kandung
+                                                    </label>
+                                                </div>
+
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="statusAyah2"
+                                                        name="status_ayah[]">
+                                                    <label class="form-check-label" for="statusAyah2">
+                                                        Tiri
+                                                    </label>
+                                                </div>
+
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="statusAyah3"
+                                                        name="status_ayah[]">
+                                                    <label class="form-check-label" for="statusAyah3">
+                                                        Angkat
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <legend class="col-form-label col-sm-2 pt-0">Status Ibu</legend>
+                                            <div class="col-sm-10 d-flex align-items-center gap-5">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="statusIbu1"
+                                                        name="status_ibu[]">
+                                                    <label class="form-check-label" for="statusIbu1">
+                                                        Kandung
+                                                    </label>
+                                                </div>
+
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="statusIbu2"
+                                                        name="status_ibu[]">
+                                                    <label class="form-check-label" for="statusIbu2">
+                                                        Tiri
+                                                    </label>
+                                                </div>
+
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="statusIbu3"
+                                                        name="status_ibu[]">
+                                                    <label class="form-check-label" for="statusIbu3">
+                                                        Angkat
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="tempatLahirA" class="form-label">Tempat/Tanggal Lahir Ayah <span
+                                                    class="text-danger">*</span></label>
+                                            <div class="row">
+                                                <div class="col-12 col-md-6 mb-2">
+                                                    <input type="text" class="form-control" id="tempatLahirA"
+                                                        name="tempat_lahir_ayah" required
+                                                        placeholder="Masukan tempat lahir ayah">
+                                                </div>
+                                                <div class="col-12 col-md-6 mb-2">
+                                                    <input type="date" class="form-control" id="tanggalLahirA"
+                                                        name="tanggal_lahir_ayah" required>
+                                                </div>
+                                            </div>
+                                            <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="tempatLahirI" class="form-label">Tempat/Tanggal Lahir Ibu <span
+                                                    class="text-danger">*</span></label>
+                                            <div class="row">
+                                                <div class="col-12 col-md-6 mb-2">
+                                                    <input type="text" class="form-control" id="tempatLahirI"
+                                                        name="tempat_lahir_ibu" required
+                                                        placeholder="Masukan tempat lahir ibu">
+                                                </div>
+                                                <div class="col-12 col-md-6 mb-2">
+                                                    <input type="date" class="form-control" id="tanggalLahirI"
+                                                        name="tanggal_lahir_ibu" required>
+                                                </div>
+                                            </div>
+                                            <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="alamat" class="form-label">Alamat Rumah<span
+                                                    class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="alamat" name="alamat_ortu"
+                                                required placeholder="Contoh : Jl. Sudirman No. 00, Kota Padang">
+                                            <span class="error-message"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="kodePos" class="form-label">Kode Pos<span
+                                                    class="text-danger">*</span></label>
+                                            <input type="number" class="form-control" id="kodepos"
+                                                name="kode_pos_ortu" required placeholder="Masukan kode pos anda">
+                                            <span class="error-message"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="notelp" class="form-label">Nomor Telepon<span
+                                                    class="text-danger">*</span></label>
+                                            <input type="tel" class="form-control" id="notelp"
+                                                name="no_telp_ortu" required placeholder="Contoh : 6282123456789">
+                                            <span class="error-message"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <p class="mb-1">Kantor/Tempat Kerja</p>
+                                            <div class="mb-1 row">
+                                                <label for="kantorAyah" class="col-sm-2 col-form-label">a. Ayah <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="col-sm-10">
+                                                    <input type="tel" class="form-control" id="kantorAyah"
+                                                        name="kantor_ayah" required
+                                                        placeholder="Jl. Sudirman, Kota Padang">
+                                                    <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label for="kantorIbu" class="col-sm-2 col-form-label">b. Ibu <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="col-sm-10">
+                                                    <input type="tel" class="form-control" id="kantorIbu"
+                                                        name="kantor_ibu" required
+                                                        placeholder="Jl. Sudirman, Kota Padang">
+                                                    <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <p class="mb-1">Yang dapat dihubungi dengan cepat jika terjadi sesuatu
+                                                (Emergency) / No. HP
+                                            </p>
+                                            <div class="mb-1 row">
+                                                <label for="nohpAyah" class="col-sm-2 col-form-label">a. Ayah <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="col-sm-10">
+                                                    <input type="tel" class="form-control" id="nohpAyah"
+                                                        name="no_hp_ayah" required placeholder="Contoh : 6282123456789">
+                                                    <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label for="nohpIbu" class="col-sm-2 col-form-label">b. Ibu <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="col-sm-10">
+                                                    <input type="tel" class="form-control" id="nohpIbu"
+                                                        name="no_hp_ibu" required placeholder="Contoh : 6282123456789">
+                                                    <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <fieldset class="row mb-3">
+                                            <legend class="col-form-label col-sm-2 pt-0">Kawasan Tinggal<span
+                                                    class="text-danger">*</span>
+                                            </legend>
+                                            <div class="col-sm-10">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="kawasan_tinggal"
+                                                        id="kawasanTinggal1" value="Perumahan/Komplek">
+                                                    <label class="form-check-label"
+                                                        for="kawasanTinggal1">Perumahan/Komplek</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="kawasan_tinggal"
+                                                        id="kawasanTinggal2" value="Ruko">
+                                                    <label class="form-check-label" for="kawasanTinggal2">Ruko</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="kawasan_tinggal"
+                                                        id="kawasanTinggal3" value="Perkampungan">
+                                                    <label class="form-check-label"
+                                                        for="kawasanTinggal3">Perkampungan</label>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+
+                                        <fieldset class="row mb-3">
+                                            <legend class="col-form-label col-sm-2 pt-0">Status Tempat Tinggal<span
+                                                    class="text-danger">*</span></legend>
+                                            <div class="col-sm-10">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio"
+                                                        name="status_tempat_tinggal" id="statusTempatTinggal1"
+                                                        value="Milik Pribadi">
+                                                    <label class="form-check-label" for="statusTempatTinggal1">Milik
+                                                        Pribadi</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio"
+                                                        name="status_tempat_tinggal" id="statusTempatTinggal2"
+                                                        value="Sewa">
+                                                    <label class="form-check-label"
+                                                        for="statusTempatTinggal2">Sewa</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio"
+                                                        name="status_tempat_tinggal" id="statusTempatTinggal3"
+                                                        value="Tumpangan">
+                                                    <label class="form-check-label"
+                                                        for="statusTempatTinggal3">Tumpangan</label>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row mb-3" style="padding-top: 2rem">
+                                            <legend class="col-form-label col-sm-2 pt-0">Pendidikan Ayah</legend>
+                                            <div class="col-sm-10">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="pendidikan_ayah"
+                                                        id="pendidikanAyah1" value="SD" onclick="toggleInputPendidikan()">
+                                                    <label class="form-check-label" for="pendidikanAyah1">SD</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="pendidikan_ayah"
+                                                        id="pendidikanAyah2" value="SMP" onclick="toggleInputPendidikan()">
+                                                    <label class="form-check-label" for="pendidikanAyah2">SMP</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="pendidikan_ayah"
+                                                        id="pendidikanAyah3" value="SMA" onclick="toggleInputPendidikan()">
+                                                    <label class="form-check-label" for="pendidikanAyah3">SMA</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="pendidikan_ayah"
+                                                        id="pendidikanAyah4" value="SMA" onclick="toggleInputPendidikan()">
+                                                    <label class="form-check-label" for="pendidikanAyah4">DIII</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="pendidikan_ayah"
+                                                        id="pendidikanAyah5" value="SMA" onclick="toggleInputPendidikan()">
+                                                    <label class="form-check-label" for="pendidikanAyah5">S1</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="pendidikan_ayah"
+                                                        id="pendidikanAyah6" value="SMA" onclick="toggleInputPendidikan()">
+                                                    <label class="form-check-label" for="pendidikanAyah6">S2</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="pendidikan_ayah"
+                                                        id="pendidikanAyah7" value="Lain-lain" onclick="toggleInputPendidikan()">
+                                                    <label class="form-check-label" for="pendidikanAyah7">Lain-lain, sebutkan...</label>
+                                                </div>
+                                                <input type="text" class="form-control mt-2" id="inputLainpendidikan_ayah_lain"
+                                                    name="pendidikan_ayah_lain" placeholder="Sebutkan..." style="display:none;">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3" style="padding-top: 2rem">
+                                            <legend class="col-form-label col-sm-2 pt-0">Pendidikan Ibu</legend>
+                                            <div class="col-sm-10">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="pendidikan_ibu" id="pendidikanIbu1"
+                                                        value="SD" onclick="toggleInputPendidikan()">
+                                                    <label class="form-check-label" for="pendidikanIbu1">SD</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="pendidikan_ibu" id="pendidikanIbu2"
+                                                        value="SMP" onclick="toggleInputPendidikan()">
+                                                    <label class="form-check-label" for="pendidikanIbu2">SMP</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="pendidikan_ibu" id="pendidikanIbu3"
+                                                        value="SMA" onclick="toggleInputPendidikan()">
+                                                    <label class="form-check-label" for="pendidikanIbu3">SMA</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="pendidikan_ibu" id="pendidikanIbu4"
+                                                        value="SMA" onclick="toggleInputPendidikan()">
+                                                    <label class="form-check-label" for="pendidikanIbu4">DIII</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="pendidikan_ibu" id="pendidikanIbu5"
+                                                        value="SMA" onclick="toggleInputPendidikan()">
+                                                    <label class="form-check-label" for="pendidikanIbu5">S1</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="pendidikan_ibu" id="pendidikanIbu6"
+                                                        value="SMA" onclick="toggleInputPendidikan()">
+                                                    <label class="form-check-label" for="pendidikanIbu6">S2</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="pendidikan_ibu" id="pendidikanIbu7"
+                                                        value="Lain-lain" onclick="toggleInputPendidikan()">
+                                                    <label class="form-check-label" for="pendidikanIbu7">Lain-lain, sebutkan...</label>
+                                                </div>
+                                                <input type="text" class="form-control mt-2" id="inputLainPendidikanIbu"
+                                                    name="pendidikan_ibu_lain" placeholder="Sebutkan..." style="display:none;">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <p class="mb-1">Pekerjaan Ayah Sebagai <span class="text-danger">*</span></p>
+                                            <div class="col-sm-12">
+                                                <select class="form-select" aria-label="Default select example" id="jobSelectAyah"
+                                                    name="pekerjaan_ayah" onchange="updatePlaceholderAyah()">
+                                                    <option selected>Klik untuk memilih</option>
+                                                    <option value="1">Pegawai Negeri, dengan Golongan</option>
+                                                    <option value="2">Pegawai Swasta, dengan Jabatan</option>
+                                                    <option value="3">Pengusaha, dengan Bidang Usaha</option>
+                                                    <option value="4">Wiraswasta, dengan Bidang Usaha</option>
+                                                    <option value="5">Militer, dengan Pangkat</option>
+                                                    <option value="6">Polisi, dengan Pangkat</option>
+                                                    <option value="7">Buruh, Petani, Nelayan</option>
+                                                    <option value="8">Lain-Lain, sebutkan</option>
+                                                </select>
+                                                <input type="text" class="form-control mt-2" id="detailInputAyah"
+                                                    name="pekerjaan_ayah_detail" placeholder="Masukan detail golongan"
+                                                    style="display: none;">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <p class="mb-1">Pekerjaan Ibu Sebagai <span class="text-danger">*</span></p>
+                                            <div class="col-sm-12">
+                                                <select class="form-select" aria-label="Default select example" id="jobSelectIbu"
+                                                    name="pekerjaan_ibu" onchange="updatePlaceholderIbu()">
+                                                    <option selected>Klik untuk memilih</option>
+                                                    <option value="1">Pegawai Negeri, dengan Golongan</option>
+                                                    <option value="2">Pegawai Swasta, dengan Jabatan</option>
+                                                    <option value="3">Pengusaha, dengan Bidang Usaha</option>
+                                                    <option value="4">Wiraswasta, dengan Bidang Usaha</option>
+                                                    <option value="5">Militer, dengan Pangkat</option>
+                                                    <option value="6">Polisi, dengan Pangkat</option>
+                                                    <option value="7">Buruh, Petani, Nelayan</option>
+                                                    <option value="8">Lain-Lain, sebutkan</option>
+                                                </select>
+                                                <input type="text" class="form-control mt-2" id="detailInputIbu"
+                                                    name="pekerjaan_ibu_detail" placeholder="Masukan detail golongan" style="display: none;">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <p class="mb-1">Penghasilan Sebulan yang diperoleh Ayah<span class="text-danger">*</span>
+                                            </p>
+                                            <div class="col-sm-12">
+                                                <select class="form-select" aria-label="Default select example" id="penghasilan"
+                                                    name="penghasilan_ayah">
+                                                    <option selected>Klik untuk memilih</option>
+                                                    <option value="1">Kurang dari Rp.2.000.000</option>
+                                                    <option value="2">Rp.5.000.000 s/d Rp.10.000.000</option>
+                                                    <option value="3">Lebih dari Rp.10.000.000</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <p class="mb-1">Penghasilan Sebulan yang diperoleh Ibu<span class="text-danger">*</span></p>
+                                            <div class="col-sm-12">
+                                                <select class="form-select" aria-label="Default select example" id="penghasilanIbu"
+                                                    name="penghasilan_ibu">
+                                                    <option selected>Klik untuk memilih</option>
+                                                    <option value="1">Kurang dari Rp.2.000.000</option>
+                                                    <option value="2">Rp.5.000.000 s/d Rp.10.000.000</option>
+                                                    <option value="3">Lebih dari Rp.10.000.000</option>
+                                                </select>
+                                            </div>
                                         </div>
 
                                         <!-- Additional fields for Data Orang Tua go here -->
@@ -63,6 +455,8 @@
 
                                         <!-- Hidden inputs for tanggungan data -->
                                         <div id="hiddenInputsContainer"></div>
+
+
                                     </div>
                                 </div>
                             </div>
