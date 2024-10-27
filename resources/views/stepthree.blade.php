@@ -96,6 +96,52 @@
                                             id="alamat_kantor_wali" placeholder="Masukkan Alamat Kantor/Tempat Kerja"
                                             maxlength="255">
                                     </div>
+                                    <div class="mb-3">
+                                        <label for="tanggungan_wali" class="form-label">Tanggungan terhadap murid dalam
+                                            bentuk<span class="text-danger">*</span></label>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="tanggungan_wali"
+                                                        id="uangSekolah" value="Menanggung Uang Sekokah">
+                                                    <label class="form-check-label" for="uangSekolah">Menanggung Uang
+                                                        Sekolah</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="tanggungan_wali"
+                                                        id="buku" value="Menanggung Buku-buku">
+                                                    <label class="form-check-label" for="buku">Menanggung
+                                                        Buku-buku</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="tanggungan_wali"
+                                                        id="penginapan" value="Menanggung Penginapan">
+                                                    <label class="form-check-label" for="penginapan">Menanggung
+                                                        Penginapan</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="tanggungan_wali"
+                                                        id="tanggungan_wali_lain" value="Lain-lain">
+                                                    <label class="form-check-label"
+                                                        for="tanggungan_wali_lain">Lain-lain</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Input teks yang akan muncul jika 'Lain-lain' dipilih -->
+                                        <div id="inputLainLainTanggunganWali" class="mt-3" style="display:none;">
+                                            <label for="tanggunganWaliLain" class="form-label">Lain-lain,
+                                                sebutkan:</label>
+                                            <input type="text" class="form-control" id="tanggunganWaliLain"
+                                                name="tanggungan_wali_lain" placeholder="Masukkan tanggungan lain">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 

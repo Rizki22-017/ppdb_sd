@@ -44,6 +44,14 @@ class RegistrationController extends Controller
     // Step 1: Handle POST for Step 1
     public function postStep1(Request $request)
     {
+
+        // Check if the user already has a registration entry
+        $existingRegistration = Registration::where('user_id', auth()->id())->first();
+
+        if ($existingRegistration) {
+            // If an entry exists, redirect back with an error message
+            return redirect()->route('step1.show')->with('error', 'Anda telah terdaftar di sistem, gunakan akun lain jika ingin mendaftar siswa yang berbeda.');
+        }
         $validatedData = $request->validate([
             'nama_lengkap' => 'required|string|max:255',
             'jenis_kelamin' => 'required|string',
@@ -157,9 +165,6 @@ class RegistrationController extends Controller
         ]);
     }
 
-
-
-
     // Step 3: Handle POST for Step 3
     public function postStep3(Request $request, $user_id)
     {
@@ -198,14 +203,26 @@ class RegistrationController extends Controller
             'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
+
+        $registration = Registration::where('user_id', $user_id)->firstOrFail();
+
         if ($request->hasFile('bukti_pembayaran')) {
+            // Delete the old file if it exists
+            if ($registration->bukti_pembayaran && Storage::exists('public/' . $registration->bukti_pembayaran)) {
+                Storage::delete('public/' . $registration->bukti_pembayaran);
+            }
+
+            // Store the new file
             $filePath = $request->file('bukti_pembayaran')->store('proof_payments', 'public');
-            $registration = Registration::where('user_id', $user_id)->first();
+
+            // Update the registration record with the new file path
             $registration->update(['bukti_pembayaran' => $filePath]);
         }
 
-        return redirect()->route('successPage');
+        return redirect()->route('successPage')->with('success', 'Bukti pembayaran berhasil diunggah.');
     }
+
+
 
 
     public function updateStatus(Request $request, $id)
@@ -224,6 +241,6 @@ class RegistrationController extends Controller
     // Success page after completing registration
     public function success()
     {
-        return view('success');
+        return view('profile');
     }
 }

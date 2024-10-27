@@ -1,5 +1,12 @@
 @extends('layout.app')
 @section('content')
+
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+
     <main class="main">
         <!-- Page Title -->
         <div class="page-title light-background">

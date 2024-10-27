@@ -2,6 +2,11 @@
 @section('content')
     <main class="main">
         <!-- Page Title -->
+        @if ($errors->has('bukti_pembayaran'))
+            <div class="alert alert-danger">
+                {{ $errors->first('bukti_pembayaran') }}
+            </div>
+        @endif
         <div class="page-title light-background">
             <div class="container">
                 <nav class="breadcrumbs">
@@ -39,7 +44,7 @@
 
                                 <div class="mb-3">
                                     <label for="proof_of_payment" class="form-label">Unggah Bukti Pembayaran</label>
-                                    <input type="file" class="form-control" name="bukti_payment" id="proof_of_payment"
+                                    <input type="file" class="form-control" name="bukti_pembayaran" id="proof_of_payment"
                                         accept="image/*, application/pdf" required>
                                     <small class="form-text text-muted">Format yang diterima: .jpg, .png, .pdf (Maks
                                         5MB)</small>
@@ -49,8 +54,9 @@
                                     <div class="mb-3">
                                         <label class="form-label">Bukti Pembayaran Sebelumnya</label>
                                         <div>
-                                            <a href="{{ asset('storage/' . $registration->proof_of_payment) }}"
+                                            <a href="{{ asset('storage/' . $registration->bukti_pembayaran) }}"
                                                 target="_blank">Lihat Bukti Pembayaran</a>
+
                                         </div>
                                     </div>
                                 @endif
