@@ -186,7 +186,7 @@
                                                 <label for="kantorAyah" class="col-sm-2 col-form-label">a. Ayah <span
                                                         class="text-danger">*</span></label>
                                                 <div class="col-sm-10">
-                                                    <input type="tel" class="form-control" id="kantorAyah"
+                                                    <input type="text" class="form-control" id="kantorAyah"
                                                         name="kantor_ayah" required
                                                         placeholder="Jl. Sudirman, Kota Padang">
                                                     <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
@@ -196,7 +196,7 @@
                                                 <label for="kantorIbu" class="col-sm-2 col-form-label">b. Ibu <span
                                                         class="text-danger">*</span></label>
                                                 <div class="col-sm-10">
-                                                    <input type="tel" class="form-control" id="kantorIbu"
+                                                    <input type="text" class="form-control" id="kantorIbu"
                                                         name="kantor_ibu" required
                                                         placeholder="Jl. Sudirman, Kota Padang">
                                                     <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
