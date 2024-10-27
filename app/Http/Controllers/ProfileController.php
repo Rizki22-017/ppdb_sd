@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Registration;
 use Dompdf\Dompdf;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -47,8 +48,14 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        $user = $request->user();
+
+        // Fetch the registration status if a registration exists for the user
+        $registration = Registration::where('user_id', $user->id)->first();
+
         return view('profile.edit', [
-            'user' => $request->user(),
+            'user' => $user,
+            'registrationStatus' => $registration ? $registration->status : 'Not Registered', // Default if no registration
         ]);
     }
 

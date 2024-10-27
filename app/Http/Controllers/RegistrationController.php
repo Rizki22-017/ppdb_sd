@@ -241,6 +241,6 @@ class RegistrationController extends Controller
     // Success page after completing registration
     public function success()
     {
-        return view('profile');
+        return view('profile.edit');
     }
 }
