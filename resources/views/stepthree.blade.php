@@ -1,72 +1,116 @@
-@extends('layout.app')
-@section('content')
-    <main class="main">
+    @extends('layout.app')
+    @section('content')
+        <main class="main">
 
-        <!-- Page Title -->
-        <div class="page-title light-background">
-            <div class="container">
-                <nav class="breadcrumbs">
-                    <ol>
-                        <li><a href="/">Home</a></li>
-                        <li class="current">Pendaftaran Siswa Baru</li>
-                    </ol>
-                </nav>
-                <h1>Pendaftaran Siswa Baru</h1>
-            </div>
-        </div><!-- End Page Title -->
-
-        <!-- Features Section -->
-        <section id="features" class="features section">
-
-            <div class="container">
-
-                <div class="d-flex justify-content-center">
-
-                    <ul class="nav nav-tabs" data-aos="fade-up" data-aos-delay="100">
-
-                        <li class="nav-item">
-                            <a class="nav-link active show" href="#" aria-disabled="true">
-                                <h4>Step 1 : Data Siswa</h4>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" aria-disabled="true">
-                                <h4>Step 2 : Data Orang Tua</h4>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" aria-disabled="true">
-                                <h4>Step 3 : Data Wali</h4>
-                            </a>
-                        </li>
-
-                    </ul>
-
+            <!-- Page Title -->
+            <div class="page-title light-background">
+                <div class="container">
+                    <nav class="breadcrumbs">
+                        <ol>
+                            <li><a href="/">Home</a></li>
+                            <li class="current">Pendaftaran Siswa Baru</li>
+                        </ol>
+                    </nav>
+                    <h1>Pendaftaran Siswa Baru</h1>
                 </div>
+            </div><!-- End Page Title -->
 
-                <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+            <!-- Features Section -->
+            <section id="features" class="features section">
+                <div class="container">
+                    <div class="d-flex justify-content-center">
+                        <ul class="nav nav-tabs" data-aos="fade-up" data-aos-delay="100">
+                            <li class="nav-item">
+                                <a class="nav-link active show" href="#" aria-disabled="true">
+                                    <h4>Step 3 : Data Wali</h4>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
 
-                    <form action="{{ route('step3.post') }}" method="POST" id="formdata-step3">
-                        @csrf
-                        <input type="hidden" name="step" value="2">
-                        <input type="hidden" name="user_id" value="{{ optional($registration)->user_id }}">
+                    <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+                        <form action="{{ route('step3.post', $register_id) }}" method="POST" id="step3Form">
+                            @csrf
+                            <input type="hidden" name="step" value="3">
+                            <input type="hidden" name="user_id" value="{{ $registration->user_id }}">
 
-                        <div class="tab-pane fade @if ($step == 3) show active @endif" id="step3">
-                            @include('step.step3')
-                            <div class="d-flex justify-content-between mt-4">
-                                <a href="{{ route('step2.show', ['user_id' => $registration->user_id]) }}"
-                                    class="btn btn-secondary">Sebelumnya</a>
+                            <!-- Data Wali Section -->
+                            <div class="card mt-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Data Wali</h5>
 
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#staticBackdrop">
-                                    Lanjutkan
-                                </button>
+                                    <div class="mb-3">
+                                        <label for="nama_wali" class="form-label">Nama Wali</label>
+                                        <input type="text" class="form-control" name="nama_wali" id="nama_wali"
+                                            placeholder="Masukkan Nama Wali" maxlength="255">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="tempat_lahir_wali" class="form-label">Tempat Lahir</label>
+                                        <input type="text" class="form-control" name="tempat_lahir_wali"
+                                            id="tempat_lahir_wali" placeholder="Masukkan Tempat Lahir" maxlength="255">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="tanggal_lahir_wali" class="form-label">Tanggal Lahir</label>
+                                        <input type="date" class="form-control" name="tanggal_lahir_wali"
+                                            id="tanggal_lahir_wali">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="pendidikan_wali" class="form-label">Pendidikan Terakhir</label>
+                                        <input type="text" class="form-control" name="pendidikan_wali"
+                                            id="pendidikan_wali" placeholder="Masukkan Pendidikan Terakhir" maxlength="255">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="hubungan_murid_wali" class="form-label">Hubungan Kekeluargaan dengan
+                                            Murid</label>
+                                        <input type="text" class="form-control" name="hubungan_murid_wali"
+                                            id="hubungan_murid_wali" placeholder="Masukkan Hubungan Kekeluargaan"
+                                            maxlength="255">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="alamat_wali" class="form-label">Alamat Wali</label>
+                                        <input type="text" class="form-control" name="alamat_wali" id="alamat_wali"
+                                            placeholder="Masukkan Alamat Wali" maxlength="255">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="kodepos_wali" class="form-label">Kode POS</label>
+                                        <input type="text" class="form-control" name="kodepos_wali" id="kodepos_wali"
+                                            placeholder="Masukkan Kode POS" maxlength="10">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="telepon_wali" class="form-label">Nomor Telepon</label>
+                                        <input type="text" class="form-control" name="telepon_wali" id="telepon_wali"
+                                            placeholder="Masukkan Nomor Telepon" maxlength="15">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="alamat_kantor_wali" class="form-label">Alamat Kantor/Tempat
+                                            Kerja</label>
+                                        <input type="text" class="form-control" name="alamat_kantor_wali"
+                                            id="alamat_kantor_wali" placeholder="Masukkan Alamat Kantor/Tempat Kerja"
+                                            maxlength="255">
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <a href="{{ route('step2.show', ['user_id' => $register_id]) }}"
+                                class="btn btn-secondary mt-3">Back</a>
+                            <!-- Submit Button with Modal Trigger -->
+                            <button type="button" class="btn btn-primary mt-4" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop">
+                                Submit
+                            </button>
+
+                            <!-- Modal Confirmation -->
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -93,163 +137,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- JavaScript for step navigation -->
-    <script>
-        let currentStep = 0;
-        const steps = document.querySelectorAll('.tab-pane');
-        const stepIndicator = document.querySelectorAll('.nav-tabs .nav-link');
-        const btnNext = document.querySelectorAll('.btn-next');
-        const btnPrev = document.querySelectorAll('.btn-prev');
-
-        function showStep(step) {
-            // Remove 'show' and 'active' class from all steps and hide them
-            steps.forEach((el, index) => {
-                el.classList.remove('show', 'active'); // Hide all steps
-                stepIndicator[index].classList.remove('active'); // Deactivate step indicator
-            });
-
-            // Show the current step and activate the respective tab
-            steps[step].classList.add('show', 'active');
-            stepIndicator[step].classList.add('active');
-
-            // Scroll to the top of the page whenever a new step is shown
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth' // Smooth scrolling to the top
-            });
-        }
-
-        btnNext.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault(); // Only for next/prev buttons, not the submit button!
-                if (validateStep(currentStep)) {
-                    currentStep++;
-                    showStep(currentStep);
-                }
-            });
-        });
-
-
-        btnPrev.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault(); // Prevent default behavior
-                currentStep--; // Move to the previous step
-                showStep(currentStep); // Show the previous step and scroll to the top
-            });
-        });
-
-        // Initialize by showing the first step
-        showStep(currentStep);
-
-        function validateStep(step) {
-            const inputs = steps[step].querySelectorAll('input[required], select[required], textarea[required]');
-            let formIsValid = true;
-
-            inputs.forEach(input => {
-                if (!input.checkValidity()) {
-                    input.reportValidity(); // Show error message for invalid input
-                    formIsValid = false;
-                    console.log("Validation failed on:", input.name || input.id, "Value:", input.value);
-                } else {
-                    console.log("Validation passed for:", input.name || input.id);
-                }
-            });
-
-            return formIsValid;
-        }
-    </script>
-
-    <script>
-        document.getElementById('confirmSubmit').addEventListener('click', function(e) {
-            document.querySelector('form').submit(); // Submit the form
-            e.preventDefault()
-
-            var data = new FormData(this)
-
-        });
-    </script>
-
-
-
-
-    <script>
-        // Ambil elemen checkbox dan input teks
-        const lainLainCheckbox = document.getElementById('lainLain');
-        const inputLainLain = document.getElementById('inputLainLain');
-
-        // Tambahkan event listener pada checkbox 'Lain-lain'
-        lainLainCheckbox.addEventListener('change', function() {
-            if (this.checked) {
-                inputLainLain.style.display = 'block'; // Tampilkan input teks jika dipilih
-            } else {
-                inputLainLain.style.display = 'none'; // Sembunyikan input teks jika tidak dipilih
-            }
-        });
-    </script>
-    <!-- Script untuk menampilkan input text jika suku lain-lain dipilih -->
-    <script>
-        const lainLainSukuRadio = document.getElementById('lainLainSuku');
-        const inputLainLainSuku = document.getElementById('inputLainLainSuku');
-
-        const sukuRadios = document.querySelectorAll('input[name="suku"]');
-
-        sukuRadios.forEach(radio => {
-            radio.addEventListener('change', function() {
-                if (lainLainSukuRadio.checked) {
-                    inputLainLainSuku.style.display =
-                        'block'; // Tampilkan input teks jika 'Lain-lain' dipilih
-                } else {
-                    inputLainLainSuku.style.display =
-                        'none'; // Sembunyikan input teks jika 'Lain-lain' tidak dipilih
-                }
-            });
-        });
-    </script>
-    <!-- Script untuk menampilkan input text jika 'Lain-lain' dipilih -->
-    <script>
-        const lainLainKewarganegaraanRadio = document.getElementById('lainLainKewarganegaraan');
-        const indonesiaRadio = document.getElementById('indonesia');
-        const inputLainLainKewarganegaraan = document.getElementById('inputLainLainKewarganegaraan');
-
-        // Event listener untuk radio button kewarganegaraan
-        lainLainKewarganegaraanRadio.addEventListener('change', function() {
-            if (this.checked) {
-                inputLainLainKewarganegaraan.style.display =
-                    'block'; // Tampilkan input teks jika 'Lain-lain' dipilih
-            }
-        });
-
-        indonesiaRadio.addEventListener('change', function() {
-            if (this.checked) {
-                inputLainLainKewarganegaraan.style.display =
-                    'none'; // Sembunyikan input teks jika 'Indonesia' dipilih
-            }
-        });
-    </script>
-    <!-- Script untuk menampilkan input text jika 'Lain-lain' dipilih -->
-    <script>
-        const lainLainAgamaRadio = document.getElementById('lainLainAgama');
-        const inputLainLainAgama = document.getElementById('inputLainLainAgama');
-
-        const agamaRadios = document.querySelectorAll('input[name="agama"]');
-
-        agamaRadios.forEach(radio => {
-            radio.addEventListener('change', function() {
-                if (lainLainAgamaRadio.checked) {
-                    inputLainLainAgama.style.display =
-                        'block'; // Tampilkan input teks jika 'Lain-lain' dipilih
-                } else {
-                    inputLainLainAgama.style.display =
-                        'none'; // Sembunyikan input teks jika 'Lain-lain' tidak dipilih
-                }
-            });
-        });
-    </script>
-@endsection
+            </section>
+        </main>
+    @endsection

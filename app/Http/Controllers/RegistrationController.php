@@ -72,6 +72,8 @@ class RegistrationController extends Controller
         // Save registration data
         $registration = Registration::create($validatedData);
 
+
+
         // Redirect to Step 2 with the user ID parameter
         return redirect()->route('step2.show', ['user_id' => auth()->id()]);
     }
@@ -80,9 +82,12 @@ class RegistrationController extends Controller
     // Step 2: Show the form for Step 2
     public function showStep2($userId)
     {
-        // Assuming $userId is the parameter for user ID or registration ID
-        return view('steptwo', ['register_id' => $userId]);
+        return view('steptwo', [
+            'register_id' => $userId,
+            'user_id' => $userId,  // Pass user ID to the view
+        ]);
     }
+
 
 
     // Step 2: Handle POST for Step 2
@@ -93,8 +98,8 @@ class RegistrationController extends Controller
             'nik_ayah' => 'required|digits:16',
             'nama_lengkap_ibu' => 'required|string|max:255',
             'nik_ibu' => 'required|digits:16',
-            'status_ayah' => 'array',
-            'status_ibu' => 'array',
+            'status_ayah' => 'nullable|array',
+            'status_ibu' => 'nullable|array',
             'tempat_lahir_ayah' => 'required|string|max:255',
             'tanggal_lahir_ayah' => 'required|date',
             'tempat_lahir_ibu' => 'required|string|max:255',
@@ -109,11 +114,16 @@ class RegistrationController extends Controller
             'kawasan_tinggal' => 'required|string|max:255',
             'status_tempat_tinggal' => 'required|string|max:255',
             'pendidikan_ayah' => 'required|string|max:255',
+            'pendidikan_ayah_lain' => 'nullable|string|max:255',
             'pendidikan_ibu' => 'required|string|max:255',
+            'pendidikan_ibu_lain' => 'nullable|string|max:255',
             'pekerjaan_ayah' => 'required|string|max:255',
+            'pekerjaan_ayah_detail' => 'nullable|string|max:255',
             'pekerjaan_ibu' => 'required|string|max:255',
+            'pekerjaan_ibu_detail' => 'nullable|string|max:255',
             'penghasilan_ayah' => 'required|string|max:255',
             'penghasilan_ibu' => 'required|string|max:255',
+            'jumlah_tanggungan' => 'required|string|max:255',
             'nama_lengkap_tanggungan' => 'nullable|array',
             'sekolah_tanggungan' => 'nullable|array',
             'kelas_tanggungan' => 'nullable|array',
@@ -121,27 +131,34 @@ class RegistrationController extends Controller
             'keterangan_tanggungan' => 'nullable|array',
         ]);
 
-        $registration = Registration::where('user_id', $user_id)->first();
+        // Find the registration record using the user ID
+        $registration = Registration::where('user_id', $user_id)->firstOrFail();
+
+        // Update registration data directly with the validated data
         $registration->update($validatedData);
 
-        // Save array fields for tanggungan
-        $registration->update([
-            'nama_lengkap_tanggungan' => $validatedData['nama_lengkap_tanggungan'] ?? [],
-            'sekolah_tanggungan' => $validatedData['sekolah_tanggungan'] ?? [],
-            'kelas_tanggungan' => $validatedData['kelas_tanggungan'] ?? [],
-            'uang_sekolah_tanggungan' => $validatedData['uang_sekolah_tanggungan'] ?? [],
-            'keterangan_tanggungan' => $validatedData['keterangan_tanggungan'] ?? [],
-        ]);
 
-        return redirect()->route('step3.show', ['user_id' => $user_id]);
+        // Redirect to the next step with success message
+        return redirect()->route('step3.show', ['user_id' => $user_id])
+            ->with('success', 'Data successfully saved.');
     }
+
+
 
     // Step 3: Show the form for Step 3
     public function showStep3($userId)
     {
-        // Assuming $userId is the parameter for user ID or registration ID
-        return view('stepthree', ['register_id' => $userId]);
+        // Fetch the registration record based on user_id
+        $registration = Registration::where('user_id', $userId)->firstOrFail();
+
+        return view('stepthree', [
+            'registration' => $registration,
+            'register_id' => $userId, // Use this for any other route or ID needed in the view
+        ]);
     }
+
+
+
 
     // Step 3: Handle POST for Step 3
     public function postStep3(Request $request, $user_id)
@@ -167,11 +184,12 @@ class RegistrationController extends Controller
     // Show form for uploading proof of payment
     public function showProofPayment($user_id)
     {
-        $data['user_id'] = $user_id;
-        $data['register'] = Registration::where('user_id', $user_id)->first();
+        // Fetch the registration record for the given user ID
+        $registration = Registration::where('user_id', $user_id)->firstOrFail();
 
-        return view('proof_payment', $data);
+        return view('proof_payment', compact('registration', 'user_id'));
     }
+
 
     // Handle proof of payment upload
     public function postProofPayment(Request $request, $user_id)

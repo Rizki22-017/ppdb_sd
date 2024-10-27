@@ -294,41 +294,50 @@
                                             <div class="col-sm-10">
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="radio" name="pendidikan_ayah"
-                                                        id="pendidikanAyah1" value="SD" onclick="toggleInputPendidikan()">
+                                                        id="pendidikanAyah1" value="SD"
+                                                        onclick="toggleInputPendidikan()">
                                                     <label class="form-check-label" for="pendidikanAyah1">SD</label>
                                                 </div>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="radio" name="pendidikan_ayah"
-                                                        id="pendidikanAyah2" value="SMP" onclick="toggleInputPendidikan()">
+                                                        id="pendidikanAyah2" value="SMP"
+                                                        onclick="toggleInputPendidikan()">
                                                     <label class="form-check-label" for="pendidikanAyah2">SMP</label>
                                                 </div>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="radio" name="pendidikan_ayah"
-                                                        id="pendidikanAyah3" value="SMA" onclick="toggleInputPendidikan()">
+                                                        id="pendidikanAyah3" value="SMA"
+                                                        onclick="toggleInputPendidikan()">
                                                     <label class="form-check-label" for="pendidikanAyah3">SMA</label>
                                                 </div>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="radio" name="pendidikan_ayah"
-                                                        id="pendidikanAyah4" value="SMA" onclick="toggleInputPendidikan()">
+                                                        id="pendidikanAyah4" value="SMA"
+                                                        onclick="toggleInputPendidikan()">
                                                     <label class="form-check-label" for="pendidikanAyah4">DIII</label>
                                                 </div>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="radio" name="pendidikan_ayah"
-                                                        id="pendidikanAyah5" value="SMA" onclick="toggleInputPendidikan()">
+                                                        id="pendidikanAyah5" value="SMA"
+                                                        onclick="toggleInputPendidikan()">
                                                     <label class="form-check-label" for="pendidikanAyah5">S1</label>
                                                 </div>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="radio" name="pendidikan_ayah"
-                                                        id="pendidikanAyah6" value="SMA" onclick="toggleInputPendidikan()">
+                                                        id="pendidikanAyah6" value="SMA"
+                                                        onclick="toggleInputPendidikan()">
                                                     <label class="form-check-label" for="pendidikanAyah6">S2</label>
                                                 </div>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="radio" name="pendidikan_ayah"
-                                                        id="pendidikanAyah7" value="Lain-lain" onclick="toggleInputPendidikan()">
-                                                    <label class="form-check-label" for="pendidikanAyah7">Lain-lain, sebutkan...</label>
+                                                        id="pendidikanAyah7" value="Lain-lain"
+                                                        onclick="toggleInputPendidikan()">
+                                                    <label class="form-check-label" for="pendidikanAyah7">Lain-lain,
+                                                        sebutkan...</label>
                                                 </div>
-                                                <input type="text" class="form-control mt-2" id="inputLainpendidikan_ayah_lain"
-                                                    name="pendidikan_ayah_lain" placeholder="Sebutkan..." style="display:none;">
+                                                <input type="text" class="form-control mt-2"
+                                                    id="inputLainpendidikan_ayah_lain" name="pendidikan_ayah_lain"
+                                                    placeholder="Sebutkan..." style="display:none;">
                                             </div>
                                         </div>
 
@@ -336,49 +345,60 @@
                                             <legend class="col-form-label col-sm-2 pt-0">Pendidikan Ibu</legend>
                                             <div class="col-sm-10">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="pendidikan_ibu" id="pendidikanIbu1"
-                                                        value="SD" onclick="toggleInputPendidikan()">
+                                                    <input class="form-check-input" type="radio" name="pendidikan_ibu"
+                                                        id="pendidikanIbu1" value="SD"
+                                                        onclick="toggleInputPendidikan()">
                                                     <label class="form-check-label" for="pendidikanIbu1">SD</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="pendidikan_ibu" id="pendidikanIbu2"
-                                                        value="SMP" onclick="toggleInputPendidikan()">
+                                                    <input class="form-check-input" type="radio" name="pendidikan_ibu"
+                                                        id="pendidikanIbu2" value="SMP"
+                                                        onclick="toggleInputPendidikan()">
                                                     <label class="form-check-label" for="pendidikanIbu2">SMP</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="pendidikan_ibu" id="pendidikanIbu3"
-                                                        value="SMA" onclick="toggleInputPendidikan()">
+                                                    <input class="form-check-input" type="radio" name="pendidikan_ibu"
+                                                        id="pendidikanIbu3" value="SMA"
+                                                        onclick="toggleInputPendidikan()">
                                                     <label class="form-check-label" for="pendidikanIbu3">SMA</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="pendidikan_ibu" id="pendidikanIbu4"
-                                                        value="SMA" onclick="toggleInputPendidikan()">
+                                                    <input class="form-check-input" type="radio" name="pendidikan_ibu"
+                                                        id="pendidikanIbu4" value="SMA"
+                                                        onclick="toggleInputPendidikan()">
                                                     <label class="form-check-label" for="pendidikanIbu4">DIII</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="pendidikan_ibu" id="pendidikanIbu5"
-                                                        value="SMA" onclick="toggleInputPendidikan()">
+                                                    <input class="form-check-input" type="radio" name="pendidikan_ibu"
+                                                        id="pendidikanIbu5" value="SMA"
+                                                        onclick="toggleInputPendidikan()">
                                                     <label class="form-check-label" for="pendidikanIbu5">S1</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="pendidikan_ibu" id="pendidikanIbu6"
-                                                        value="SMA" onclick="toggleInputPendidikan()">
+                                                    <input class="form-check-input" type="radio" name="pendidikan_ibu"
+                                                        id="pendidikanIbu6" value="SMA"
+                                                        onclick="toggleInputPendidikan()">
                                                     <label class="form-check-label" for="pendidikanIbu6">S2</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="pendidikan_ibu" id="pendidikanIbu7"
-                                                        value="Lain-lain" onclick="toggleInputPendidikan()">
-                                                    <label class="form-check-label" for="pendidikanIbu7">Lain-lain, sebutkan...</label>
+                                                    <input class="form-check-input" type="radio" name="pendidikan_ibu"
+                                                        id="pendidikanIbu7" value="Lain-lain"
+                                                        onclick="toggleInputPendidikan()">
+                                                    <label class="form-check-label" for="pendidikanIbu7">Lain-lain,
+                                                        sebutkan...</label>
                                                 </div>
-                                                <input type="text" class="form-control mt-2" id="inputLainPendidikanIbu"
-                                                    name="pendidikan_ibu_lain" placeholder="Sebutkan..." style="display:none;">
+                                                <input type="text" class="form-control mt-2"
+                                                    id="inputLainPendidikanIbu" name="pendidikan_ibu_lain"
+                                                    placeholder="Sebutkan..." style="display:none;">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
-                                            <p class="mb-1">Pekerjaan Ayah Sebagai <span class="text-danger">*</span></p>
+                                            <p class="mb-1">Pekerjaan Ayah Sebagai <span class="text-danger">*</span>
+                                            </p>
                                             <div class="col-sm-12">
-                                                <select class="form-select" aria-label="Default select example" id="jobSelectAyah"
-                                                    name="pekerjaan_ayah" onchange="updatePlaceholderAyah()">
+                                                <select class="form-select" aria-label="Default select example"
+                                                    id="jobSelectAyah" name="pekerjaan_ayah"
+                                                    onchange="updatePlaceholderAyah()">
                                                     <option selected>Klik untuk memilih</option>
                                                     <option value="1">Pegawai Negeri, dengan Golongan</option>
                                                     <option value="2">Pegawai Swasta, dengan Jabatan</option>
@@ -398,8 +418,9 @@
                                         <div class="row mb-3">
                                             <p class="mb-1">Pekerjaan Ibu Sebagai <span class="text-danger">*</span></p>
                                             <div class="col-sm-12">
-                                                <select class="form-select" aria-label="Default select example" id="jobSelectIbu"
-                                                    name="pekerjaan_ibu" onchange="updatePlaceholderIbu()">
+                                                <select class="form-select" aria-label="Default select example"
+                                                    id="jobSelectIbu" name="pekerjaan_ibu"
+                                                    onchange="updatePlaceholderIbu()">
                                                     <option selected>Klik untuk memilih</option>
                                                     <option value="1">Pegawai Negeri, dengan Golongan</option>
                                                     <option value="2">Pegawai Swasta, dengan Jabatan</option>
@@ -411,16 +432,18 @@
                                                     <option value="8">Lain-Lain, sebutkan</option>
                                                 </select>
                                                 <input type="text" class="form-control mt-2" id="detailInputIbu"
-                                                    name="pekerjaan_ibu_detail" placeholder="Masukan detail golongan" style="display: none;">
+                                                    name="pekerjaan_ibu_detail" placeholder="Masukan detail golongan"
+                                                    style="display: none;">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <p class="mb-1">Penghasilan Sebulan yang diperoleh Ayah<span class="text-danger">*</span>
+                                            <p class="mb-1">Penghasilan Sebulan yang diperoleh Ayah<span
+                                                    class="text-danger">*</span>
                                             </p>
                                             <div class="col-sm-12">
-                                                <select class="form-select" aria-label="Default select example" id="penghasilan"
-                                                    name="penghasilan_ayah">
+                                                <select class="form-select" aria-label="Default select example"
+                                                    id="penghasilan" name="penghasilan_ayah">
                                                     <option selected>Klik untuk memilih</option>
                                                     <option value="1">Kurang dari Rp.2.000.000</option>
                                                     <option value="2">Rp.5.000.000 s/d Rp.10.000.000</option>
@@ -430,10 +453,11 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <p class="mb-1">Penghasilan Sebulan yang diperoleh Ibu<span class="text-danger">*</span></p>
+                                            <p class="mb-1">Penghasilan Sebulan yang diperoleh Ibu<span
+                                                    class="text-danger">*</span></p>
                                             <div class="col-sm-12">
-                                                <select class="form-select" aria-label="Default select example" id="penghasilanIbu"
-                                                    name="penghasilan_ibu">
+                                                <select class="form-select" aria-label="Default select example"
+                                                    id="penghasilanIbu" name="penghasilan_ibu">
                                                     <option selected>Klik untuk memilih</option>
                                                     <option value="1">Kurang dari Rp.2.000.000</option>
                                                     <option value="2">Rp.5.000.000 s/d Rp.10.000.000</option>
@@ -444,23 +468,59 @@
 
                                         <!-- Additional fields for Data Orang Tua go here -->
 
+                                        <div class="row mb-3">
+                                            <label for="nohpIbu" class="col-sm-12 col-form-label">Jumlah Tanggungan<span
+                                                    class="text-danger">*</span></label>
+                                            <div class="col-sm-10">
+                                                <input type="tel" class="form-control" id="jumlahTanggungan"
+                                                    name="jumlah_tanggungan">
+                                                <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                                            </div>
+                                        </div>
+
                                         <!-- Tanggungan Data Section -->
                                         <div class="mb-3">
                                             <label for="dataTanggungan" class="form-label">Nama anak yang menjadi
-                                                tanggungan<span class="text-danger">*</span></label>
+                                                tanggungan<span class="text-danger"> : *</span></label>
                                             <button type="button" class="btn btn-warning" data-bs-toggle="modal"
                                                 data-bs-target="#tambahTanggungan">Tambahkan data tanggungan</button>
                                         </div>
 
                                         <!-- Hidden inputs for tanggungan data -->
-                                        <div id="hiddenInputsContainer"></div>
+                                        <div id="hiddenInputsContainer">
+                                            <input type="hidden" name="tanggungan[0][namaLengkap]" value="John Doe">
+                                            <input type="hidden" name="tanggungan[0][sekolah]" value="School ABC">
+                                            <input type="hidden" name="tanggungan[0][kelas]" value="5th Grade">
+                                            <input type="hidden" name="tanggungan[0][uangSekolah]" value="2000000">
+                                            <input type="hidden" name="tanggungan[0][keterangan]" value="Sibling">
+
+                                        </div>
+
+                                        <!-- Table for Displaying Tanggungan Data -->
+                                        <table class="table table-striped table-bordered text-center mt-4">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">No</th>
+                                                    <th scope="col">Nama</th>
+                                                    <th scope="col">Sekolah/Kampus</th>
+                                                    <th scope="col">Kelas/Semester</th>
+                                                    <th scope="col">Uang Sekolah</th>
+                                                    <th scope="col">Keterangan</th>
+                                                    <th scope="col">Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tanggunganTableBody">
+                                                <!-- Tanggungan data will be added here dynamically -->
+                                            </tbody>
+                                        </table>
 
 
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                        <a href="{{ route('step1.show', ['user_id' => $user_id]) }}"
+                            class="btn btn-secondary mt-3">Back</a>
                         <!-- Submission Button -->
                         <button type="submit" class="btn btn-primary mt-3">Submit</button>
                     </form>
@@ -504,23 +564,7 @@
                     </div>
                 </div>
 
-                <!-- Table for Displaying Tanggungan Data -->
-                <table class="table table-striped table-bordered text-center mt-4">
-                    <thead>
-                        <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Sekolah/Kampus</th>
-                            <th scope="col">Kelas/Semester</th>
-                            <th scope="col">Uang Sekolah</th>
-                            <th scope="col">Keterangan</th>
-                            <th scope="col">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tanggunganTableBody">
-                        <!-- Tanggungan data will be added here dynamically -->
-                    </tbody>
-                </table>
+
             </div>
         </section>
     </main>
@@ -530,11 +574,9 @@
 
     <script>
         document.getElementById('confirmSubmit').addEventListener('click', function(e) {
-            document.querySelector('form').submit(); // Submit the form
-            e.preventDefault()
-
-            var data = new FormData(this)
-
+            e.preventDefault(); // Prevent form submission initially
+            updateHiddenInputs(); // Make sure hidden inputs are updated
+            document.querySelector('form').submit(); // Submit the form after updating hidden inputs
         });
     </script>
 
@@ -712,13 +754,21 @@
 
         // Save tanggungan data and update the table and hidden inputs
         document.getElementById('saveTanggungan').addEventListener('click', function() {
+            // Extract values
             const namaLengkap = document.getElementById('namaLengkapTg').value;
             const sekolah = document.getElementById('sekolahTg').value;
             const kelas = document.getElementById('kelasTg').value;
             const uangSekolah = document.getElementById('uangSekolahTg').value.replace(/\D/g,
-                ''); // Remove non-numeric
+            ''); // Remove non-numeric
             const keterangan = document.getElementById('keteranganTg').value;
 
+            // Validate input fields
+            if (!namaLengkap || !sekolah || !kelas || !uangSekolah) {
+                alert('Please fill in all required fields for tanggungan.');
+                return;
+            }
+
+            // Add new entry to the array
             tanggunganData.push({
                 namaLengkap,
                 sekolah,
@@ -731,7 +781,7 @@
             updateTable();
             updateHiddenInputs();
 
-            // Close modal and reset form
+            // Reset form fields and close modal
             document.getElementById('tanggunganForm').reset();
             bootstrap.Modal.getInstance(document.getElementById('tambahTanggungan')).hide();
         });
@@ -744,14 +794,14 @@
             tanggunganData.forEach((tanggungan, index) => {
                 const newRow = document.createElement('tr');
                 newRow.innerHTML = `
-                <td>${index + 1}</td>
-                <td>${tanggungan.namaLengkap}</td>
-                <td>${tanggungan.sekolah}</td>
-                <td>${tanggungan.kelas}</td>
-                <td>Rp. ${new Intl.NumberFormat('id-ID').format(tanggungan.uangSekolah)}</td>
-                <td>${tanggungan.keterangan}</td>
-                <td><button class="btn btn-danger btn-sm" onclick="deleteRow(${index})">Delete</button></td>
-            `;
+            <td>${index + 1}</td>
+            <td>${tanggungan.namaLengkap}</td>
+            <td>${tanggungan.sekolah}</td>
+            <td>${tanggungan.kelas}</td>
+            <td>Rp. ${new Intl.NumberFormat('id-ID').format(tanggungan.uangSekolah)}</td>
+            <td>${tanggungan.keterangan}</td>
+            <td><button class="btn btn-danger btn-sm" onclick="deleteRow(${index})">Delete</button></td>
+        `;
                 tableBody.appendChild(newRow);
             });
         }
@@ -770,12 +820,12 @@
 
             tanggunganData.forEach((tanggungan, index) => {
                 container.insertAdjacentHTML('beforeend', `
-                <input type="hidden" name="tanggungan[${index}][namaLengkap]" value="${tanggungan.namaLengkap}">
-                <input type="hidden" name="tanggungan[${index}][sekolah]" value="${tanggungan.sekolah}">
-                <input type="hidden" name="tanggungan[${index}][kelas]" value="${tanggungan.kelas}">
-                <input type="hidden" name="tanggungan[${index}][uangSekolah]" value="${tanggungan.uangSekolah}">
-                <input type="hidden" name="tanggungan[${index}][keterangan]" value="${tanggungan.keterangan}">
-            `);
+            <input type="hidden" name="nama_lengkap_tanggungan[]" value="${tanggungan.namaLengkap}">
+            <input type="hidden" name="sekolah_tanggungan[]" value="${tanggungan.sekolah}">
+            <input type="hidden" name="kelas_tanggungan[]" value="${tanggungan.kelas}">
+            <input type="hidden" name="uang_sekolah_tanggungan[]" value="${tanggungan.uangSekolah}">
+            <input type="hidden" name="keterangan_tanggungan[]" value="${tanggungan.keterangan}">
+        `);
             });
         }
     </script>

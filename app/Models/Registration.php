@@ -67,6 +67,7 @@ class Registration extends Model
         'kelas_tanggungan',
         'uang_sekolah_tanggungan',
         'keterangan_tanggungan', // Array fields
+
         // Step 3: Data Wali
         'nama_wali',
         'tempat_lahir_wali',
