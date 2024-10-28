@@ -15,8 +15,18 @@
                 <div class="max-w-xl">
                     <h3 class="text-lg font-semibold">Status Pendaftaran:</h3>
                     <p class="mt-2">
+
                         <span class="bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 rounded">
                             {{ $registrationStatus }}
+                        </span>
+                    </p>
+                </div>
+                <div class="max-w-xl mt-5">
+                    <h3 class="text-lg font-semibold">ID Formulir:</h3>
+                    <p class="mt-2">
+
+                        <span class="bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 rounded">
+                            {{ $formId }}
                         </span>
                     </p>
                 </div>
