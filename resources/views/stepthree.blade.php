@@ -188,4 +188,17 @@
                 </div>
             </section>
         </main>
+
+        <script>
+            document.getElementById('tanggungan_wali_lain').addEventListener('change', function() {
+                document.getElementById('inputLainLainTanggunganWali').style.display = 'block';
+            });
+
+            const otherRadios = document.querySelectorAll('input[name="tanggungan_wali"]:not(#tanggungan_wali_lain)');
+            otherRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    document.getElementById('inputLainLainTanggunganWali').style.display = 'none';
+                });
+            });
+        </script>
     @endsection

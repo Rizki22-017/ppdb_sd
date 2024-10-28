@@ -178,13 +178,17 @@ class RegistrationController extends Controller
             'kodepos_wali' => 'nullable|string|max:10',
             'telepon_wali' => 'nullable|string|max:15',
             'alamat_kantor_wali' => 'nullable|string|max:255',
+            'tanggungan_wali' => 'nullable|string|max:255',
+            'tanggungan_wali_lain' => 'nullable|string|max:255', // Only required if 'Lain-lain' is selected
         ]);
 
         $registration = Registration::where('user_id', $user_id)->first();
         $registration->update($validatedData);
 
-        return redirect()->route('proofPayment.show', ['user_id' => $user_id]);
+        return redirect()->route('proofPayment.show', ['user_id' => $user_id])
+            ->with('success', 'Data Wali successfully saved.');
     }
+
 
     // Show form for uploading proof of payment
     public function showProofPayment($user_id)
