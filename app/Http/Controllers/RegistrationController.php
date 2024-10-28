@@ -92,7 +92,7 @@ class RegistrationController extends Controller
     {
         return view('steptwo', [
             'register_id' => $userId,
-            'user_id' => $userId,  // Pass user ID to the view
+            'user_id' => $userId,
         ]);
     }
 
@@ -161,7 +161,7 @@ class RegistrationController extends Controller
 
         return view('stepthree', [
             'registration' => $registration,
-            'register_id' => $userId, // Use this for any other route or ID needed in the view
+            'register_id' => $userId,
         ]);
     }
 

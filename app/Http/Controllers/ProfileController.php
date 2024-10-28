@@ -55,7 +55,8 @@ class ProfileController extends Controller
 
         return view('profile.edit', [
             'user' => $user,
-            'registrationStatus' => $registration ? $registration->status : 'Not Registered', // Default if no registration
+            'registrationStatus' => $registration ? $registration->status : 'Tidak Terdaftar', // Default if no registration
+            'formId' => $registration ? $registration->form_id : 'Tidak Di Temukan',
         ]);
     }
 

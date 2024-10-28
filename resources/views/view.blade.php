@@ -138,12 +138,15 @@
                     <div><strong>Status:</strong> {{ $registration->status }}</div>
                     <div><strong>Bukti Pembayaran:</strong>
                         @if ($registration->bukti_pembayaran)
-                            <a href="{{ asset('storage/' . $registration->bukti_pembayaran) }}" target="_blank">Lihat
-                                Bukti Pembayaran</a>
+                            <a href="{{ asset('storage/' . $registration->bukti_pembayaran) }}" target="_blank"
+                                class="text-gray-700 hover:text-blue-500">
+                                Lihat Bukti Pembayaran
+                            </a>
                         @else
                             Tidak ada bukti pembayaran
                         @endif
                     </div>
+
                 </div>
             </div>
         </div>
