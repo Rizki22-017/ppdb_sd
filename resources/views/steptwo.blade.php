@@ -400,14 +400,14 @@
                                                     id="jobSelectAyah" name="pekerjaan_ayah"
                                                     onchange="updatePlaceholderAyah()">
                                                     <option selected>Klik untuk memilih</option>
-                                                    <option value="1">Pegawai Negeri, dengan Golongan</option>
-                                                    <option value="2">Pegawai Swasta, dengan Jabatan</option>
-                                                    <option value="3">Pengusaha, dengan Bidang Usaha</option>
-                                                    <option value="4">Wiraswasta, dengan Bidang Usaha</option>
-                                                    <option value="5">Militer, dengan Pangkat</option>
-                                                    <option value="6">Polisi, dengan Pangkat</option>
-                                                    <option value="7">Buruh, Petani, Nelayan</option>
-                                                    <option value="8">Lain-Lain, sebutkan</option>
+                                                    <option value="PNS">Pegawai Negeri, dengan Golongan</option>
+                                                    <option value="Swasta">Pegawai Swasta, dengan Jabatan</option>
+                                                    <option value="Pengusaha">Pengusaha, dengan Bidang Usaha</option>
+                                                    <option value="Wiraswasta">Wiraswasta, dengan Bidang Usaha</option>
+                                                    <option value="Militer">Militer, dengan Pangkat</option>
+                                                    <option value="Polisi">Polisi, dengan Pangkat</option>
+                                                    <option value="Buruh">Buruh, Petani, Nelayan</option>
+                                                    <option value="Other">Lain-Lain, sebutkan</option>
                                                 </select>
                                                 <input type="text" class="form-control mt-2" id="detailInputAyah"
                                                     name="pekerjaan_ayah_detail" placeholder="Masukan detail golongan"
@@ -422,14 +422,14 @@
                                                     id="jobSelectIbu" name="pekerjaan_ibu"
                                                     onchange="updatePlaceholderIbu()">
                                                     <option selected>Klik untuk memilih</option>
-                                                    <option value="1">Pegawai Negeri, dengan Golongan</option>
-                                                    <option value="2">Pegawai Swasta, dengan Jabatan</option>
-                                                    <option value="3">Pengusaha, dengan Bidang Usaha</option>
-                                                    <option value="4">Wiraswasta, dengan Bidang Usaha</option>
-                                                    <option value="5">Militer, dengan Pangkat</option>
-                                                    <option value="6">Polisi, dengan Pangkat</option>
-                                                    <option value="7">Buruh, Petani, Nelayan</option>
-                                                    <option value="8">Lain-Lain, sebutkan</option>
+                                                    <option value="PNS">Pegawai Negeri, dengan Golongan</option>
+                                                    <option value="Swasta">Pegawai Swasta, dengan Jabatan</option>
+                                                    <option value="Pengusaha">Pengusaha, dengan Bidang Usaha</option>
+                                                    <option value="Wiraswasta">Wiraswasta, dengan Bidang Usaha</option>
+                                                    <option value="Militer">Militer, dengan Pangkat</option>
+                                                    <option value="Polisi">Polisi, dengan Pangkat</option>
+                                                    <option value="Buruh">Buruh, Petani, Nelayan</option>
+                                                    <option value="Other">Lain-Lain, sebutkan</option>
                                                 </select>
                                                 <input type="text" class="form-control mt-2" id="detailInputIbu"
                                                     name="pekerjaan_ibu_detail" placeholder="Masukan detail golongan"
@@ -445,9 +445,9 @@
                                                 <select class="form-select" aria-label="Default select example"
                                                     id="penghasilan" name="penghasilan_ayah">
                                                     <option selected>Klik untuk memilih</option>
-                                                    <option value="1">Kurang dari Rp.2.000.000</option>
-                                                    <option value="2">Rp.5.000.000 s/d Rp.10.000.000</option>
-                                                    <option value="3">Lebih dari Rp.10.000.000</option>
+                                                    <option value="<2jt">Kurang dari Rp.2.000.000</option>
+                                                    <option value="5-10jt">Rp.5.000.000 s/d Rp.10.000.000</option>
+                                                    <option value=">10jt">Lebih dari Rp.10.000.000</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -458,10 +458,9 @@
                                             <div class="col-sm-12">
                                                 <select class="form-select" aria-label="Default select example"
                                                     id="penghasilanIbu" name="penghasilan_ibu">
-                                                    <option selected>Klik untuk memilih</option>
-                                                    <option value="1">Kurang dari Rp.2.000.000</option>
-                                                    <option value="2">Rp.5.000.000 s/d Rp.10.000.000</option>
-                                                    <option value="3">Lebih dari Rp.10.000.000</option>
+                                                    <option value="<2jt">Kurang dari Rp.2.000.000</option>
+                                                    <option value="5-10jt">Rp.5.000.000 s/d Rp.10.000.000</option>
+                                                    <option value=">10jt">Lebih dari Rp.10.000.000</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -611,19 +610,25 @@
             const selectedValue = select.value;
 
             // Ubah placeholder dan tampilkan input berdasarkan pilihan
-            if (selectedValue === "1") {
+            if (selectedValue === "PNS") {
                 input.placeholder = "Masukan detail golongan";
                 input.style.display = "block"; // Tampilkan input
-            } else if (selectedValue === "2") {
+            } else if (selectedValue === "Swasta") {
                 input.placeholder = "Masukan jabatan Ayah";
                 input.style.display = "block"; // Tampilkan input
-            } else if (selectedValue >= 3 && selectedValue <= 4) {
+            } else if (selectedValue === "Pengusaha") {
                 input.placeholder = "Masukan bidang usaha Ayah";
                 input.style.display = "block"; // Tampilkan input
-            } else if (selectedValue >= 5 && selectedValue <= 6) {
+            }else if (selectedValue === "Wiraswasta") {
+                input.placeholder = "Masukan bidang usaha Ayah";
+                input.style.display = "block"; // Tampilkan input
+            } else if (selectedValue === "Militer") {
                 input.placeholder = "Masukan pangkat Ayah";
                 input.style.display = "block"; // Tampilkan input
-            } else if (selectedValue === "8") {
+            } else if (selectedValue === "Polisi") {
+                input.placeholder = "Masukan pangkat Ayah";
+                input.style.display = "block"; // Tampilkan input
+            } else if (selectedValue === "Other") {
                 input.placeholder = "Masukan pekerjaan Ayah";
                 input.style.display = "block"; // Tampilkan input
             } else {
@@ -640,19 +645,25 @@
             const selectedValue = select.value;
 
             // Ubah placeholder dan tampilkan input berdasarkan pilihan
-            if (selectedValue === "1") {
+            if (selectedValue === "PNS") {
                 input.placeholder = "Masukan detail golongan";
                 input.style.display = "block"; // Tampilkan input
-            } else if (selectedValue === "2") {
+            } else if (selectedValue === "Swasta") {
                 input.placeholder = "Masukan jabatan Ibu";
                 input.style.display = "block"; // Tampilkan input
-            } else if (selectedValue >= 3 && selectedValue <= 4) {
+            } else if (selectedValue === "Pengusaha") {
                 input.placeholder = "Masukan bidang usaha Ibu";
                 input.style.display = "block"; // Tampilkan input
-            } else if (selectedValue >= 5 && selectedValue <= 6) {
+            }else if (selectedValue === "Wiraswasta") {
+                input.placeholder = "Masukan bidang usaha Ibu";
+                input.style.display = "block"; // Tampilkan input
+            } else if (selectedValue === "Militer") {
                 input.placeholder = "Masukan pangkat Ibu";
                 input.style.display = "block"; // Tampilkan input
-            } else if (selectedValue === "8") {
+            } else if (selectedValue === "Polisi") {
+                input.placeholder = "Masukan pangkat Ibu";
+                input.style.display = "block"; // Tampilkan input
+            } else if (selectedValue === "Other") {
                 input.placeholder = "Masukan pekerjaan Ibu";
                 input.style.display = "block"; // Tampilkan input
             } else {
