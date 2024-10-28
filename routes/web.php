@@ -11,9 +11,9 @@ Route::get('/', function () {
 })->name('home');
 
 // Success page route (public)
-Route::get('/success', function () {
-    return view('success');
-})->name('successPage');
+Route::get('/profile', function () {
+    return view('profile.edit');
+})->name('profilePage');
 
 // Registration routes for multi-step form with authentication middleware
 Route::middleware('auth')->group(function () {

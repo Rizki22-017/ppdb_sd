@@ -225,7 +225,7 @@ class RegistrationController extends Controller
             $registration->update(['bukti_pembayaran' => $filePath]);
         }
 
-        return redirect()->route('successPage')->with('success', 'Bukti pembayaran berhasil diunggah.');
+        return redirect()->route('profile.edit')->with('success', 'Bukti pembayaran berhasil diunggah.');
     }
 
 
