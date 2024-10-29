@@ -41,14 +41,16 @@
                                             <label for="namaLengkapAyah" class="form-label">Nama Lengkap Ayah <span
                                                     class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="namaLengkapAyah"
-                                                name="nama_lengkap_ayah" required placeholder="Masukan nama lengkap ayah">
+                                                name="nama_lengkap_ayah" value="{{ old('nama_lengkap_ayah', $registration->nama_lengkap_ayah ?? '') }}"
+                                                required placeholder="Masukan nama lengkap ayah">
                                             <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
                                         </div>
                                         <div class="mb-3">
                                             <label for="nikAyah" class="form-label">NIK Ayah<span
                                                     class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="nikAyah" name="nik_ayah"
-                                                required placeholder="Masukan NIK ayah" maxlength="16" pattern="\d{16}"
+                                            value="{{ old('nik_ayah', $registration->nik_ayah ?? '') }}"
+                                            required placeholder="Masukan NIK ayah" maxlength="16" pattern="\d{16}"
                                                 title="NIK harus 16 digit angka">
                                             <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
                                         </div>
@@ -56,13 +58,15 @@
                                             <label for="namaLengkapIbu" class="form-label">Nama Lengkap Ibu <span
                                                     class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="namaLengkapIbu"
-                                                name="nama_lengkap_ibu" required placeholder="Masukan nama lengkap ayah">
+                                                name="nama_lengkap_ibu" value="{{ old('nama_lengkap_bu', $registration->nama_lengkap_ibu ?? '') }}"
+                                                required placeholder="Masukan nama lengkap ayah">
                                             <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
                                         </div>
                                         <div class="mb-3">
                                             <label for="nikAyah" class="form-label">NIK Ibu<span
                                                     class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="nikIbu" name="nik_ibu"
+                                                value="{{ old('nik_ibu', $registration->nik_ibu ?? '') }}"
                                                 required placeholder="Masukan NIK ayah" maxlength="16" pattern="\d{16}"
                                                 title="NIK harus 16 digit angka">
                                             <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
@@ -97,7 +101,7 @@
                                         </div>
                                     </div>
                                     <div class="row mb-3">
-                                        <legend class="col-form-label col-sm-2 pt-0">Status Ayah</legend>
+                                        <legend class="col-form-label col-sm-2 pt-0">Status Ibu</legend>
                                         <div class="col-sm-10 d-flex align-items-center gap-5">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" id="statusIbu1"
@@ -131,12 +135,13 @@
                                         <div class="row">
                                             <div class="col-12 col-md-6 mb-2">
                                                 <input type="text" class="form-control" id="tempatLahirA"
-                                                    name="tempat_lahir_ayah" required
-                                                    placeholder="Masukan tempat lahir ayah">
+                                                    name="tempat_lahir_ayah" value="{{ old('tempat_lahir_ayah', $registration->tempat_lahir_ayah ?? '') }}"
+                                                    required placeholder="Masukan tempat lahir ayah">
                                             </div>
                                             <div class="col-12 col-md-6 mb-2">
                                                 <input type="date" class="form-control" id="tanggalLahirA"
-                                                    name="tanggal_lahir_ayah" required>
+                                                    name="tanggal_lahir_ayah" value="{{ old('tanggal_lahir_ayah', $registration->tanggal_lahir_ayah ?? '') }}"
+                                                    required>
                                             </div>
                                         </div>
                                         <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
@@ -147,12 +152,12 @@
                                         <div class="row">
                                             <div class="col-12 col-md-6 mb-2">
                                                 <input type="text" class="form-control" id="tempatLahirI"
-                                                    name="tempat_lahir_ibu" required
+                                                    name="tempat_lahir_ibu" value="{{ old('tempat_lahir_ibu', $registration->tempat_lahir_ibu ?? '') }}" required
                                                     placeholder="Masukan tempat lahir ibu">
                                             </div>
                                             <div class="col-12 col-md-6 mb-2">
                                                 <input type="date" class="form-control" id="tanggalLahirI"
-                                                    name="tanggal_lahir_ibu" required>
+                                                    name="tanggal_lahir_ibu" value="{{ old('tanggal_lahir_ibu', $registration->tabggal_lahir_ibu ?? '') }}" required>
                                             </div>
                                         </div>
                                         <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
@@ -162,6 +167,7 @@
                                         <label for="alamat" class="form-label">Alamat Rumah<span
                                                 class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="alamat" name="alamat_ortu"
+                                            value="{{ old('alamat_ortu', $registration->alamat_ortu ?? '') }}"
                                             required placeholder="Contoh : Jl. Sudirman No. 00, Kota Padang">
                                         <span class="error-message"></span>
                                     </div>
@@ -170,6 +176,7 @@
                                         <label for="kodePos" class="form-label">Kode Pos<span
                                                 class="text-danger">*</span></label>
                                         <input type="number" class="form-control" id="kodepos" name="kode_pos_ortu"
+                                            value="{{ old('kode_pos_ortu', $registration->kode_pos_ortu ?? '') }}"
                                             required placeholder="Masukan kode pos anda">
                                         <span class="error-message"></span>
                                     </div>
@@ -178,6 +185,7 @@
                                         <label for="notelp" class="form-label">Nomor Telepon<span
                                                 class="text-danger">*</span></label>
                                         <input type="tel" class="form-control" id="notelp" name="no_telp_ortu"
+                                            value="{{ old('no_telp_ortu', $registration->no_telp_ortu ?? '') }}"
                                             required placeholder="Contoh : 6282123456789">
                                         <span class="error-message"></span>
                                     </div>
@@ -189,7 +197,8 @@
                                                     class="text-danger">*</span></label>
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control" id="kantorAyah"
-                                                    name="kantor_ayah" required placeholder="Jl. Sudirman, Kota Padang">
+                                                    name="kantor_ayah" value="{{ old('kantor_ayah', $registration->kantor_ayah ?? '') }}"
+                                                    required placeholder="Jl. Sudirman, Kota Padang">
                                                 <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
                                             </div>
                                         </div>
@@ -198,7 +207,8 @@
                                                     class="text-danger">*</span></label>
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control" id="kantorIbu"
-                                                    name="kantor_ibu" required placeholder="Jl. Sudirman, Kota Padang">
+                                                    name="kantor_ibu" value="{{ old('kantor_ibu', $registration->kantor_ibu ?? '') }}"
+                                                    required placeholder="Jl. Sudirman, Kota Padang">
                                                 <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
                                             </div>
                                         </div>
@@ -213,7 +223,8 @@
                                                     class="text-danger">*</span></label>
                                             <div class="col-sm-10">
                                                 <input type="tel" class="form-control" id="nohpAyah"
-                                                    name="no_hp_ayah" required placeholder="Contoh : 6282123456789">
+                                                    name="no_hp_ayah" value="{{ old('no_hp_ayah', $registration->no_hp_ayah ?? '') }}"
+                                                    required placeholder="Contoh : 6282123456789">
                                                 <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
                                             </div>
                                         </div>
@@ -222,7 +233,8 @@
                                                     class="text-danger">*</span></label>
                                             <div class="col-sm-10">
                                                 <input type="tel" class="form-control" id="nohpIbu"
-                                                    name="no_hp_ibu" required placeholder="Contoh : 6282123456789">
+                                                    name="no_hp_ibu" value="{{ old('no_hp_ibu', $registration->no_hp_ibu ?? '') }}"
+                                                    required placeholder="Contoh : 6282123456789">
                                                 <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
                                             </div>
                                         </div>
@@ -235,18 +247,21 @@
                                         <div class="col-sm-10">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="kawasan_tinggal"
-                                                    id="kawasanTinggal1" value="Perumahan/Komplek">
+                                                    id="kawasanTinggal1" value="Perumahan/Komplek"
+                                                    {{ old('kawasan_tinggal', $registration->kawasan_tinggal ?? '') == 'Perumahan/Komplek' ? 'checked' : '' }}>
                                                 <label class="form-check-label"
                                                     for="kawasanTinggal1">Perumahan/Komplek</label>
                                             </div>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="kawasan_tinggal"
-                                                    id="kawasanTinggal2" value="Ruko">
+                                                    id="kawasanTinggal2" value="Ruko"
+                                                    {{ old('kawasan_tinggal', $registration->kawasan_tinggal ?? '') == 'Ruko' ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="kawasanTinggal2">Ruko</label>
                                             </div>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="kawasan_tinggal"
-                                                    id="kawasanTinggal3" value="Perkampungan">
+                                                    id="kawasanTinggal3" value="Perkampungan"
+                                                    {{ old('kawasan_tinggal', $registration->kawasan_tinggal ?? '') == 'Perkampungan' ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="kawasanTinggal3">Perkampungan</label>
                                             </div>
                                         </div>
@@ -259,20 +274,23 @@
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio"
                                                     name="status_tempat_tinggal" id="statusTempatTinggal1"
-                                                    value="Milik Pribadi">
+                                                    value="Milik Pribadi"
+                                                    {{ old('status_tempat_tinggal', $registration->status_tempat_tinggal ?? '') == 'Milik Pribadi' ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="statusTempatTinggal1">Milik
                                                     Pribadi</label>
                                             </div>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio"
                                                     name="status_tempat_tinggal" id="statusTempatTinggal2"
-                                                    value="Sewa">
+                                                    value="Sewa"
+                                                    {{ old('status_tempat_tinggal', $registration->status_tempat_tinggal ?? '') == 'Sewa' ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="statusTempatTinggal2">Sewa</label>
                                             </div>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio"
                                                     name="status_tempat_tinggal" id="statusTempatTinggal3"
-                                                    value="Tumpangan">
+                                                    value="Tumpangan"
+                                                    {{ old('status_tempat_tinggal', $registration->status_tempat_tinggal ?? '') == 'Tumpangan' ? 'checked' : '' }}>
                                                 <label class="form-check-label"
                                                     for="statusTempatTinggal3">Tumpangan</label>
                                             </div>
@@ -293,48 +311,56 @@
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="pendidikan_ayah"
                                                     id="pendidikanAyah1" value="SD"
+                                                    {{ old('pendidikan_ayah', $registration->pendidikan_ayah ?? '') == 'SD' ? 'checked' : '' }}
                                                     onclick="toggleInputPendidikan()">
                                                 <label class="form-check-label" for="pendidikanAyah1">SD</label>
                                             </div>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="pendidikan_ayah"
                                                     id="pendidikanAyah2" value="SMP"
+                                                    {{ old('pendidikan_ayah', $registration->pendidikan_ayah ?? '') == 'SMP' ? 'checked' : '' }}
                                                     onclick="toggleInputPendidikan()">
                                                 <label class="form-check-label" for="pendidikanAyah2">SMP</label>
                                             </div>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="pendidikan_ayah"
                                                     id="pendidikanAyah3" value="SMA"
+                                                    {{ old('pendidikan_ayah', $registration->pendidikan_ayah ?? '') == 'SMA' ? 'checked' : '' }}
                                                     onclick="toggleInputPendidikan()">
                                                 <label class="form-check-label" for="pendidikanAyah3">SMA</label>
                                             </div>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="pendidikan_ayah"
-                                                    id="pendidikanAyah4" value="SMA"
+                                                    id="pendidikanAyah4" value="DIII"
+                                                    {{ old('pendidikan_ayah', $registration->pendidikan_ayah ?? '') == 'DIII' ? 'checked' : '' }}
                                                     onclick="toggleInputPendidikan()">
                                                 <label class="form-check-label" for="pendidikanAyah4">DIII</label>
                                             </div>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="pendidikan_ayah"
-                                                    id="pendidikanAyah5" value="SMA"
+                                                    id="pendidikanAyah5" value="S1"
+                                                    {{ old('pendidikan_ayah', $registration->pendidikan_ayah ?? '') == 'S1' ? 'checked' : '' }}
                                                     onclick="toggleInputPendidikan()">
                                                 <label class="form-check-label" for="pendidikanAyah5">S1</label>
                                             </div>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="pendidikan_ayah"
-                                                    id="pendidikanAyah6" value="SMA"
+                                                    id="pendidikanAyah6" value="S2"
+                                                    {{ old('pendidikan_ayah', $registration->pendidikan_ayah ?? '') == 'S2' ? 'checked' : '' }}
                                                     onclick="toggleInputPendidikan()">
                                                 <label class="form-check-label" for="pendidikanAyah6">S2</label>
                                             </div>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="pendidikan_ayah"
                                                     id="pendidikanAyah7" value="Lain-lain"
+                                                    {{ old('pendidikan_ayah', $registration->pendidikan_ayah ?? '') == 'Lain-lain' ? 'checked' : '' }}
                                                     onclick="toggleInputPendidikan()">
                                                 <label class="form-check-label" for="pendidikanAyah7">Lain-lain,
                                                     sebutkan...</label>
                                             </div>
                                             <input type="text" class="form-control mt-2"
                                                 id="inputLainpendidikan_ayah_lain" name="pendidikan_ayah_lain"
+                                                value="{{ old('pendidikan_ayah_lain', $registration->pendidikan_ayah_lain?? '') }}"
                                                 placeholder="Sebutkan..." style="display:none;">
                                         </div>
                                     </div>
@@ -344,43 +370,57 @@
                                         <div class="col-sm-10">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="pendidikan_ibu"
-                                                    id="pendidikanIbu1" value="SD" onclick="toggleInputPendidikan()">
+                                                    id="pendidikanIbu1" value="SD"
+                                                    {{ old('pendidikan_ibu', $registration->pendidikan_ibu ?? '') == 'SD' ? 'checked' : '' }}
+                                                    onclick="toggleInputPendidikan()">
                                                 <label class="form-check-label" for="pendidikanIbu1">SD</label>
                                             </div>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="pendidikan_ibu"
-                                                    id="pendidikanIbu2" value="SMP" onclick="toggleInputPendidikan()">
+                                                    id="pendidikanIbu2" value="SMP"
+                                                    {{ old('pendidikan_ibu', $registration->pendidikan_ibu ?? '') == 'SMP' ? 'checked' : '' }}
+                                                    onclick="toggleInputPendidikan()">
                                                 <label class="form-check-label" for="pendidikanIbu2">SMP</label>
                                             </div>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="pendidikan_ibu"
-                                                    id="pendidikanIbu3" value="SMA" onclick="toggleInputPendidikan()">
+                                                    id="pendidikanIbu3" value="SMA"
+                                                    {{ old('pendidikan_ibu', $registration->pendidikan_ibu ?? '') == 'SMA' ? 'checked' : '' }}
+                                                    onclick="toggleInputPendidikan()">
                                                 <label class="form-check-label" for="pendidikanIbu3">SMA</label>
                                             </div>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="pendidikan_ibu"
-                                                    id="pendidikanIbu4" value="SMA" onclick="toggleInputPendidikan()">
+                                                    id="pendidikanIbu4" value="DIII"
+                                                    {{ old('pendidikan_ibu', $registration->pendidikan_ibu ?? '') == 'DIII' ? 'checked' : '' }}
+                                                    onclick="toggleInputPendidikan()">
                                                 <label class="form-check-label" for="pendidikanIbu4">DIII</label>
                                             </div>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="pendidikan_ibu"
-                                                    id="pendidikanIbu5" value="SMA" onclick="toggleInputPendidikan()">
+                                                    id="pendidikanIbu5" value="S1"
+                                                    {{ old('pendidikan_ibu', $registration->pendidikan_ibu ?? '') == 'S1' ? 'checked' : '' }}
+                                                    onclick="toggleInputPendidikan()">
                                                 <label class="form-check-label" for="pendidikanIbu5">S1</label>
                                             </div>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="pendidikan_ibu"
-                                                    id="pendidikanIbu6" value="SMA" onclick="toggleInputPendidikan()">
+                                                    id="pendidikanIbu6" value="S2"
+                                                    {{ old('pendidikan_ibu', $registration->pendidikan_ibu ?? '') == 'S2' ? 'checked' : '' }}
+                                                    onclick="toggleInputPendidikan()">
                                                 <label class="form-check-label" for="pendidikanIbu6">S2</label>
                                             </div>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="pendidikan_ibu"
                                                     id="pendidikanIbu7" value="Lain-lain"
+                                                    {{ old('pendidikan_ibu', $registration->pendidikan_ibu ?? '') == 'Lain-lain' ? 'checked' : '' }}
                                                     onclick="toggleInputPendidikan()">
                                                 <label class="form-check-label" for="pendidikanIbu7">Lain-lain,
                                                     sebutkan...</label>
                                             </div>
                                             <input type="text" class="form-control mt-2" id="inputLainPendidikanIbu"
-                                                name="pendidikan_ibu_lain" placeholder="Sebutkan..."
+                                                name="pendidikan_ibu_lain" value="{{ old('pendidikan_ibu_lain', $registration->pendidikan_ibu_lain ?? '') }}"
+                                                placeholder="Sebutkan..."
                                                 style="display:none;">
                                         </div>
                                     </div>
@@ -402,7 +442,8 @@
                                                 <option value="Other">Lain-Lain, sebutkan</option>
                                             </select>
                                             <input type="text" class="form-control mt-2" id="detailInputAyah"
-                                                name="pekerjaan_ayah_detail" placeholder="Masukan detail golongan"
+                                                name="pekerjaan_ayah_detail" value="{{ old('pekerjaan_ayah_detail', $registration->pekerjaan_ayah_detail ?? '') }}"
+                                                placeholder="Masukan detail golongan"
                                                 style="display: none;">
                                         </div>
                                     </div>
@@ -423,7 +464,8 @@
                                                 <option value="Other">Lain-Lain, sebutkan</option>
                                             </select>
                                             <input type="text" class="form-control mt-2" id="detailInputIbu"
-                                                name="pekerjaan_ibu_detail" placeholder="Masukan detail golongan"
+                                                name="pekerjaan_ibu_detail" value="{{ old('pekerjaan_ibu_detail', $registration->pekerjaan_ibu_detail ?? '') }}"
+                                                placeholder="Masukan detail golongan"
                                                 style="display: none;">
                                         </div>
                                     </div>
@@ -463,7 +505,7 @@
                                                 class="text-danger">*</span></label>
                                         <div class="col-sm-10">
                                             <input type="tel" class="form-control" id="jumlahTanggungan"
-                                                name="jumlah_tanggungan">
+                                                name="jumlah_tanggungan" value="{{ old('jumlah_tanggungan', $registration->jumlah_tanggungan ?? '') }}">
                                             <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
                                         </div>
                                     </div>
@@ -528,23 +570,28 @@
                                 <form id="tanggunganForm">
                                     <div class="mb-3">
                                         <label for="namaLengkapTg" class="form-label">Nama Lengkap Tanggungan</label>
-                                        <input type="text" class="form-control" id="namaLengkapTg">
+                                        <input type="text" class="form-control" id="namaLengkapTg" name="nama_lengkap_tanggungan"
+                                        value="{{ old('nama_lengkap_tanggungan', $registration->nama_lengkap_tanggungan ?? '') }}">
                                     </div>
                                     <div class="mb-3">
                                         <label for="sekolahTg" class="form-label">Sekolah/Kampus</label>
-                                        <input type="text" class="form-control" id="sekolahTg">
+                                        <input type="text" class="form-control" id="sekolahTg" name="sekolah_tanggungan"
+                                        value="{{ old('sekolah_tanggungan', $registration->sekolah_tanggungan ?? '') }}">
                                     </div>
                                     <div class="mb-3">
                                         <label for="kelasTg" class="form-label">Kelas/Semester</label>
-                                        <input type="text" class="form-control" id="kelasTg">
+                                        <input type="text" class="form-control" id="kelasTg" name="kelas_tanggungan"
+                                        value="{{ old('kelas_tanggungan', $registration->kelas_tanggungan ?? '') }}">
                                     </div>
                                     <div class="mb-3">
                                         <label for="uangSekolahTg" class="form-label">Uang Sekolah</label>
-                                        <input type="text" class="form-control" id="uangSekolahTg">
+                                        <input type="text" class="form-control" id="uangSekolahTg" name="uang_sekolah_tanggungan"
+                                        value="{{ old('uang_sekolah_tanggungan', $registration->uang_sekolah_tanggungan ?? '') }}">
                                     </div>
                                     <div class="mb-3">
                                         <label for="keteranganTg" class="form-label">Keterangan</label>
-                                        <input type="text" class="form-control" id="keteranganTg">
+                                        <input type="text" class="form-control" id="keteranganTg" name="keterangan_tanggungan"
+                                        value="{{ old('keterangan_tanggungan', $registration->keterangan_tanggungan ?? '') }}">
                                     </div>
                                     <button type="button" class="btn btn-primary" id="saveTanggungan">Simpan</button>
                                 </form>
