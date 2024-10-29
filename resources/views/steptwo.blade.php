@@ -525,40 +525,38 @@
                                                 data-bs-target="#tambahTanggungan">Tambahkan data tanggungan</button>
                                         </div>
 
-                                        <!-- Hidden inputs for tanggungan data -->
-                                        <div id="hiddenInputsContainer">
-                                            <input type="hidden" name="tanggungan[0][namaLengkap]" value="John Doe">
-                                            <input type="hidden" name="tanggungan[0][sekolah]" value="School ABC">
-                                            <input type="hidden" name="tanggungan[0][kelas]" value="5th Grade">
-                                            <input type="hidden" name="tanggungan[0][uangSekolah]" value="2000000">
-                                            <input type="hidden" name="tanggungan[0][keterangan]" value="Sibling">
-
-                                        </div>
-
-                                        <!-- Table for Displaying Tanggungan Data -->
-                                        <table class="table table-striped table-bordered text-center mt-4">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">No</th>
-                                                    <th scope="col">Nama</th>
-                                                    <th scope="col">Sekolah/Kampus</th>
-                                                    <th scope="col">Kelas/Semester</th>
-                                                    <th scope="col">Uang Sekolah</th>
-                                                    <th scope="col">Keterangan</th>
-                                                    <th scope="col">Aksi</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="tanggunganTableBody">
-                                                <!-- Tanggungan data will be added here dynamically -->
-                                            </tbody>
-                                        </table>
-
+                                    <!-- Hidden inputs for tanggungan data -->
+                                    <div id="hiddenInputsContainer">
+                                        <input type="hidden" name="tanggungan[0][namaLengkap]" value="John Doe">
+                                        <input type="hidden" name="tanggungan[0][sekolah]" value="School ABC">
+                                        <input type="hidden" name="tanggungan[0][kelas]" value="5th Grade">
+                                        <input type="hidden" name="tanggungan[0][uangSekolah]" value="2000000">
+                                        <input type="hidden" name="tanggungan[0][keterangan]" value="Sibling">
 
                                     </div>
+
+                                    <!-- Table for Displaying Tanggungan Data -->
+                                    <table class="table table-striped table-bordered text-center mt-4">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">No</th>
+                                                <th scope="col">Nama</th>
+                                                <th scope="col">Sekolah/Kampus</th>
+                                                <th scope="col">Kelas/Semester</th>
+                                                <th scope="col">Uang Sekolah</th>
+                                                <th scope="col">Keterangan</th>
+                                                <th scope="col">Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tanggunganTableBody">
+                                            <!-- Tanggungan data will be added here dynamically -->
+                                        </tbody>
+                                    </table>
+
+
                                 </div>
                             </div>
                         </div>
-
                 </div>
                 <a href="{{ route('step1.show', ['user_id' => $user_id]) }}" class="btn btn-secondary mt-3">Back</a>
                 <!-- Submission Button -->
@@ -619,6 +617,7 @@
     </main>
 
     <!-- JavaScript for step navigation -->
+
 
 
     <script>
@@ -811,7 +810,12 @@
     </script>
 
     <script>
-        let tanggunganData = [];
+        let tanggunganData = @json($tanggunganDataOld);
+
+        document.addEventListener("DOMContentLoaded", function() {
+            updateTable();
+            updateHiddenInputs();
+        });
 
         // Save tanggungan data and update the table and hidden inputs
         document.getElementById('saveTanggungan').addEventListener('click', function() {
@@ -819,8 +823,7 @@
             const namaLengkap = document.getElementById('namaLengkapTg').value;
             const sekolah = document.getElementById('sekolahTg').value;
             const kelas = document.getElementById('kelasTg').value;
-            const uangSekolah = document.getElementById('uangSekolahTg').value.replace(/\D/g,
-                ''); // Remove non-numeric
+            const uangSekolah = document.getElementById('uangSekolahTg').value.replace(/\D/g, '');
             const keterangan = document.getElementById('keteranganTg').value;
 
             // Validate input fields
@@ -881,11 +884,11 @@
 
             tanggunganData.forEach((tanggungan, index) => {
                 container.insertAdjacentHTML('beforeend', `
-            <input type="hidden" name="nama_lengkap_tanggungan[]" value="${tanggungan.namaLengkap}">
-            <input type="hidden" name="sekolah_tanggungan[]" value="${tanggungan.sekolah}">
-            <input type="hidden" name="kelas_tanggungan[]" value="${tanggungan.kelas}">
-            <input type="hidden" name="uang_sekolah_tanggungan[]" value="${tanggungan.uangSekolah}">
-            <input type="hidden" name="keterangan_tanggungan[]" value="${tanggungan.keterangan}">
+            <input type="hidden" name="tanggunganData[${index}][namaLengkap]" value="${tanggungan.namaLengkap}">
+            <input type="hidden" name="tanggunganData[${index}][sekolah]" value="${tanggungan.sekolah}">
+            <input type="hidden" name="tanggunganData[${index}][kelas]" value="${tanggungan.kelas}">
+            <input type="hidden" name="tanggunganData[${index}][uangSekolah]" value="${tanggungan.uangSekolah}">
+            <input type="hidden" name="tanggunganData[${index}][keterangan]" value="${tanggungan.keterangan}">
         `);
             });
         }
