@@ -26,26 +26,12 @@
             <div class="container">
                 <div class="d-flex justify-content-center">
                     <ul class="nav nav-tabs" data-aos="fade-up" data-aos-delay="100">
-
                         <li class="nav-item">
                             <a class="nav-link active show" href="#" aria-disabled="true">
                                 <h4>Step 1 : Data Siswa</h4>
                             </a>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" aria-disabled="true">
-                                <h4>Step 2 : Data Orang Tua</h4>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" aria-disabled="true">
-                                <h4>Step 3 : Data Wali</h4>
-                            </a>
-                        </li>
                     </ul>
-
                 </div>
 
                 <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
@@ -506,95 +492,11 @@
     </script>
 
     <script>
-        document.getElementById('confirmSubmit').addEventListener('click', function(e) {
-            document.querySelector('form').submit(); // Submit the form
-            e.preventDefault()
-
-            var data = new FormData(this)
-
+        document.getElementById('formdata-step1').addEventListener('submit', function() {
+            const submitButton = document.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.innerText = 'Processing...'; // Optional: change button text
         });
-    </script>
-
-
-
-    <script>
-        function toggleInputPendidikan() {
-            const pendidikanAyah = document.querySelector('input[name="pendidikan_ayah"]:checked');
-            const pendidikanIbu = document.querySelector('input[name="pendidikan_ibu"]:checked');
-
-            const inputLainPendidikanAyah = document.getElementById('inputLainpendidikan_ayah_lain');
-            const inputLainPendidikanIbu = document.getElementById('inputLainPendidikanIbu');
-
-            // Menampilkan atau menyembunyikan input berdasarkan status radio button
-            inputLainPendidikanAyah.style.display = pendidikanAyah && pendidikanAyah.value === 'Lain-lain' ? 'block' :
-                'none';
-            inputLainPendidikanIbu.style.display = pendidikanIbu && pendidikanIbu.value === 'Lain-lain' ? 'block' : 'none';
-        }
-
-        function toggleInputRekreasi() {
-            const lainCheckbox = document.getElementById('rekreasi5');
-            const inputLainRekreasi = document.getElementById('inputLainRekreasi');
-
-            inputLainRekreasi.style.display = lainCheckbox.checked ? 'block' : 'none';
-        }
-
-        function updatePlaceholderAyah() {
-            const select = document.getElementById('jobSelectAyah');
-            const input = document.getElementById('detailInputAyah');
-
-            // Ambil nilai yang dipilih
-            const selectedValue = select.value;
-
-            // Ubah placeholder dan tampilkan input berdasarkan pilihan
-            if (selectedValue === "1") {
-                input.placeholder = "Masukan detail golongan";
-                input.style.display = "block"; // Tampilkan input
-            } else if (selectedValue === "2") {
-                input.placeholder = "Masukan jabatan Ayah";
-                input.style.display = "block"; // Tampilkan input
-            } else if (selectedValue >= 3 && selectedValue <= 4) {
-                input.placeholder = "Masukan bidang usaha Ayah";
-                input.style.display = "block"; // Tampilkan input
-            } else if (selectedValue >= 5 && selectedValue <= 6) {
-                input.placeholder = "Masukan pangkat Ayah";
-                input.style.display = "block"; // Tampilkan input
-            } else if (selectedValue === "8") {
-                input.placeholder = "Masukan pekerjaan Ayah";
-                input.style.display = "block"; // Tampilkan input
-            } else {
-                input.placeholder = ""; // Kosongkan placeholder
-                input.style.display = "none"; // Sembunyikan input
-            }
-        }
-
-        function updatePlaceholderIbu() {
-            const select = document.getElementById('jobSelectIbu');
-            const input = document.getElementById('detailInputIbu');
-
-            // Ambil nilai yang dipilih
-            const selectedValue = select.value;
-
-            // Ubah placeholder dan tampilkan input berdasarkan pilihan
-            if (selectedValue === "1") {
-                input.placeholder = "Masukan detail golongan";
-                input.style.display = "block"; // Tampilkan input
-            } else if (selectedValue === "2") {
-                input.placeholder = "Masukan jabatan Ibu";
-                input.style.display = "block"; // Tampilkan input
-            } else if (selectedValue >= 3 && selectedValue <= 4) {
-                input.placeholder = "Masukan bidang usaha Ibu";
-                input.style.display = "block"; // Tampilkan input
-            } else if (selectedValue >= 5 && selectedValue <= 6) {
-                input.placeholder = "Masukan pangkat Ibu";
-                input.style.display = "block"; // Tampilkan input
-            } else if (selectedValue === "8") {
-                input.placeholder = "Masukan pekerjaan Ibu";
-                input.style.display = "block"; // Tampilkan input
-            } else {
-                input.placeholder = ""; // Kosongkan placeholder
-                input.style.display = "none"; // Sembunyikan input
-            }
-        }
     </script>
 
 

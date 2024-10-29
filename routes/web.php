@@ -21,10 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/pendaftaran', [RegistrationController::class, 'showStep1'])->name('step1.show');
 
     // Step 1: Submit Step 1 form data
-    Route::post('/pendaftaran/step1', [RegistrationController::class, 'postStep1'])
-        ->name('step1.post')
-        ->middleware('check.registration');
-
+    Route::post('/pendaftaran/step1', [RegistrationController::class, 'postStep1'])->name('step1.post');
 
     // Step 2: Show Step 2 form
     Route::get('/pendaftaran/step2/{user_id}', [RegistrationController::class, 'showStep2'])->name('step2.show');

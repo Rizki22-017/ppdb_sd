@@ -42,15 +42,15 @@
                                             <label for="namaLengkapAyah" class="form-label">Nama Lengkap Ayah <span
                                                     class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="namaLengkapAyah"
-                                                name="nama_lengkap_ayah" value="{{ old('nama_lengkap_ayah', $registration->nama_lengkap_ayah ?? '') }}"
-                                                required placeholder="Masukan nama lengkap ayah">
+                                                name="nama_lengkap_ayah"
+                                                required placeholder="Masukan nama lengkap ayah"  value="{{ old('nama_lengkap_ayah', $registration->nama_lengkap_ayah ?? '') }}" >
                                             <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
                                         </div>
                                         <div class="mb-3">
                                             <label for="nikAyah" class="form-label">NIK Ayah<span
                                                     class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="nikAyah" name="nik_ayah"
-                                            value="{{ old('nik_ayah', $registration->nik_ayah ?? '') }}"
+                                            value="{{ old('nik_ayah', $registration->nik_ayah ?? '') }}"
                                             required placeholder="Masukan NIK ayah" maxlength="16" pattern="\d{16}"
                                                 title="NIK harus 16 digit angka">
                                             <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
@@ -59,8 +59,8 @@
                                             <label for="namaLengkapIbu" class="form-label">Nama Lengkap Ibu <span
                                                     class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="namaLengkapIbu"
-                                                name="nama_lengkap_ibu" value="{{ old('nama_lengkap_bu', $registration->nama_lengkap_ibu ?? '') }}"
-                                                required placeholder="Masukan nama lengkap ayah">
+                                                name="nama_lengkap_ibu" 
+                                                required placeholder="Masukan nama lengkap Ibu" value="{{ old('nama_lengkap_ayah', $registration->nama_lengkap_ayah ?? '') }}" >
                                             <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
                                         </div>
                                         <div class="mb-3">
@@ -136,12 +136,12 @@
                                         <div class="row">
                                             <div class="col-12 col-md-6 mb-2">
                                                 <input type="text" class="form-control" id="tempatLahirA"
-                                                    name="tempat_lahir_ayah" value="{{ old('tempat_lahir_ayah', $registration->tempat_lahir_ayah ?? '') }}"
+                                                    name="tempat_lahir_ayah" value="{{ old('tempat_lahir_ayah', $registration->tempat_lahir_ayah ?? '')}}"
                                                     required placeholder="Masukan tempat lahir ayah">
                                             </div>
                                             <div class="col-12 col-md-6 mb-2">
                                                 <input type="date" class="form-control" id="tanggalLahirA"
-                                                    name="tanggal_lahir_ayah" value="{{ old('tanggal_lahir_ayah', $registration->tanggal_lahir_ayah ?? '') }}"
+                                                    name="tanggal_lahir_ayah" value="{{ old('tanggal_lahir_ayah', $registration->tanggal_lahir_ayah ?? '')}}"
                                                     required>
                                             </div>
                                         </div>
@@ -198,7 +198,7 @@
                                                     class="text-danger">*</span></label>
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control" id="kantorAyah"
-                                                    name="kantor_ayah" value="{{ old('kantor_ayah', $registration->kantor_ayah ?? '') }}"
+                                                    name="kantor_ayah" value="{{ old('kantor_ayah', $registration->kantor_ayah ?? '')}}"
                                                     required placeholder="Jl. Sudirman, Kota Padang">
                                                 <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
                                             </div>

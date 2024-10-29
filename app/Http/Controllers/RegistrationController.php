@@ -45,18 +45,11 @@ class RegistrationController extends Controller
     // Step 1: Handle POST for Step 1
     public function postStep1(Request $request)
     {
+        // Generate a new form ID for new records only if no form ID exists for the user
+        $registration = Registration::where('user_id', Auth::id())->first();
+        $formId = $registration ? $registration->form_id : $this->generateFormId();
 
-        // Check if the user already has a registration entry
-        $existingRegistration = Registration::where('user_id', auth()->id())->first();
-
-        if ($existingRegistration) {
-            // If an entry exists, redirect back with an error message
-            return redirect()->route('step1.show')->with('error', 'Anda telah terdaftar di sistem, gunakan akun lain jika ingin mendaftar siswa yang berbeda.');
-        }
-
-        $formId = $this->generateFormId();
-
-
+        // Validate incoming request
         $validatedData = $request->validate([
             'nama_lengkap' => 'required|string|max:255',
             'jenis_kelamin' => 'required|string',
@@ -70,7 +63,7 @@ class RegistrationController extends Controller
             'jumlah_saudara_angkat' => 'nullable|numeric',
             'bahasa' => 'required|string|max:255',
             'alamat_anak' => 'required|string|max:255',
-            'nik' => 'required|digits:16|unique:registrations,nik',
+            'nik' => 'required|digits:16|unique:registrations,nik,' . optional($registration)->id,
             'nomor_kk' => 'required|digits:16',
             'no_regis_akta' => 'required|string|max:255',
             'jarak' => 'required|string|max:255',
@@ -84,24 +77,23 @@ class RegistrationController extends Controller
             'nisn' => 'nullable|string|max:255',
             'tanggal_sktb' => 'nullable|date',
             'lama_tk' => 'nullable|string|max:255',
-
         ]);
 
+        // Include the user ID and form ID in the validated data
         $validatedData['user_id'] = Auth::id();
         $validatedData['form_id'] = $formId;
 
-        // Save or update Step One data in the database
+        // Use updateOrCreate to handle both creating and updating the registration
         $registration = Registration::updateOrCreate(
             ['user_id' => Auth::id()],
             $validatedData
         );
 
-        // Redirect to Step Two
-        return redirect()->route(
-            'step2.show',
-            ['user_id' => Auth::id()]
-        );
+        // Redirect to the next step with a success message if the record is created/updated
+        return redirect()->route('step2.show', ['user_id' => Auth::id()])
+            ->with('success', 'Data saved successfully. Proceed to the next step.');
     }
+
 
 
     // Step 2: Show the form for Step 2
