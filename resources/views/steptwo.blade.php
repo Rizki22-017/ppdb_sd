@@ -560,9 +560,10 @@
                         </div>
 
                 </div>
-                <a href="{{ route('step1.show', ['user_id' => $user_id]) }}" class="btn btn-secondary mt-3">Back</a>
-                <!-- Submission Button -->
-                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                <div class="d-flex justify-content-between mt-3">
+                    <a href="{{ route('step1.show', ['user_id' => $user_id]) }}" class="btn btn-secondary">Back</a>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
                 </form>
 
 
