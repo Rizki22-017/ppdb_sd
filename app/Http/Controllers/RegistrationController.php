@@ -53,6 +53,10 @@ class RegistrationController extends Controller
             // If an entry exists, redirect back with an error message
             return redirect()->route('step1.show')->with('error', 'Anda telah terdaftar di sistem, gunakan akun lain jika ingin mendaftar siswa yang berbeda.');
         }
+
+        $formId = $this->generateFormId();
+
+
         $validatedData = $request->validate([
             'nama_lengkap' => 'required|string|max:255',
             'jenis_kelamin' => 'required|string',
@@ -84,6 +88,7 @@ class RegistrationController extends Controller
         ]);
 
         $validatedData['user_id'] = Auth::id();
+        $validatedData['form_id'] = $formId;
 
         // Save or update Step One data in the database
         $registration = Registration::updateOrCreate(
@@ -92,7 +97,10 @@ class RegistrationController extends Controller
         );
 
         // Redirect to Step Two
-        return redirect()->route('step2.show', ['user_id' => Auth::id()]);
+        return redirect()->route(
+            'step2.show',
+            ['user_id' => Auth::id()]
+        );
     }
 
 

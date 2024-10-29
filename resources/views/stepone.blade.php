@@ -115,28 +115,28 @@
                                             <div class="mb-3">
                                                 <label for="tinggi" class="form-label">Tinggi (cm)<span
                                                         class="text-danger">*</span></label>
-                                                <input type="number" class="form-control" id="tinggi" name="tinggi"
+                                                <input type="text" class="form-control" id="tinggi" name="tinggi"
                                                     placeholder="Masukkan Tinggi Badan"
                                                     value="{{ old('tinggi', $registration->tinggi ?? '') }} ">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="berat" class="form-label">Berat (kg)<span
+                                                <label for="text" class="form-label">Berat (kg)<span
                                                         class="text-danger">*</span></label>
                                                 <input type="numb" class="form-control" id="berat" name="berat"
                                                     placeholder="Masukkan Berat Badan"
-                                                    value="{{ old('berat', $registration->berat ?? '') }} }}">
+                                                    value="{{ old('berat', $registration->berat ?? '') }}">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="anak_ke" class="form-label">Anak Ke Berapa dalam keluarga
                                                     <span class="text-danger">*</span></label>
-                                                <input type="number" class="form-control" id="anak_ke" name="anak_ke"
+                                                <input type="text" class="form-control" id="anak_ke" name="anak_ke"
                                                     placeholder="Masukkan Jumlah Saudara Kandung"
                                                     value="{{ old('anak_ke', $registration->anak_ke ?? '') }} ">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="jumlah_saudara_kandung" class="form-label">Jumlah Saudara
                                                     Kandung<span class="text-danger">*</span></label>
-                                                <input type="number" class="form-control" id="jumlah_saudara_kandung"
+                                                <input type="text" class="form-control" id="jumlah_saudara_kandung"
                                                     name="jumlah_saudara_kandung"
                                                     placeholder="Masukkan Jumlah Saudara Kandung"
                                                     value="{{ old('jumlah_saudara_kandung', $registration->jumlah_saudara_kandung ?? '') }} ">
@@ -144,14 +144,14 @@
                                             <div class="mb-3">
                                                 <label for="jumlah_saudara_tiri" class="form-label">Jumlah Saudara
                                                     Tiri<span class="text-danger">*</span></label>
-                                                <input type="number" class="form-control" id="jumlah_saudara_tiri"
+                                                <input type="text" class="form-control" id="jumlah_saudara_tiri"
                                                     name="jumlah_saudara_tiri" placeholder="Masukkan Jumlah Saudara Tiri"
                                                     value="{{ old('jumlah_saudara_tiri', $registration->jumlah_saudara_tiri ?? '') }} ">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="jumlah_saudara_angkat" class="form-label">Jumlah Saudara
                                                     Angkat<span class="text-danger">*</span></label>
-                                                <input type="number" class="form-control" id="jumlah_saudara_angkat"
+                                                <input type="text" class="form-control" id="jumlah_saudara_angkat"
                                                     name="jumlah_saudara_angkat"
                                                     placeholder="Masukkan jumlah saudara angkat"
                                                     value="{{ old('jumlah_saudara_angkat', $registration->jumlah_saudara_angkat ?? '') }} ">
