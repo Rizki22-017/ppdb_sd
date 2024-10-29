@@ -531,12 +531,21 @@
 
                                     <!-- Hidden inputs for tanggungan data -->
                                     <div id="hiddenInputsContainer">
-                                        <input type="hidden" name="tanggungan[0][namaLengkap]" value="John Doe">
-                                        <input type="hidden" name="tanggungan[0][sekolah]" value="School ABC">
-                                        <input type="hidden" name="tanggungan[0][kelas]" value="5th Grade">
-                                        <input type="hidden" name="tanggungan[0][uangSekolah]" value="2000000">
-                                        <input type="hidden" name="tanggungan[0][keterangan]" value="Sibling">
-
+                                        @php
+                                            $tanggunganDataOld = old('tanggunganData', $registration->tanggungan ?? []);
+                                        @endphp
+                                        @foreach ($tanggunganDataOld as $index => $tanggungan)
+                                            <input type="hidden" name="tanggunganData[{{ $index }}][namaLengkap]"
+                                                value="{{ old("tanggunganData.$index.namaLengkap", $tanggungan['namaLengkap'] ?? '') }}">
+                                            <input type="hidden" name="tanggunganData[{{ $index }}][sekolah]"
+                                                value="{{ old("tanggunganData.$index.sekolah", $tanggungan['sekolah'] ?? '') }}">
+                                            <input type="hidden" name="tanggunganData[{{ $index }}][kelas]"
+                                                value="{{ old("tanggunganData.$index.kelas", $tanggungan['kelas'] ?? '') }}">
+                                            <input type="hidden" name="tanggunganData[{{ $index }}][uangSekolah]"
+                                                value="{{ old("tanggunganData.$index.uangSekolah", $tanggungan['uangSekolah'] ?? '') }}">
+                                            <input type="hidden" name="tanggunganData[{{ $index }}][keterangan]"
+                                                value="{{ old("tanggunganData.$index.keterangan", $tanggungan['keterangan'] ?? '') }}">
+                                        @endforeach
                                     </div>
 
                                     <!-- Table for Displaying Tanggungan Data -->
@@ -553,11 +562,9 @@
                                             </tr>
                                         </thead>
                                         <tbody id="tanggunganTableBody">
-                                            <!-- Tanggungan data will be added here dynamically -->
+                                            <!-- Dynamically added tanggungan data from JavaScript -->
                                         </tbody>
                                     </table>
-
-
                                 </div>
                             </div>
                         </div>
@@ -621,6 +628,7 @@
     </main>
 
     <!-- JavaScript for step navigation -->
+
 
 
     <script>
@@ -813,7 +821,12 @@
     </script>
 
     <script>
-        let tanggunganData = [];
+        let tanggunganData = @json($tanggunganDataOld);
+
+        document.addEventListener("DOMContentLoaded", function() {
+            updateTable();
+            updateHiddenInputs();
+        });
 
         // Save tanggungan data and update the table and hidden inputs
         document.getElementById('saveTanggungan').addEventListener('click', function() {
@@ -821,8 +834,7 @@
             const namaLengkap = document.getElementById('namaLengkapTg').value;
             const sekolah = document.getElementById('sekolahTg').value;
             const kelas = document.getElementById('kelasTg').value;
-            const uangSekolah = document.getElementById('uangSekolahTg').value.replace(/\D/g,
-                ''); // Remove non-numeric
+            const uangSekolah = document.getElementById('uangSekolahTg').value.replace(/\D/g, '');
             const keterangan = document.getElementById('keteranganTg').value;
 
             // Validate input fields
@@ -883,11 +895,11 @@
 
             tanggunganData.forEach((tanggungan, index) => {
                 container.insertAdjacentHTML('beforeend', `
-            <input type="hidden" name="nama_lengkap_tanggungan[]" value="${tanggungan.namaLengkap}">
-            <input type="hidden" name="sekolah_tanggungan[]" value="${tanggungan.sekolah}">
-            <input type="hidden" name="kelas_tanggungan[]" value="${tanggungan.kelas}">
-            <input type="hidden" name="uang_sekolah_tanggungan[]" value="${tanggungan.uangSekolah}">
-            <input type="hidden" name="keterangan_tanggungan[]" value="${tanggungan.keterangan}">
+            <input type="hidden" name="tanggunganData[${index}][namaLengkap]" value="${tanggungan.namaLengkap}">
+            <input type="hidden" name="tanggunganData[${index}][sekolah]" value="${tanggungan.sekolah}">
+            <input type="hidden" name="tanggunganData[${index}][kelas]" value="${tanggungan.kelas}">
+            <input type="hidden" name="tanggunganData[${index}][uangSekolah]" value="${tanggungan.uangSekolah}">
+            <input type="hidden" name="tanggunganData[${index}][keterangan]" value="${tanggungan.keterangan}">
         `);
             });
         }
