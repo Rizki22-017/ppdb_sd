@@ -313,26 +313,27 @@
                                             <form>
                                                 <div class="mb-3">
                                                     <h5 class="card-title" for="sekolahAsal">Sebelum Masuk di SD ini
-                                                        berasal dari TK</h5>
+                                                        berasal dari TK (Opsional)</h5>
                                                     <div class="container">
                                                         <div class="mb-3">
                                                             <label for="namaSekolah" class="form-label">Nama
                                                                 Sekolah</label>
                                                             <input type="text" class="form-control" id="namaSekolah"
-                                                                name="namaSekolah" placeholder="Masukkan nama sekolah">
+                                                                name="nama_sekolah_dulu"
+                                                                placeholder="Masukkan nama sekolah">
                                                         </div>
 
                                                         <div class="mb-3">
                                                             <label for="nspnSekolah" class="form-label">NSPN
                                                                 Sekolah</label>
                                                             <input type="text" class="form-control" id="nspnSekolah"
-                                                                name="nspnSekolah" placeholder="Masukkan NSPN sekolah">
+                                                                name="nspn_sekolah" placeholder="Masukkan NSPN sekolah">
                                                         </div>
 
                                                         <div class="mb-3">
                                                             <label for="alamatSekolah" class="form-label">Alamat</label>
                                                             <input type="text" class="form-control" id="alamatSekolah"
-                                                                name="alamatSekolah"
+                                                                name="alamat_sekolah_dulu"
                                                                 placeholder="Masukkan alamat sekolah">
                                                         </div>
 
@@ -340,14 +341,14 @@
                                                             <label for="desaSekolah"
                                                                 class="form-label">Desa/Kelurahan</label>
                                                             <input type="text" class="form-control" id="desaSekolah"
-                                                                name="desaSekolah" placeholder="Masukkan desa sekolah">
+                                                                name="desa_sekolah" placeholder="Masukkan desa sekolah">
                                                         </div>
 
                                                         <div class="mb-3">
                                                             <label for="kabupatenSekolah"
-                                                                class="form-label">Kabupaten?Kota</label>
+                                                                class="form-label">Kabupaten/Kota</label>
                                                             <input type="text" class="form-control"
-                                                                id="kabupatenSekolah" name="kabupatenSekolah"
+                                                                id="kabupaten_sekolah" name="kabupatenSekolah"
                                                                 placeholder="Masukkan kabupaten sekolah">
                                                         </div>
 
@@ -361,19 +362,19 @@
                                                             <label for="tanggalSKTB" class="form-label">Tanggal
                                                                 SKTB</label>
                                                             <input type="date" class="form-control" id="tanggalSKTB"
-                                                                name="tanggalSKTB">
+                                                                name="tanggal_sktb">
                                                         </div>
 
                                                         <div class="mb-3">
                                                             <label for="nomorSKTB" class="form-label">Nomor SKTB</label>
                                                             <input type="text" class="form-control" id="nomorSKTB"
-                                                                name="nomorSKTB" placeholder="Masukkan nomor SKTB">
+                                                                name="nomor_sktb" placeholder="Masukkan nomor SKTB">
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="lamaTK" class="form-label">Lama Pendidikan
                                                                 TK</label>
                                                             <input type="text" class="form-control" id="lamaTK"
-                                                                name="lamaTK" placeholder="Masukkan lama pendidikan TK">
+                                                                name="lama_tk" placeholder="Masukkan lama pendidikan TK">
                                                         </div>
                                                     </div>
                                                 </div>

@@ -71,6 +71,15 @@ class RegistrationController extends Controller
             'jarak' => 'required|string|max:255',
             'tempat_tinggal' => 'required|string',
             'transportasi' => 'required|array',
+            'nama_sekolah_dulu' => 'nullable|string|max:255',
+            'nspn_sekolah' => 'nullable|string|max:255',
+            'alamat_sekolah_dulu' => 'nullable|string|max:255',
+            'desa_sekolah' => 'nullable|string|max:255',
+            'kabupaten_sekolah' => 'nullable|string|max:255',
+            'nisn' => 'nullable|string|max:255',
+            'tanggal_sktb' => 'nullable|date',
+            'lama_tk' => 'nullable|string|max:255',
+
         ]);
 
         // Generate form ID and associate with authenticated user

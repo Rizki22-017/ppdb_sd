@@ -39,6 +39,14 @@ return new class extends Migration
             $table->string('jarak');
             $table->string('tempat_tinggal');
             $table->json('transportasi'); // Store multiple transport options as JSON
+            $table->string('nama_sekolah_dulu')->nullable();
+            $table->string('nspn_sekolah')->nullable();
+            $table->string('alamat_sekolah_dulu')->nullable();
+            $table->string('desa_sekolah')->nullable();
+            $table->string('kabupaten_sekolah')->nullable();
+            $table->string('nisn')->nullable();
+            $table->date('tanggal_sktb')->nullable();
+            $table->string('lama_tk')->nullable();
 
             // Step 2: Data Orang Tua (make nullable, filled in later step)
             $table->string('nama_lengkap_ayah')->nullable();

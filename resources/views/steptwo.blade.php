@@ -513,48 +513,47 @@
                 <!-- Submission Button -->
                 <button type="submit" class="btn btn-primary mt-3">Submit</button>
                 </form>
-            </div>
 
-            <!-- Modal for Adding Tanggungan -->
-            <div class="modal fade" id="tambahTanggungan" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Tambahkan Data Tanggungan</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="tanggunganForm">
-                                <div class="mb-3">
-                                    <label for="namaLengkapTg" class="form-label">Nama Lengkap Tanggungan</label>
-                                    <input type="text" class="form-control" id="namaLengkapTg">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="sekolahTg" class="form-label">Sekolah/Kampus</label>
-                                    <input type="text" class="form-control" id="sekolahTg">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="kelasTg" class="form-label">Kelas/Semester</label>
-                                    <input type="text" class="form-control" id="kelasTg">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="uangSekolahTg" class="form-label">Uang Sekolah</label>
-                                    <input type="text" class="form-control" id="uangSekolahTg">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="keteranganTg" class="form-label">Keterangan</label>
-                                    <input type="text" class="form-control" id="keteranganTg">
-                                </div>
-                                <button type="button" class="btn btn-primary" id="saveTanggungan">Simpan</button>
-                            </form>
+
+                <!-- Modal for Adding Tanggungan -->
+                <div class="modal fade" id="tambahTanggungan" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Tambahkan Data Tanggungan</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="tanggunganForm">
+                                    <div class="mb-3">
+                                        <label for="namaLengkapTg" class="form-label">Nama Lengkap Tanggungan</label>
+                                        <input type="text" class="form-control" id="namaLengkapTg">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="sekolahTg" class="form-label">Sekolah/Kampus</label>
+                                        <input type="text" class="form-control" id="sekolahTg">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="kelasTg" class="form-label">Kelas/Semester</label>
+                                        <input type="text" class="form-control" id="kelasTg">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="uangSekolahTg" class="form-label">Uang Sekolah</label>
+                                        <input type="text" class="form-control" id="uangSekolahTg">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="keteranganTg" class="form-label">Keterangan</label>
+                                        <input type="text" class="form-control" id="keteranganTg">
+                                    </div>
+                                    <button type="button" class="btn btn-primary" id="saveTanggungan">Simpan</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-
-            </div>
         </section>
     </main>
 

@@ -31,6 +31,16 @@ class Registration extends Model
         'jarak',
         'tempat_tinggal',
         'transportasi', // Array
+        'nama_sekolah_dulu',
+        'nspn_sekolah',
+        'alamat_sekolah_dulu',
+        'desa_sekolah',
+        'kabupaten_sekolah',
+        'nisn',
+        'tanggal_sktb',
+        'lama_tk',
+
+
         // Step 2: Data Orang Tua
         'nama_lengkap_ayah',
         'nik_ayah',
