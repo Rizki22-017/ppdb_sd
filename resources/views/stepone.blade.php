@@ -76,6 +76,7 @@
                                                         class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" id="namaLengkap"
                                                     name="nama_lengkap" required autofocus
+                                                    value="{{ old('nama_lengkap', $registration->nama_lengkap ?? '') }}"
                                                     placeholder="Masukkan nama lengkap">
                                                 <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
                                             </div>
@@ -84,12 +85,14 @@
                                                         class="text-danger">*</span></label><br>
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="radio" name="jenis_kelamin"
-                                                        id="lakiLaki" value="Laki-laki">
+                                                        id="lakiLaki" value="Laki-laki"
+                                                        {{ old('jenis_kelamin', $registration->jenis_kelamin ?? '') == 'Laki-laki' ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="lakiLaki">Laki-laki</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="radio" name="jenis_kelamin"
-                                                        id="perempuan" value="Perempuan">
+                                                        id="perempuan" value="Perempuan"
+                                                        {{ old('jenis_kelamin', $registration->jenis_kelamin ?? '') == 'Perempuan' ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="perempuan">Perempuan</label>
                                                 </div>
                                                 <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
@@ -98,57 +101,67 @@
                                                 <label for="tempat_lahir" class="form-label">Tempat Lahir<span
                                                         class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" id="tempat_lahir"
-                                                    name="tempat_lahir" placeholder="Masukkan Tempat Lahir">
+                                                    name="tempat_lahir"
+                                                    value="{{ old('tempat_lahir', $registration->tempat_lahir ?? '') }}"
+                                                    placeholder="Masukkan Tempat Lahir">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="tanggal_lahir" class="form-label">Tanggal Lahir<span
                                                         class="text-danger">*</span></label>
                                                 <input type="date" class="form-control" id="tanggal_lahir"
-                                                    name="tanggal_lahir">
+                                                    name="tanggal_lahir"
+                                                    value="{{ old('tanggal_lahir', $registration->tanggal_lahir ?? '') }}">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="tinggi" class="form-label">Tinggi (cm)<span
                                                         class="text-danger">*</span></label>
                                                 <input type="number" class="form-control" id="tinggi" name="tinggi"
-                                                    placeholder="Masukkan Tinggi Badan">
+                                                    placeholder="Masukkan Tinggi Badan"
+                                                    value="{{ old('tinggi', $registration->tinggi ?? '') }} ">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="berat" class="form-label">Berat (kg)<span
                                                         class="text-danger">*</span></label>
                                                 <input type="number" class="form-control" id="berat" name="berat"
-                                                    placeholder="Masukkan Berat Badan">
+                                                    placeholder="Masukkan Berat Badan"
+                                                    value="{{ old('berat', $registration->berat ?? '') }} }}">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="anak_ke" class="form-label">Anak Ke Berapa dalam keluarga
                                                     <span class="text-danger">*</span></label>
                                                 <input type="number" class="form-control" id="anak_ke" name="anak_ke"
-                                                    placeholder="Masukkan Jumlah Saudara Kandung">
+                                                    placeholder="Masukkan Jumlah Saudara Kandung"
+                                                    value="{{ old('anak_ke', $registration->anak_ke ?? '') }} ">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="jumlah_saudara_kandung" class="form-label">Jumlah Saudara
                                                     Kandung<span class="text-danger">*</span></label>
                                                 <input type="number" class="form-control" id="jumlah_saudara_kandung"
                                                     name="jumlah_saudara_kandung"
-                                                    placeholder="Masukkan Jumlah Saudara Kandung">
+                                                    placeholder="Masukkan Jumlah Saudara Kandung"
+                                                    value="{{ old('jumlah_saudara_kandung', $registration->jumlah_saudara_kandung ?? '') }} ">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="jumlah_saudara_tiri" class="form-label">Jumlah Saudara
                                                     Tiri<span class="text-danger">*</span></label>
                                                 <input type="number" class="form-control" id="jumlah_saudara_tiri"
-                                                    name="jumlah_saudara_tiri" placeholder="Masukkan Jumlah Saudara Tiri">
+                                                    name="jumlah_saudara_tiri" placeholder="Masukkan Jumlah Saudara Tiri"
+                                                    value="{{ old('jumlah_saudara_tiri', $registration->jumlah_saudara_tiri ?? '') }} ">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="jumlah_saudara_angkat" class="form-label">Jumlah Saudara
                                                     Angkat<span class="text-danger">*</span></label>
                                                 <input type="number" class="form-control" id="jumlah_saudara_angkat"
                                                     name="jumlah_saudara_angkat"
-                                                    placeholder="Masukkan jumlah saudara angkat">
+                                                    placeholder="Masukkan jumlah saudara angkat"
+                                                    value="{{ old('jumlah_saudara_angkat', $registration->jumlah_saudara_angkat ?? '') }} ">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="bahasa" class="form-label">Bahasa yang digunakan dalam
                                                     keluarga<span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" id="bahasa" name="bahasa"
-                                                    placeholder="Masukkan bahasa yang digunakan sehari-hari">
+                                                    placeholder="Masukkan bahasa yang digunakan sehari-hari"
+                                                    value="{{ old('bahasa', $registration->bahasa ?? '') }}">
                                             </div>
                                         </div>
                                     </div>
@@ -163,21 +176,24 @@
                                                     <label for="alamat_anak" class="form-label">Alamat<span
                                                             class="text-danger">*</span></label>
                                                     <input type="text" class="form-control" id="alamat_anak"
-                                                        name="alamat_anak" placeholder="Masukkan alamat tempat tinggal">
+                                                        name="alamat_anak" placeholder="Masukkan alamat tempat tinggal"
+                                                        value="{{ old('alamat_anak', $registration->alamat_anak ?? '') }}">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="nik" class="form-label">NIK (Nomor Induk
                                                         Kependudukan)<span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control" id="nik"
                                                         name="nik" placeholder="Masukkan nomor NIK" maxlength="16"
-                                                        pattern="\d{16}" title="NIK harus 16 digit angka" required>
+                                                        pattern="\d{16}" title="NIK harus 16 digit angka"
+                                                        value="{{ old('nik', $registration->nik ?? '') }}" required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="nomor_kk" class="form-label">Nomor Kartu Keluarga<span
                                                             class="text-danger">*</span></label>
                                                     <input type="text" class="form-control" id="nomor_kk"
                                                         name="nomor_kk" placeholder="Masukkan nomor KK" maxlength="16"
-                                                        pattern="\d{16}" title="Nomor KK harus 16 digit angka" required>
+                                                        pattern="\d{16}" title="Nomor KK harus 16 digit angka" required
+                                                        value="{{ old('nomor_kk', $registration->nomor_kk ?? '') }}">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="no_regis_akta" class="form-label">Nomor Registrasi Akta
@@ -187,6 +203,7 @@
                                                         placeholder="Masukkan nomor Registrasi Akta Kelahiran"
                                                         maxlength="16" pattern="\d{16}"
                                                         title="Nomor Registrasi Akta Kelahiran harus 16 digit angka"
+                                                        value="{{ old('no_regis_akta', $registration->no_regis_akta ?? '') }}"
                                                         required>
                                                 </div>
 
@@ -195,7 +212,8 @@
                                                         Sekolah<span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control" id="jarak"
                                                         name="jarak"
-                                                        placeholder="Masukkan jarak tempat tinggal ke sekolah">
+                                                        placeholder="Masukkan jarak tempat tinggal ke sekolah"
+                                                        value="{{ old('jarak', $registration->jarak ?? '') }}">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="tempat_tinggal" class="form-label">Tempat Tinggal Saat
@@ -203,7 +221,8 @@
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="radio"
                                                             name="tempat_tinggal" id="rumahSendiri"
-                                                            value="Dirumah sendiri bersama orang tua">
+                                                            value="Dirumah sendiri bersama orang tua"
+                                                            {{ old('jenis_kelamin', $registration->jenis_kelamin ?? '') == 'Dirumah sendiri bersama orang tua' ? 'checked' : '' }}>
                                                         <label class="form-check-label" for="rumahSendiri">Di rumah
                                                             sendiri bersama orang
                                                             tua</label>
@@ -211,7 +230,8 @@
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="radio"
                                                             name="tempat_tinggal" id="rumahFamili"
-                                                            value="Dirumah famili/kerabat">
+                                                            value="Dirumah famili/kerabat"
+                                                            {{ old('jenis_kelamin', $registration->jenis_kelamin ?? '') == 'Dirumah famili/kerabat' ? 'checked' : '' }}>
                                                         <label class="form-check-label" for="rumahFamili">Di rumah
                                                             famili/kerabat</label>
                                                     </div>

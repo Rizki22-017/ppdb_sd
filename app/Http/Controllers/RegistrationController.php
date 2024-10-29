@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Registration;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class RegistrationController extends Controller
@@ -32,7 +33,7 @@ class RegistrationController extends Controller
     // Show Step 1 form
     public function showStep1()
     {
-        $registration = Registration::where('user_id', auth()->id())->first();
+        $registration = Registration::where('user_id', Auth::id())->first();
 
         return view('stepone', [
             'registration' => $registration,
@@ -82,25 +83,27 @@ class RegistrationController extends Controller
 
         ]);
 
-        // Generate form ID and associate with authenticated user
-        $validatedData['form_id'] = $this->generateFormId();
-        $validatedData['user_id'] = auth()->id();
+        $validatedData['user_id'] = Auth::id();
 
-        // Save registration data
-        $registration = Registration::create($validatedData);
+        // Save or update Step One data in the database
+        $registration = Registration::updateOrCreate(
+            ['user_id' => Auth::id()],
+            $validatedData
+        );
 
-
-
-        // Redirect to Step 2 with the user ID parameter
-        return redirect()->route('step2.show', ['user_id' => auth()->id()]);
+        // Redirect to Step Two
+        return redirect()->route('step2.show', ['user_id' => Auth::id()]);
     }
 
 
     // Step 2: Show the form for Step 2
     public function showStep2($userId)
     {
+        // Retrieve the registration record
+        $registration = Registration::where('user_id', $userId)->first();
+
         return view('steptwo', [
-            'register_id' => $userId,
+            'registration' => $registration,
             'user_id' => $userId,
         ]);
     }
@@ -153,11 +156,11 @@ class RegistrationController extends Controller
         // Find the registration record using the user ID
         $registration = Registration::where('user_id', $user_id)->firstOrFail();
 
-        // Update registration data directly with the validated data
+        // Update registrati// Find the existing registration record and update with Step Two data
+        $registration = Registration::where('user_id', $user_id)->first();
         $registration->update($validatedData);
 
-
-        // Redirect to the next step with success message
+        // Redirect to Step Three (final step)
         return redirect()->route('step3.show', ['user_id' => $user_id])
             ->with('success', 'Data successfully saved.');
     }
