@@ -99,7 +99,7 @@ return new class extends Migration
 
             // File path for proof of payment
             $table->string('bukti_pembayaran')->nullable();
-            $table->string('status')->default('Pending');
+            $table->string('status')->default('pending');
 
             // Timestamps
             $table->timestamps();

@@ -1,5 +1,3 @@
-{{-- resources/views/registrations/show.blade.php --}}
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -118,11 +116,8 @@
                                 <label for="status" class="block font-semibold">Status:</label>
                                 <select name="status" id="status" class="border border-gray-300 p-2 rounded">
                                     <option value="Pending"
-                                        {{ $registration->status === 'Pending' ? 'selected' : '' }}>
+                                        {{ $registration->status === 'pending' ? 'selected' : '' }}>
                                         Pending</option>
-                                    <option value="Incomplete"
-                                        {{ $registration->status === 'Incomplete' ? 'selected' : '' }}>Incomplete
-                                    </option>
                                     <option value="Complete"
                                         {{ $registration->status === 'Complete' ? 'selected' : '' }}>
                                         Complete</option>

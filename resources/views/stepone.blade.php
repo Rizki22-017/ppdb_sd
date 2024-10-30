@@ -328,89 +328,84 @@
 
                             <div class="row">
                                 <div class="col-lg-6">
-
                                     <div class="card">
                                         <div class="card-body">
                                             <!-- General Form Elements -->
-                                            <form>
-                                                <div class="mb-3">
-                                                    <h5 class="card-title" for="sekolahAsal">Sebelum Masuk di SD ini
-                                                        berasal dari TK (Opsional)</h5>
-                                                    <div class="container">
-                                                        <div class="mb-3">
-                                                            <label for="namaSekolah" class="form-label">Nama
-                                                                Sekolah</label>
-                                                            <input type="text" class="form-control" id="namaSekolah"
-                                                                name="nama_sekolah_dulu"
-                                                                placeholder="Masukkan nama sekolah"
-                                                                value="{{ old('nama_sekolah_dulu', $registration->nama_sekolah_dulu ?? '') }}">
-                                                        </div>
+                                            <div class="mb-3">
+                                                <h5 class="card-title" for="sekolahAsal">Sebelum Masuk di SD ini
+                                                    berasal dari TK (Opsional)</h5>
+                                                <div class="container">
+                                                    <div class="mb-3">
+                                                        <label for="namaSekolah" class="form-label">Nama
+                                                            Sekolah</label>
+                                                        <input type="text" class="form-control" id="namaSekolah"
+                                                            name="nama_sekolah_dulu" placeholder="Masukkan nama sekolah"
+                                                            value="{{ old('nama_sekolah_dulu', $registration->nama_sekolah_dulu ?? '') }}">
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label for="nspnSekolah" class="form-label">NSPN
-                                                                Sekolah</label>
-                                                            <input type="text" class="form-control" id="nspnSekolah"
-                                                                name="nspn_sekolah" placeholder="Masukkan NSPN sekolah"
-                                                                value="{{ old('nspn_sekolah', $registration->nspn_sekolah ?? '') }}">
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label for="nspnSekolah" class="form-label">NSPN
+                                                            Sekolah</label>
+                                                        <input type="text" class="form-control" id="nspnSekolah"
+                                                            name="nspn_sekolah" placeholder="Masukkan NSPN sekolah"
+                                                            value="{{ old('nspn_sekolah', $registration->nspn_sekolah ?? '') }}">
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label for="alamatSekolah" class="form-label">Alamat</label>
-                                                            <input type="text" class="form-control" id="alamatSekolah"
-                                                                name="alamat_sekolah_dulu"
-                                                                placeholder="Masukkan alamat sekolah"
-                                                                value="{{ old('alamat_sekolah_dulu', $registration->alamat_sekolah_dulu ?? '') }}">
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label for="alamatSekolah" class="form-label">Alamat</label>
+                                                        <input type="text" class="form-control" id="alamatSekolah"
+                                                            name="alamat_sekolah_dulu"
+                                                            placeholder="Masukkan alamat sekolah"
+                                                            value="{{ old('alamat_sekolah_dulu', $registration->alamat_sekolah_dulu ?? '') }}">
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label for="desaSekolah"
-                                                                class="form-label">Desa/Kelurahan</label>
-                                                            <input type="text" class="form-control" id="desaSekolah"
-                                                                name="desa_sekolah" placeholder="Masukkan desa sekolah"
-                                                                value="{{ old('desa_sekolah', $registration->desa_sekolah ?? '') }}">
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label for="desaSekolah" class="form-label">Desa/Kelurahan</label>
+                                                        <input type="text" class="form-control" id="desaSekolah"
+                                                            name="desa_sekolah" placeholder="Masukkan desa sekolah"
+                                                            value="{{ old('desa_sekolah', $registration->desa_sekolah ?? '') }}">
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label for="kabupatenSekolah"
-                                                                class="form-label">Kabupaten/Kota</label>
-                                                            <input type="text" class="form-control"
-                                                                id="kabupatenSekolah" name="kabupatenSekolah"
-                                                                placeholder="Masukkan kabupaten sekolah"
-                                                                value="{{ old('kabupatenSekolah', $registration->kabupatenSekolah ?? '') }}">
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label for="kabupatenSekolah"
+                                                            class="form-label">Kabupaten/Kota</label>
+                                                        <input type="text" class="form-control" id="kabupatenSekolah"
+                                                            name="kabupaten_sekolah"
+                                                            placeholder="Masukkan kabupaten sekolah"
+                                                            value="{{ old('kabupaten_sekolah', $registration->kabupaten_sekolah ?? '') }}">
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label for="nisn" class="form-label">NISN</label>
-                                                            <input type="text" class="form-control" id="nisn"
-                                                                name="nisn" placeholder="Masukkan NISN"
-                                                                value="{{ old('nisn', $registration->nisn ?? '') }}">
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label for="nisn" class="form-label">NISN</label>
+                                                        <input type="text" class="form-control" id="nisn"
+                                                            name="nisn" placeholder="Masukkan NISN"
+                                                            value="{{ old('nisn', $registration->nisn ?? '') }}">
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label for="tanggalSKTB" class="form-label">Tanggal
-                                                                SKTB</label>
-                                                            <input type="date" class="form-control" id="tanggalSKTB"
-                                                                name="tanggal_sktb"
-                                                                value="{{ old('tanggal_sktb', $registration->tanggal_sktb ?? '') }}">
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label for="tanggalSKTB" class="form-label">Tanggal
+                                                            SKTB</label>
+                                                        <input type="date" class="form-control" id="tanggalSKTB"
+                                                            name="tanggal_sktb"
+                                                            value="{{ old('tanggal_sktb', $registration->tanggal_sktb ?? '') }}">
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label for="nomorSKTB" class="form-label">Nomor SKTB</label>
-                                                            <input type="text" class="form-control" id="nomorSKTB"
-                                                                name="nomor_sktb" placeholder="Masukkan nomor SKTB"
-                                                                value="{{ old('nomor_sktb', $registration->nomor_sktb ?? '') }}">
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label for="nomorSKTB" class="form-label">Nomor SKTB</label>
+                                                        <input type="text" class="form-control" id="nomorSKTB"
+                                                            name="nomor_sktb" placeholder="Masukkan nomor SKTB"
+                                                            value="{{ old('nomor_sktb', $registration->nomor_sktb ?? '') }}">
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label for="lamaTK" class="form-label">Lama Pendidikan
-                                                                TK</label>
-                                                            <input type="text" class="form-control" id="lamaTK"
-                                                                name="lama_tk" placeholder="Masukkan lama pendidikan TK"
-                                                                value="{{ old('lama_tk', $registration->lama_tk ?? '') }}">
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label for="lamaTK" class="form-label">Lama Pendidikan
+                                                            TK</label>
+                                                        <input type="text" class="form-control" id="lamaTK"
+                                                            name="lama_tk" placeholder="Masukkan lama pendidikan TK"
+                                                            value="{{ old('lama_tk', $registration->lama_tk ?? '') }}">
                                                     </div>
                                                 </div>
-                                            </form><!-- End General Form Elements -->
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

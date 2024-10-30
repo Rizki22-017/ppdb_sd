@@ -38,6 +38,7 @@ class ProfileController extends Controller
         $templateProcessor = new TemplateProcessor($templatePath);
         // Set placeholders with registration data
         $templateProcessor->setValues([
+            'form_id' => $registration->form_id,
             'nama_lengkap' => $registration->nama_lengkap,
             'jenis_kelamin' => $registration->jenis_kelamin,
             'tempat_lahir' => $registration->tempat_lahir,
@@ -51,7 +52,7 @@ class ProfileController extends Controller
             'bahasa' => $registration->bahasa,
             'alamat_anak' => $registration->alamat_anak,
             'nik' => $registration->nik,
-            'no_regis_kk' => $registration->nomor_kk,
+            'nomor_kk' => $registration->nomor_kk,
             'no_regis_akta' => $registration->no_regis_akta,
             'jarak' => $registration->jarak,
             'tempat_tinggal' => $registration->tempat_tinggal,
@@ -94,11 +95,11 @@ class ProfileController extends Controller
             'penghasilan_ayah' => $registration->penghasilan_ayah,
             'penghasilan_ibu' => $registration->penghasilan_ibu,
             'jumlah_tanggungan' => $registration->jumlah_tanggungan,
-            'nama_lengkap_tanggungan' => implode(', ', $registration->nama_lengkap_tanggungan ?? []),
-            'sekolah_tanggungan' => implode(', ', $registration->sekolah_tanggungan ?? []),
-            'kelas_tanggungan' => implode(', ', $registration->kelas_tanggungan ?? []),
-            'uang_sekolah_tanggungan' => implode(', ', $registration->uang_sekolah_tanggungan ?? []),
-            'keterangan_tanggungan' => implode(', ', $registration->keterangan_tanggungan ?? []),
+            'nama_lengkap_tanggungan' => implode(' | ', $registration->nama_lengkap_tanggungan ?? []),
+            'sekolah_tanggungan' => implode(' | ', $registration->sekolah_tanggungan ?? []),
+            'kelas_tanggungan' => implode(' | ', $registration->kelas_tanggungan ?? []),
+            'uang_sekolah_tanggungan' => implode(' | Rp.', $registration->uang_sekolah_tanggungan ?? []),
+            'keterangan_tanggungan' => implode(' | ', $registration->keterangan_tanggungan ?? []),
             'nama_wali' => $registration->nama_wali,
             'tempat_lahir_wali' => $registration->tempat_lahir_wali,
             'tanggal_lahir_wali' => $registration->tanggal_lahir_wali,
@@ -109,34 +110,12 @@ class ProfileController extends Controller
             'kodepos_wali' => $registration->kodepos_wali,
             'telepon_wali' => $registration->telepon_wali,
             'alamat_kantor_wali' => $registration->alamat_kantor_wali,
-            'bukti_pembayaran' => $registration->bukti_pembayaran,
             'status' => $registration->status,
         ]);
 
         // Save the filled document as a new Word file
         $tempDocPath = storage_path("app/temp_documents/registration_{$user->id}.docx");
         $templateProcessor->saveAs($tempDocPath);
-
-        // Convert to PDF using DomPDF
-        // $phpWord = IOFactory::load($tempDocPath);
-
-        // Create a temporary HTML file to convert to PDF
-        // $htmlWriter = IOFactory::createWriter($phpWord, 'HTML');
-        // $tempHtmlPath = storage_path("app/temp_documents/temp.html");
-        // $htmlWriter->save($tempHtmlPath);
-
-        // Load the HTML content into DomPDF
-        // $dompdf = new Dompdf();
-        // $dompdf->loadHtml(file_get_contents($tempHtmlPath));
-        // $dompdf->setPaper('A4', 'portrait');
-        // $dompdf->render();
-
-        // Save the generated PDF to a file
-        // $pdfPath = storage_path("app/temp_documents/registration_{$user->id}.pdf");
-        // file_put_contents($pdfPath, $dompdf->output());
-
-        // Clean up temporary HTML file
-        // unlink($tempHtmlPath);
 
         // Return the PDF for download
         return response()->download($tempDocPath)->deleteFileAfterSend(true);

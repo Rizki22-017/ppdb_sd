@@ -89,6 +89,7 @@ class RegistrationController extends Controller
             $validatedData
         );
 
+
         // Redirect to the next step with a success message if the record is created/updated
         return redirect()->route('step2.show', ['user_id' => Auth::id()])
             ->with('success', 'Data saved successfully. Proceed to the next step.');
