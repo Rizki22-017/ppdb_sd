@@ -35,10 +35,17 @@
                 <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                     <div class="max-w-xl">
                         <h3 class="text-lg font-semibold mb-4">Download Registration Details</h3>
-                        <a href="{{ route('profile.downloadPdf') }}"
-                            class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Download PDF
-                        </a>
+
+                        @if ($registrationStatus === 'Complete')
+                            <a href="{{ route('profile.downloadPdf') }}"
+                                class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                Download PDF
+                            </a>
+                        @else
+                            <button disabled class="bg-gray-400 text-white font-bold py-2 px-4 rounded">
+                                Download PDF (Available after completion)
+                            </button>
+                        @endif
                     </div>
                 </div>
             </div>
