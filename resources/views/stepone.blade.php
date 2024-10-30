@@ -208,7 +208,7 @@
                                                         <input class="form-check-input" type="radio"
                                                             name="tempat_tinggal" id="rumahSendiri"
                                                             value="Dirumah sendiri bersama orang tua"
-                                                            {{ old('jenis_kelamin', $registration->jenis_kelamin ?? '') == 'Dirumah sendiri bersama orang tua' ? 'checked' : '' }}>
+                                                            {{ old('tempat_tinggal', $registration->tempat_tinggal ?? '') == 'Dirumah sendiri bersama orang tua' ? 'checked' : '' }}>
                                                         <label class="form-check-label" for="rumahSendiri">Di rumah
                                                             sendiri bersama orang
                                                             tua</label>

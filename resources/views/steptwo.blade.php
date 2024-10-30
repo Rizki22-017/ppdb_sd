@@ -162,7 +162,7 @@
                                                 <div class="col-12 col-md-6 mb-2">
                                                     <input type="date" class="form-control" id="tanggalLahirI"
                                                         name="tanggal_lahir_ibu"
-                                                        value="{{ old('tanggal_lahir_ibu', $registration->tabggal_lahir_ibu ?? '') }}"
+                                                        value="{{ old('tanggal_lahir_ibu', $registration->tanggal_lahir_ibu ?? '') }}"
                                                         required>
                                                 </div>
                                             </div>

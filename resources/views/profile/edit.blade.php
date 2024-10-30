@@ -30,14 +30,24 @@
                         </span>
                     </p>
                 </div>
+
+                <!-- Add Download PDF Button -->
+                <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                    <div class="max-w-xl">
+                        <h3 class="text-lg font-semibold mb-4">Download Registration Details</h3>
+                        <a href="{{ route('profile.downloadPdf') }}"
+                            class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            Download PDF
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- Add Download PDF Button -->
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                 <div class="max-w-xl">
-                    <a href="{{ route('profile.downloadPdf') }}" class="bg-blue-500 text-white px-4 py-2 rounded">
-                        Cetak Formulir Pendaftaran
-                    </a>
+                    {{-- button for download the pdf --}}
+
                 </div>
             </div>
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
