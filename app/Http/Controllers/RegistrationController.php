@@ -247,7 +247,7 @@ class RegistrationController extends Controller
     public function updateStatus(Request $request, $id)
     {
         $request->validate([
-            'status' => 'required|in:Pending,Incomplete,Complete',
+            'status' => 'required|in:Incomplete,Complete',
         ]);
 
         $registration = Registration::findOrFail($id);

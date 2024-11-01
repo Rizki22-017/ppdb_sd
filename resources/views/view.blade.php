@@ -116,7 +116,7 @@
                                 <label for="status" class="block font-semibold">Status:</label>
                                 <select name="status" id="status" class="border border-gray-300 p-2 rounded">
                                     <option value="Pending"
-                                        {{ $registration->status === 'pending' ? 'selected' : '' }}>
+                                        {{ $registration->status === 'Pending' ? 'selected' : '' }}>
                                         Pending</option>
                                     <option value="Complete"
                                         {{ $registration->status === 'Complete' ? 'selected' : '' }}>
