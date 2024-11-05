@@ -1,3 +1,4 @@
+@section('title', 'Daftar Akun')
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
@@ -45,7 +46,7 @@
             </a>
 
             <x-primary-button class="ms-4">
-                {{ __('Register') }}
+                {{ __('Daftar') }}
             </x-primary-button>
         </div>
     </form>

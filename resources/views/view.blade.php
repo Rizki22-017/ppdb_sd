@@ -1,5 +1,3 @@
-{{-- resources/views/registrations/show.blade.php --}}
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -120,9 +118,6 @@
                                     <option value="Pending"
                                         {{ $registration->status === 'Pending' ? 'selected' : '' }}>
                                         Pending</option>
-                                    <option value="Incomplete"
-                                        {{ $registration->status === 'Incomplete' ? 'selected' : '' }}>Incomplete
-                                    </option>
                                     <option value="Complete"
                                         {{ $registration->status === 'Complete' ? 'selected' : '' }}>
                                         Complete</option>

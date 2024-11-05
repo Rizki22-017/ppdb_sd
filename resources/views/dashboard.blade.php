@@ -17,8 +17,8 @@
                     <form action="{{ route('dashboard.reset') }}" method="POST" class="mb-4">
                         @csrf
                         <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded"
-                            onclick="return confirm('Are you sure you want to delete all registrations?')">Reset All
-                            Registrations</button>
+                            onclick="return confirm('Are you sure you want to delete all registrations?')">Reset Semua
+                            Pendaftaran</button>
                     </form>
 
                     <!-- Registrations Table -->

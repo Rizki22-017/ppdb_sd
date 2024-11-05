@@ -34,7 +34,7 @@
 
                     <div class="col-lg-5">
                         <div class="about-img">
-                            <img src="assets/img/about-portrait.jpg" class="img-fluid" alt="">
+                            <img src="assets/img/poster.jpg" class="img-fluid" alt="">
                         </div>
                     </div>
 

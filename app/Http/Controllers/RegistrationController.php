@@ -89,6 +89,7 @@ class RegistrationController extends Controller
             $validatedData
         );
 
+
         // Redirect to the next step with a success message if the record is created/updated
         return redirect()->route('step2.show', ['user_id' => Auth::id()])
             ->with('success', 'Data saved successfully. Proceed to the next step.');
@@ -246,7 +247,7 @@ class RegistrationController extends Controller
     public function updateStatus(Request $request, $id)
     {
         $request->validate([
-            'status' => 'required|in:Pending,Incomplete,Complete',
+            'status' => 'required|in:Incomplete,Complete',
         ]);
 
         $registration = Registration::findOrFail($id);

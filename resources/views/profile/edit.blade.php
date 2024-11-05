@@ -36,14 +36,14 @@
                     <div class="max-w-xl">
                         <h3 class="text-lg font-semibold mb-4">Download Registration Details</h3>
 
-                        @if ($registrationStatus === 'Complete')
+                        @if ($registrationStatus === 'Completed')
                             <a href="{{ route('profile.downloadPdf') }}"
                                 class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                Download PDF
+                                Download Formulir
                             </a>
                         @else
                             <button disabled class="bg-gray-400 text-white font-bold py-2 px-4 rounded">
-                                Download PDF (Available after completion)
+                                Download Formulir (Tersedia Jika Status Sudah Complete)
                             </button>
                         @endif
                     </div>
