@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document Print Template</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 20px;
+                padding-bottom: 150px;
+                position: relative;
+            }
+            .container {
+                width: 100%;
+            }
+            .header,
+            .footer {
+                text-align: center;
+                margin-top: 20px;
+            }
+            .section {
+                margin: 20px 0;
+            }
+            .section-title {
+                font-weight: bold;
+                text-decoration: underline;
+                margin-top: 10px;
+            }
+            .field-label {
+                font-weight: bold;
+            }
+            .signature {
+                position: absolute;
+                margin-top: 20px;
+                bottom: 30px;
+                right: 20px;
+                text-align: left;
+            }
+            /* CSS for print */
+            @media print {
+                /* Page break to start each new section on a new page */
+                .new-page-section {
+                    page-break-before: always;
+                }
+                /* Prevent signature from breaking across pages */
+                .signature-background,
+                .signature-commitment {
+                    position: relative;
+                    bottom: 20px;
+                    right: 20px;
+                    text-align: right;
+                    page-break-inside: avoid;
+                }
+                .footer {
+                    position: fixed;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="grouped-page">
+                <div class="header">
+                    <img src="/assets/header.png" alt="School Header" />
+                </div>
+
+                <div class="section">
+                    <p>No. Formulir: <span>{form_id}</span></p>
+                    <p>Tanggal Pengembalian Formulir: ____________________</p>
+                    <p>Nama Sekolah: ____________________</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">Data Anak</div>
+                    <p>
+                        <span class="field-label">Nama Lengkap:</span>
+                        {nama_lengkap}
+                    </p>
+                    <p>
+                        <span class="field-label">Jenis Kelamin:</span>
+                        {jenis_kelamin}
+                    </p>
+                    <p><span class="field-label">NIK:</span> {nik}</p>
+                    <p>
+                        <span class="field-label">Nomor Kartu Keluarga:</span>
+                        {nomor_kk}
+                    </p>
+                    <p>
+                        <span class="field-label"
+                            >Nomor Registrasi Akta Kelahiran:</span
+                        >
+                        {no_regis_akta}
+                    </p>
+                    <p>
+                        <span class="field-label">Tempat/Tanggal Lahir:</span>
+                        {tempat_lahir} / {tanggal_lahir}
+                    </p>
+                    <p>
+                        <span class="field-label">Alamat:</span> {alamat_anak}
+                    </p>
+                    <p>
+                        <span class="field-label">Tinggi Badan:</span> {tinggi}
+                    </p>
+                    <p>
+                        <span class="field-label">Berat Badan:</span> {berat}
+                    </p>
+                    <p>
+                        <span class="field-label"
+                            >Jarak Tempuh ke Sekolah:</span
+                        >
+                        {jarak}
+                    </p>
+                    <p>
+                        <span class="field-label"
+                            >Transportasi ke Sekolah:</span
+                        >
+                        {transportasi}
+                    </p>
+                    <p>
+                        <span class="field-label">Tinggal Sekarang:</span>
+                        {tempat_tinggal}
+                    </p>
+                    <p><span class="field-label">Anak ke:</span> {anak_ke}</p>
+                    <p><span class="field-label">Jumlah Saudara:</span></p>
+                    <p>
+                        &nbsp;&nbsp;&nbsp;&nbsp;Kandung:
+                        {jumlah_saudara_kandung}
+                    </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;Tiri: {jumlah_saudara_tiri}</p>
+                    <p>
+                        &nbsp;&nbsp;&nbsp;&nbsp;Angkat: {jumlah_saudara_angkat}
+                    </p>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">Sekolah Sebelumnya</div>
+                    <p>
+                        <span class="field-label">Nama Sekolah Asal:</span>
+                        {nama_sekolah_dulu}
+                    </p>
+                    <p>
+                        <span class="field-label">NPSN Sekolah Asal:</span>
+                        {nspn_sekolah}
+                    </p>
+                    <p>
+                        <span class="field-label">Alamat Sekolah Asal:</span>
+                        {alamat_sekolah_dulu}
+                    </p>
+                    <p>
+                        <span class="field-label"
+                            >Desa/Kelurahan Sekolah Asal:</span
+                        >
+                        {desa_sekolah}
+                    </p>
+                    <p>
+                        <span class="field-label"
+                            >Kabupaten/Kota Sekolah Asal:</span
+                        >
+                        {kabupaten_sekolah}
+                    </p>
+                    <p><span class="field-label">NISN:</span> {nisn}</p>
+                    <p>
+                        <span class="field-label">Tanggal dan No. SKTB:</span>
+                        {tanggal_sktb}
+                    </p>
+                    <p>
+                        <span class="field-label">Lama Pendidikan di TK:</span>
+                        {lama_tk}
+                    </p>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Data Orang Tua</div>
+                <p>
+                    <span class="field-label">Nama Lengkap Ayah:</span>
+                    {nama_lengkap_ayah}
+                </p>
+                <p><span class="field-label">NIK Ayah:</span> {nik_ayah}</p>
+                <p>
+                    <span class="field-label">Nama Lengkap Ibu:</span>
+                    {nama_lengkap_ibu}
+                </p>
+                <p><span class="field-label">NIK Ibu:</span> {nik_ibu}</p>
+                <p>
+                    <span class="field-label">Status Ayah:</span> {status_ayah}
+                </p>
+                <p>
+                    <span class="field-label">Status Ibu:</span> {status_ibu}
+                </p>
+                <p>
+                    <span class="field-label">Tempat/Tanggal Lahir Ayah:</span>
+                    {tempat_lahir_ayah} / {tanggal_lahir_ayah}
+                </p>
+                <p>
+                    <span class="field-label">Tempat/Tanggal Lahir Ibu:</span>
+                    {tempat_lahir_ibu} / {tanggal_lahir_ibu}
+                </p>
+                <p>
+                    <span class="field-label"
+                        >Alamat Rumah/Kode Pos/Telepon:</span
+                    >
+                    {alamat_ortu} / {kode_pos_ortu} / {no_telp_ortu}
+                </p>
+                <p>
+                    <span class="field-label">Kantor/Tempat Kerja Ayah:</span>
+                    {kantor_ayah}
+                </p>
+                <p>
+                    <span class="field-label">Kantor/Tempat Kerja Ibu:</span>
+                    {kantor_ibu}
+                </p>
+                <p>
+                    <span class="field-label">Kontak Darurat (Ayah):</span>
+                    {no_hp_ayah}
+                </p>
+                <p>
+                    <span class="field-label">Kontak Darurat (Ibu):</span>
+                    {no_hp_ibu}
+                </p>
+                <p>
+                    <span class="field-label">Kawasan Tinggal:</span>
+                    {kawasan_tinggal}
+                </p>
+                <p>
+                    <span class="field-label">Status Tempat Tinggal:</span>
+                    {status_tempat_tinggal}
+                </p>
+                <p>
+                    <span class="field-label">Pendidikan Terakhir Ayah:</span>
+                    {pendidikan_ayah} / {pendidikan_ayah_lain}
+                </p>
+                <p>
+                    <span class="field-label">Pendidikan Terakhir Ibu:</span>
+                    {pendidikan_ibu} / {pendidikan_ibu_lain}
+                </p>
+                <p>
+                    <span class="field-label">Pekerjaan Ayah:</span>
+                    {pekerjaan_ayah} ({pekerjaan_ayah_detail})
+                </p>
+                <p>
+                    <span class="field-label">Pekerjaan Ibu:</span>
+                    {pekerjaan_ibu} ({pekerjaan_ibu_detail})
+                </p>
+                <p>
+                    <span class="field-label">Penghasilan Sebulan Ayah:</span>
+                    {penghasilan_ayah}
+                </p>
+                <p>
+                    <span class="field-label">Penghasilan Sebulan Ibu:</span>
+                    {penghasilan_ibu}
+                </p>
+                <p>
+                    <span class="field-label">Jumlah Tanggungan:</span>
+                    {jumlah_tanggungan}
+                </p>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    Data Anak yang Menjadi Tanggungan
+                </div>
+                <p>
+                    <span class="field-label">Nama:</span>
+                    {nama_lengkap_tanggungan}
+                </p>
+                <p>
+                    <span class="field-label">Sekolah:</span>
+                    {sekolah_tanggungan}
+                </p>
+                <p>
+                    <span class="field-label">Kelas/Semester:</span>
+                    {kelas_tanggungan}
+                </p>
+                <p>
+                    <span class="field-label">Uang Sekolah:</span> Rp.
+                    {uang_sekolah_tanggungan}
+                </p>
+                <p>
+                    <span class="field-label">Keterangan:</span>
+                    {keterangan_tanggungan}
+                </p>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Data Wali</div>
+                <p><span class="field-label">Nama Wali:</span> {nama_wali}</p>
+                <p>
+                    <span class="field-label">Tempat/Tanggal Lahir:</span>
+                    {tempat_lahir_wali} / {tanggal_lahir_wali}
+                </p>
+                <p>
+                    <span class="field-label">Pendidikan Terakhir Wali:</span>
+                    {pendidikan_wali}
+                </p>
+                <p>
+                    <span class="field-label">Hubungan dengan Murid:</span>
+                    {hubungan_murid_wali}
+                </p>
+                <p>
+                    <span class="field-label">Tanggungan Dalam Bentuk:</span>
+                    {tanggungan_wali}
+                </p>
+                <p>
+                    <span class="field-label"
+                        >Alamat Rumah/Kode Pos/Telepon:</span
+                    >
+                    {alamat_wali} / {kodepos_wali} / {telepon_wali}
+                </p>
+                <p>
+                    <span class="field-label">Kantor/Tempat Kerja:</span>
+                    {alamat_kantor_wali}
+                </p>
+            </div>
+
+            <div class="section">
+                <div class="welp">
+                    <div class="section new-page-section">
+                        <div class="section-title">
+                            Pertanyaan Latar Belakang
+                        </div>
+                        <p>
+                            Apa yang melatarbelakangi Bapak/Ibu memiliki SD
+                            Islam Terpadu PERMATA?
+                        </p>
+                        <p>
+                            __________________________________________________________________
+                        </p>
+                        <p>
+                            Apabila anak diterima, kontribusi apa yang dapat
+                            diberikan ke sekolah?
+                        </p>
+                        <p>
+                            __________________________________________________________________
+                        </p>
+                        <p>
+                            Apa yang dapat dilakukan untuk kemajuan SD Islam
+                            Terpadu PERMATA?
+                        </p>
+                        <p>
+                            __________________________________________________________________
+                        </p>
+                        <p>Apa saran dan kritik untuk kemajuan sekolah?</p>
+                        <p>
+                            __________________________________________________________________
+                        </p>
+
+                        <div class="signature">
+                            <p>Padang, __________________</p>
+                            <p>Yang Mendaftar, Orang Tua/Wali Murid</p>
+                            <p>(Materai 10.000)</p>
+                            <p>(_________________________)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section new-page-section">
+                        <div class="welp">
+                            <div class="section-title">
+                                LEMBARAN KOMITMEN ORANG TUA CALON SISWA SD ISLAM
+                                TERPADU PERMATA
+                            </div>
+                            <ol>
+                                <li>
+                                    SANGGUP MEMATHUI / MEMENUHI TATA TERTIB DAN
+                                    PERATURAN YANG DIKELUARKAN SEKOLAH
+                                </li>
+                                <li>
+                                    BERSEDIA DAN SANGGUP MEMBIMBING ANAK BELAJAR
+                                    DIRUMAH DAN MEMERIKSA BUKU KOMUNIKASI, BUKU
+                                    IBADAH ANAK DI RUMAH DAN BUKU LAPORAN
+                                    PRESTASI BACAAN ALQUR’AN YANG DIBUKTIKAN
+                                    DENGAN PARAF / TANDA TANGAN
+                                </li>
+                                <li>
+                                    BERSEDIA MENGHINDARI PERTEMUAN ORANG TUA /
+                                    WALI MURID DALAM RANGKA MENINGKATKAN MUTU
+                                    PENDIDIKAN SEKOLAH DAN MENGHINDARI
+                                    PENYERAHAN BUKU LAPORAN HASIL BELAJAR
+                                    (RAPOR) DENGAN TEPAT WAKTU DAN TANPA
+                                    DIWAKILKAN
+                                </li>
+                                <li>
+                                    MENGIZINKAN SISWA UNTUK MENGIKUTI
+                                    PROGRAM-PROGRAM SEKOLAH
+                                </li>
+                                <li>
+                                    BERSEDIA MENERIMA SANKSI YANG DIJATUHKAN
+                                    PIHAT SEKOLAH APABILA SISWA MELANGGAR ATURAN
+                                    YANG TELAH DITETAPKAN SEKOLAH
+                                </li>
+                                <li>
+                                    APABILA MENGUNDURKAN DIRI DARI PENDAFTARAN
+                                    BERSEDIA HANYA MENERIMA 30% DARI TOTAL BIAYA
+                                    DAFTAR ULANG
+                                </li>
+                            </ol>
+                        </div>
+
+                        <div class="signature">
+                            <p>Padang, __________________</p>
+                            <p>Yang Mendaftar, Orang Tua/Wali Murid</p>
+                            <p style="margin-top: 100px">(Materai 10.000)</p>
+                            <p>(_________________________)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <p>Sekolah Dasar Islam Terpadu PERMATA</p>
+                    <p>
+                        Jl. Andalas Baru No. 25B, Kel. Simpang Haru, Kec. Padang
+                        Timur - Padang
+                    </p>
+                    <p>Telp (0751) 32298</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

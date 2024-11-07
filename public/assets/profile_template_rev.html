@@ -1,0 +1,305 @@
+<html>
+    <head>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                line-height: 1.5;
+                font-family: "Times New Roman", Times, serif;
+                font-size: 12pt;
+            }
+            .pageContainer {
+                width: 21.59cm;
+                height: 27.94cm;
+                margin: 0.5cm 2.54cm;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="pageContainer">
+            <img src="/assets/header.png" style="margin: 0 auto; display: block" height="100" />
+            <hr />
+            <table style="margin: 20pt; width: 100%">
+                <tr>
+                    <td style="width: 275pt">No. Formulir</td>
+                    <td>: {form_id}</td>
+                </tr>
+                <tr>
+                    <td>Tanggal Pengembalian Formulir</td>
+                    <td>:</td>
+                </tr>
+                <tr>
+                    <td>Nama Sekolah</td>
+                    <td>:</td>
+                </tr>
+            </table>
+            <table style="margin: 0 20pt; width: 100%">
+                <tr>
+                    <td colspan="3">A. Data Anak</td>
+                </tr>
+                <tr>
+                    <td style="width: 17pt"></td>
+                    <td style="width: 258pt">1. Nama Lengkap</td>
+                    <td>: {nama_lengkap}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>2. Jenis Kelamin</td>
+                    <td>: {jenis_kelamin}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>3. NIK</td>
+                    <td>: {nik}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>4. Nomor Kartu Keluarga</td>
+                    <td>: {nomor_kk}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>5. Nomor Registrasi Akta Kelahiran</td>
+                    <td>: {no_regis_kk}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>6. Tempat/Tanggal Lahir</td>
+                    <td>: {tempat_lahir} / {tanggal_lahir}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>7. Alamat</td>
+                    <td>: {alamat_anak}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>8. Tinggi Badan</td>
+                    <td>: {tinggi}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>9. Berat Badan</td>
+                    <td>: {berat}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>10. Jarak Tempuh ke Sekolah</td>
+                    <td>: {jarak}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>11. Transportasi ke Sekolah</td>
+                    <td>: {transportasi}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>12. Tinggal Sekarang</td>
+                    <td>: {tempat_tinggal}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>13. Anak ke</td>
+                    <td>: {anak_ke}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>14. Jumlah Saudara</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="padding-left: 18pt">- Kandung</td>
+                    <td>: {jumlah_saudara_kandung}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="padding-left: 18pt">- Tiri</td>
+                    <td>: {jumlah_saudara_tiri}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="padding-left: 18pt">- Angkat</td>
+                    <td>: {jumlah_saudara_angkat}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>15. Sekolah Sebelumnya</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="padding-left: 18pt">- Nama Sekolah Asal</td>
+                    <td>: {nama_sekolah_dulu}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="padding-left: 18pt">- NPSN Sekolah Asal</td>
+                    <td>: {npsn_sekolah}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="padding-left: 18pt">- Alamat Sekolah Asal</td>
+                    <td>: {alamat_anak}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="padding-left: 18pt">- Desa/Kelurahan</td>
+                    <td>: {desa_sekolah}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="padding-left: 18pt">- Kabupaten/Kota</td>
+                    <td>: {kabupaten_sekolah}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="padding-left: 18pt">- NISN</td>
+                    <td>: {nisn}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="padding-left: 18pt">- Tanggal dan No. SKTB</td>
+                    <td>: {tanggal_sktb} / {nomor_sktb}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>16. Lama Pendidikan di TK</td>
+                    <td>: {lama_tk}</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="3">B. Data Orang Tua</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>17. Nama Lengkap Ayah</td>
+                    <td>: {nama_lengkap_ayah}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>18. NIK Ayah</td>
+                    <td>: {nik_ayah}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>19. Nama Lengkap Ibu</td>
+                    <td>: {nama_lengkap_ibu}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>20. NIK Ibu</td>
+                    <td>: {nik_ibu}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>21. Status Ayah</td>
+                    <td>: {status_ayah}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>22. Status Ibu</td>
+                    <td>: {status_ibu}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>23. Tempat/Tanggal Lahir Ayah</td>
+                    <td>: {tempat_lahir_ayah} / {tanggal_lahir_ayah}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>24. Tempat/Tanggal Lahir Ibu</td>
+                    <td>: {tempat_lahir_ibu} / {tanggal_lahir_ibu}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>25. Alamat</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="padding-left: 18pt">- Rumah/Kode Pos/Telepon</td>
+                    <td>: {alamat_ortu} / {kode_pos_ortu} / {no_telp_ortu}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="padding-left: 18pt">- Kantor/Tempat Kerja</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="padding-left: 25pt">a) Ayah</td>
+                    <td>: {kantor_ayah}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="padding-left: 25pt">b) Ibu</td>
+                    <td>: {kantor_ibu}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="padding-left: 18pt">- Yang dapat dihubungi dengan cepat jika terjadi sesuatu (Emergency)/No. Hnadphone</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="padding-left: 25pt">a) Ayah</td>
+                    <td>: {no_hp_ayah}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="padding-left: 25pt">b) Ibu</td>
+                    <td>: {no_hp_ibu}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>26. Kawasan Tinggal</td>
+                    <td>: ${kawasan_tinggal}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>27. Status Tempat Tinggal</td>
+                    <td>: ${status_tempat_tinggal}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>28. Pendidikan Terakhir Ayah</td>
+                    <td>: ${pendidikan_ayah} / ${pendidikan_ayah_lain}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>29. Pendidikan Terakhir Ibu</td>
+                    <td>: ${pendidikan_ibu} / ${pendidikan_ibu_lain}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>30. Pekerjaan Ayah Sebagai</td>
+                    <td>: ${pekerjaan_ayah} / ${pekerjaan_ayah_detail}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>31. Pekerjaan Ibu Sebagai</td>
+                    <td>: ${pekerjaan_ibu} / ${pekerjaan_ibu_detail}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>32. Penghasilan Sebulan Ayah</td>
+                    <td>: ${penghasilan_ayah}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>33. Penghasilan Sebulan Ibu</td>
+                    <td>: ${penghasilan_ibu}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>34. Jumlah Tanggungan</td>
+                    <td>: ${jumlah_tanggungan}</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
