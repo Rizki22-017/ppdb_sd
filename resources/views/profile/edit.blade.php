@@ -36,8 +36,8 @@
                     <div class="max-w-xl">
                         <h3 class="text-lg font-semibold mb-4">Download Registration Details</h3>
 
-                        @if ($registrationStatus === 'Completed')
-                            <a href="{{ route('profile.downloadPdf') }}"
+                        @if ($registrationStatus === 'Completed' || true)
+                            <a href="{{ route('profile.downloadPdf') }}" target="_blank"
                                 class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                 Download Formulir
                             </a>
