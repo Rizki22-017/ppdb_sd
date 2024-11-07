@@ -1,3 +1,4 @@
+@section('title', 'Profile')
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -34,7 +35,8 @@
                 <!-- Add Download PDF Button -->
                 <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                     <div class="max-w-xl">
-                        <h3 class="text-lg font-semibold mb-4">Setelah Formulir di Cetak silahkan untuk pengembalian Formulir langsung ke sekolah beserta kelengkapannya</h3>
+                        <h3 class="text-lg font-semibold mb-4">Setelah Formulir di Cetak silahkan untuk pengembalian
+                            Formulir langsung ke sekolah beserta kelengkapannya</h3>
                         <h3 class="text-lg font-semibold mb-4">Download Formulir Pendaftaran</h3>
 
                         @if ($registrationStatus === 'Completed')
