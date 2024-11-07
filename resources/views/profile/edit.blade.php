@@ -34,10 +34,11 @@
                 <!-- Add Download PDF Button -->
                 <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                     <div class="max-w-xl">
-                        <h3 class="text-lg font-semibold mb-4">Download Registration Details</h3>
+                        <h3 class="text-lg font-semibold mb-4">Setelah Formulir di Cetak silahkan untuk pengembalian Formulir langsung ke sekolah beserta kelengkapannya</h3>
+                        <h3 class="text-lg font-semibold mb-4">Download Formulir Pendaftaran</h3>
 
-                        @if ($registrationStatus === 'Completed' || true)
-                            <a href="{{ route('profile.downloadPdf') }}" target="_blank"
+                        @if ($registrationStatus === 'Completed')
+                            <a href="{{ route('profile.downloadPdf') }}"
                                 class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                 Download Formulir
                             </a>

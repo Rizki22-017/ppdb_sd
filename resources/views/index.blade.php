@@ -44,7 +44,7 @@
                         <!-- Tabs -->
                         <ul class="nav nav-pills mb-3" role="tablist">
                             <li><a class="nav-link active" data-bs-toggle="pill" href="#about-tab1" aria-selected="true"
-                                    role="tab">Guru yang berkualitas</a></li>
+                                    role="tab">Progam Unggulan</a></li>
                             <li><a class="nav-link" data-bs-toggle="pill" href="#about-tab2" aria-selected="false"
                                     tabindex="-1" role="tab">Fasilitas Lengkap</a></li>
                             <li><a class="nav-link" data-bs-toggle="pill" href="#about-tab3" aria-selected="false"
@@ -56,23 +56,29 @@
 
                             <div class="tab-pane fade show active" id="about-tab1" role="tabpanel">
 
-                                <p class="fst-italic">Kami menyediakan tenaga pendidik yang berkualitas</p>
+                                <p class="fst-italic">Program Unggulan SD Islam Terpadu Permata :</p>
 
                                 <div class="d-flex align-items-center mt-4">
                                     <i class="bi bi-check2"></i>
-                                    <h4>Guru terbaik dibidangnya</h4>
+                                    <h4>Full Day School</h4>
                                 </div>
 
 
                                 <div class="d-flex align-items-center mt-4">
                                     <i class="bi bi-check2"></i>
-                                    <h4>Guru yang telah tersertifikasi</h4>
+                                    <h4>Bimbingan Ibadah & Al-Qur'an Metode Ilman Wa Ruuhan</h4>
                                 </div>
 
 
                                 <div class="d-flex align-items-center mt-4">
                                     <i class="bi bi-check2"></i>
-                                    <h4>Guru yang menyajikan metode pembelajaran yang menyenangkan</h4>
+                                    <h4>Bimbingan Bina Pribadi Islami</h4>
+                                </div>
+                                
+                                
+                                <div class="d-flex align-items-center mt-4">
+                                    <i class="bi bi-check2"></i>
+                                    <h4>Outing Class / Kunjungan Belajar</h4>
                                 </div>
 
 
@@ -84,21 +90,26 @@
 
                                 <div class="d-flex align-items-center mt-4">
                                     <i class="bi bi-check2"></i>
-                                    <h4>Ruang kelas yang bersih dan nyaman</h4>
+                                    <h4>Ruangan Kelas Full AC</h4>
                                 </div>
 
 
                                 <div class="d-flex align-items-center mt-4">
                                     <i class="bi bi-check2"></i>
-                                    <h4>Kantin yang bersih dan sehat</h4>
+                                    <h4>Terpantau CCTV tiap Kelas</h4>
                                 </div>
 
 
                                 <div class="d-flex align-items-center mt-4">
                                     <i class="bi bi-check2"></i>
-                                    <h4>Mushola yang nyaman</h4>
+                                    <h4>Labor Komputer</h4>
                                 </div>
 
+
+                                <div class="d-flex align-items-center mt-4">
+                                    <i class="bi bi-check2"></i>
+                                    <h4>Pembelajaran Audio Visual</h4>
+                                </div>
 
                             </div><!-- End Tab 2 Content -->
 

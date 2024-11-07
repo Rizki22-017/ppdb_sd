@@ -9,7 +9,6 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-
                     <!-- Step 1: Data Siswa -->
                     <h3 class="text-lg font-semibold mb-4">Data Siswa</h3>
                     <div class="grid grid-cols-2 gap-4 mb-6">
@@ -88,9 +87,6 @@
                         @endif
                     </div>
 
-
-
-
                     <!-- Step 3: Data Wali -->
                     <h3 class="text-lg font-semibold mb-4">Data Wali</h3>
                     <div class="grid grid-cols-2 gap-4 mb-6">
@@ -133,7 +129,7 @@
                     <div><strong>Status:</strong> {{ $registration->status }}</div>
                     <div><strong>Bukti Pembayaran:</strong>
                         @if ($registration->bukti_pembayaran)
-                            <a href="{{ asset('storage/' . $registration->bukti_pembayaran) }}" target="_blank"
+                            <a href="{{ asset($registration->bukti_pembayaran) }}" target="_blank"
                                 class="text-gray-700 hover:text-blue-500">
                                 Lihat Bukti Pembayaran
                             </a>
@@ -141,7 +137,6 @@
                             Tidak ada bukti pembayaran
                         @endif
                     </div>
-
                 </div>
             </div>
         </div>

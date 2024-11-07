@@ -171,16 +171,24 @@
                                                     <input type="text" class="form-control" id="nik"
                                                         name="nik" placeholder="Masukkan nomor NIK" maxlength="16"
                                                         pattern="\d{16}" title="NIK harus 16 digit angka"
-                                                        value="{{ old('nik', $registration->nik ?? '') }}" required>
+                                                        value="{{ old('nik', $registration->nik ?? '') }}"
+                                                        oninput="validateInput('nik', 'nikAlert')" required>
+                                                    <div id="nikAlert" class="text-danger mt-2" style="display: none;">
+                                                        NIK Harus Berisi 16 Angka</div>
                                                 </div>
+
                                                 <div class="mb-3">
                                                     <label for="nomor_kk" class="form-label">Nomor Kartu Keluarga<span
                                                             class="text-danger">*</span></label>
                                                     <input type="text" class="form-control" id="nomor_kk"
                                                         name="nomor_kk" placeholder="Masukkan nomor KK" maxlength="16"
                                                         pattern="\d{16}" title="Nomor KK harus 16 digit angka" required
-                                                        value="{{ old('nomor_kk', $registration->nomor_kk ?? '') }}">
+                                                        value="{{ old('nomor_kk', $registration->nomor_kk ?? '') }}"
+                                                        oninput="validateInput('nomor_kk', 'KKAlert')">
+                                                    <div id="KKAlert" class="text-danger mt-2" style="display: none;">
+                                                        KK Harus Berisi 16 Angka</div>
                                                 </div>
+
                                                 <div class="mb-3">
                                                     <label for="no_regis_akta" class="form-label">Nomor Registrasi Akta
                                                         Kelahiran<span class="text-danger">*</span></label>
@@ -189,8 +197,11 @@
                                                         placeholder="Masukkan nomor Registrasi Akta Kelahiran"
                                                         maxlength="16" pattern="\d{16}"
                                                         title="Nomor Registrasi Akta Kelahiran harus 16 digit angka"
+                                                        required
                                                         value="{{ old('no_regis_akta', $registration->no_regis_akta ?? '') }}"
-                                                        required>
+                                                        oninput="validateInput('no_regis_akta', 'aktaAlert')">
+                                                    <div id="aktaAlert" class="text-danger mt-2" style="display: none;">
+                                                        Nomor Registrasi Akta Kelahiran Harus Berisi 16 Angka</div>
                                                 </div>
 
                                                 <div class="mb-3">
@@ -568,4 +579,22 @@
             });
         });
     </script>
+
+
+
+    <script>
+        function validateInput(inputId, alertId) {
+            const inputField = document.getElementById(inputId);
+            const alertField = document.getElementById(alertId);
+
+            // Check if the input has exactly 16 digits
+            if (inputField.value.length === 16 && /^\d{16}$/.test(inputField.value)) {
+                alertField.style.display = 'none';
+            } else {
+                alertField.style.display = 'block';
+            }
+        }
+    </script>
+
+
 @endsection

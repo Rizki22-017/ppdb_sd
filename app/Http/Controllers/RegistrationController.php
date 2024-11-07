@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Registration;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -227,12 +228,12 @@ class RegistrationController extends Controller
 
         if ($request->hasFile('bukti_pembayaran')) {
             // Delete the old file if it exists
-            if ($registration->bukti_pembayaran && Storage::exists('public/' . $registration->bukti_pembayaran)) {
-                Storage::delete('public/' . $registration->bukti_pembayaran);
+            if ($registration->bukti_pembayaran && File::exists('proof_payments/' . $registration->bukti_pembayaran)) {
+                File::delete('proof_payments/' . $registration->bukti_pembayaran);
             }
 
             // Store the new file
-            $filePath = $request->file('bukti_pembayaran')->store('proof_payments', 'public');
+            $filePath = $request->file('bukti_pembayaran')->move('proof_payments/', $request->bukti_pembayaran->getClientOriginalName());
 
             // Update the registration record with the new file path
             $registration->update(['bukti_pembayaran' => $filePath]);

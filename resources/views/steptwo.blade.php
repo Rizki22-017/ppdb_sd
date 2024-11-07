@@ -52,9 +52,12 @@
                                             <input type="text" class="form-control" id="nikAyah" name="nik_ayah"
                                                 value="{{ old('nik_ayah', $registration->nik_ayah ?? '') }}" required
                                                 placeholder="Masukan NIK ayah" maxlength="16" pattern="\d{16}"
-                                                title="NIK harus 16 digit angka">
-                                            <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                                                title="NIK harus 16 digit angka"
+                                                oninput="validateInput('nikAyah', 'nikAyahAlert')">
+                                            <div id="nikAyahAlert" class="text-danger mt-2" style="display: none;">NIK Ayah
+                                                Harus Berisi 16 Angka</div>
                                         </div>
+
                                         <div class="mb-3">
                                             <label for="namaLengkapIbu" class="form-label">Nama Lengkap Ibu <span
                                                     class="text-danger">*</span></label>
@@ -65,13 +68,15 @@
                                             <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
                                         </div>
                                         <div class="mb-3">
-                                            <label for="nikAyah" class="form-label">NIK Ibu<span
+                                            <label for="nikIbu" class="form-label">NIK Ibu<span
                                                     class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="nikIbu" name="nik_ibu"
                                                 value="{{ old('nik_ibu', $registration->nik_ibu ?? '') }}" required
-                                                placeholder="Masukan NIK ayah" maxlength="16" pattern="\d{16}"
-                                                title="NIK harus 16 digit angka">
-                                            <span class="error-message"></span> <!-- Ini untuk pesan kesalahan -->
+                                                placeholder="Masukan NIK ibu" maxlength="16" pattern="\d{16}"
+                                                title="NIK harus 16 digit angka"
+                                                oninput="validateInput('nikIbu', 'nikIbuAlert')">
+                                            <div id="nikIbuAlert" class="text-danger mt-2" style="display: none;">NIK Ibu
+                                                Harus Berisi 16 Angka</div>
                                         </div>
                                         <div class="row mb-3">
                                             <legend class="col-form-label col-sm-2 pt-0">Status Ayah</legend>
@@ -890,6 +895,21 @@
             <input type="hidden" name="keterangan_tanggungan[]" value="${tanggungan.keterangan}">
         `);
             });
+        }
+    </script>
+
+
+    <script>
+        function validateInput(inputId, alertId) {
+            const inputField = document.getElementById(inputId);
+            const alertField = document.getElementById(alertId);
+
+            // Check if the input has exactly 16 digits
+            if (inputField.value.length === 16 && /^\d{16}$/.test(inputField.value)) {
+                alertField.style.display = 'none';
+            } else {
+                alertField.style.display = 'block';
+            }
         }
     </script>
 @endsection

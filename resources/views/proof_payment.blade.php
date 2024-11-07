@@ -43,6 +43,8 @@
                                 <h5 class="card-title">Bukti Pembayaran</h5>
 
                                 <div class="mb-3">
+                                    <label for="proof_of_payment" class="form-label">Pembayaran Pendaftaran sebesar <b>Rp. 300.000,-</b> transfer ke : 1238436314 (BNI)</label>
+                                    <br>
                                     <label for="proof_of_payment" class="form-label">Unggah Bukti Pembayaran</label>
                                     <input type="file" class="form-control" name="bukti_pembayaran" id="proof_of_payment"
                                         accept="image/*, application/pdf" required>
@@ -56,7 +58,6 @@
                                         <div>
                                             <a href="{{ asset('storage/' . $registration->bukti_pembayaran) }}"
                                                 target="_blank">Lihat Bukti Pembayaran</a>
-
                                         </div>
                                     </div>
                                 @endif
