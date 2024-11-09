@@ -46,6 +46,7 @@ return new class extends Migration
             $table->string('kabupaten_sekolah')->nullable();
             $table->string('nisn')->nullable();
             $table->date('tanggal_sktb')->nullable();
+            $table->string('nomor_sktb')->nullable();
             $table->string('lama_tk')->nullable();
 
             // Step 2: Data Orang Tua (make nullable, filled in later step)
@@ -100,6 +101,7 @@ return new class extends Migration
             // File path for proof of payment
             $table->string('bukti_pembayaran')->nullable();
             $table->string('status')->default('Pending');
+            $table->string('step')->default('step1');
 
             // Timestamps
             $table->timestamps();

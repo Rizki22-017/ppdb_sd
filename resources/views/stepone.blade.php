@@ -1,4 +1,5 @@
 @extends('layout.app')
+@section('title', 'Data Siswa')
 @section('content')
 
     @if (session('error'))
@@ -195,13 +196,13 @@
                                                     <input type="text" class="form-control" id="no_regis_akta"
                                                         name="no_regis_akta"
                                                         placeholder="Masukkan nomor Registrasi Akta Kelahiran"
-                                                        maxlength="16" pattern="\d{16}"
-                                                        title="Nomor Registrasi Akta Kelahiran harus 16 digit angka"
+                                                        maxlength="12" pattern="\d{12}"
+                                                        title="Nomor Registrasi Akta Kelahiran harus 12 digit karakter"
                                                         required
                                                         value="{{ old('no_regis_akta', $registration->no_regis_akta ?? '') }}"
                                                         oninput="validateInput('no_regis_akta', 'aktaAlert')">
                                                     <div id="aktaAlert" class="text-danger mt-2" style="display: none;">
-                                                        Nomor Registrasi Akta Kelahiran Harus Berisi 16 Angka</div>
+                                                        Nomor Registrasi Akta Kelahiran Harus Berisi 12 karakter</div>
                                                 </div>
 
                                                 <div class="mb-3">
@@ -581,14 +582,21 @@
     </script>
 
 
-
+    {{-- Script for the NIK, KK, Akta Kelahiran Field --}}
     <script>
         function validateInput(inputId, alertId) {
             const inputField = document.getElementById(inputId);
             const alertField = document.getElementById(alertId);
 
-            // Check if the input has exactly 16 digits
-            if (inputField.value.length === 16 && /^\d{16}$/.test(inputField.value)) {
+            let requiredLength;
+            if (inputId === 'nik' || inputId === 'nomor_kk') {
+                requiredLength = 16;
+            } else if (inputId === 'no_regis_akta') {
+                requiredLength = 12;
+            }
+
+            if (inputField.value.length === requiredLength && new RegExp(`\\d{${requiredLength}}$`).test(inputField
+                    .value)) {
                 alertField.style.display = 'none';
             } else {
                 alertField.style.display = 'block';

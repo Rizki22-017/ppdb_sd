@@ -1,4 +1,5 @@
 @extends('layout.app')
+@section('title', 'SD IT PERMATA')
 @section('content')
     <main class="main">
 
@@ -12,7 +13,7 @@
                     <div class="col-lg-8">
                         <h2>Selamat Datang di Website <br>SD IT Permata</h2>
                         <p>Pendaftaran Siswa Baru Tahun Ajaran 2024/2025 Telah Dibuka!</p>
-                        <a href="/pendaftaran" class="btn-get-started">Daftar Sekarang!</a>
+                        <a href="{{ route('registration.start') }}" class="btn-get-started">Daftar Sekarang!</a>
                     </div>
                 </div>
             </div>
@@ -74,8 +75,8 @@
                                     <i class="bi bi-check2"></i>
                                     <h4>Bimbingan Bina Pribadi Islami</h4>
                                 </div>
-                                
-                                
+
+
                                 <div class="d-flex align-items-center mt-4">
                                     <i class="bi bi-check2"></i>
                                     <h4>Outing Class / Kunjungan Belajar</h4>

@@ -38,6 +38,7 @@ class Registration extends Model
         'kabupaten_sekolah',
         'nisn',
         'tanggal_sktb',
+        'nomor_sktb',
         'lama_tk',
 
 
@@ -90,7 +91,8 @@ class Registration extends Model
         'telepon_wali',
         'alamat_kantor_wali',
         'bukti_pembayaran',
-        'status'
+        'status',
+        'step',
     ];
 
     protected $casts = [

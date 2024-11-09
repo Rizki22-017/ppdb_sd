@@ -116,18 +116,30 @@ class ProfileController extends Controller
 
         $htmlContent = str_replace(array_keys($placeholders), array_values($placeholders), $htmlContent);
 
-        // header('Content-Type: application/pdf');
-        // header('Content-Disposition: inline; filename="formulir_pendaftaran.pdf"');
-
         echo $htmlContent;
         echo "<script>window.print();</script>";
-        // Return the PDF for download with auto-deletion after send
-        // return response()->download($tempPdfPath)->deleteFileAfterSend(true);
     }
 
     /**
      * Display the user's profile form.
      */
+
+
+    public function result(Request $request): View
+    {
+        $user = $request->user();
+
+        // Fetch the registration status if a registration exists for the user
+        $registration = Registration::where('user_id', $user->id)->first();
+
+        return view('result', [
+            'registrationStatus' => $registration ? $registration->status : 'Tidak Terdaftar',
+            'formId' => $registration ? $registration->form_id : 'Tidak Di Temukan',
+        ]);
+    }
+
+
+
     public function edit(Request $request): View
     {
         $user = $request->user();

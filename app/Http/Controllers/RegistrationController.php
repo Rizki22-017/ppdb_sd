@@ -31,6 +31,40 @@ class RegistrationController extends Controller
         return $newNumber . $prefix . $year;
     }
 
+
+    public function startRegistration()
+    {
+        $registration = Registration::where('user_id', Auth::id())->first();
+
+        if ($registration) {
+            // Redirect based on the user's last completed step
+            return $this->redirectToNextStep($registration->step);
+        }
+
+        // If no registration exists, start from Step 1
+        return redirect()->route('step1.show');
+    }
+
+
+
+    private function redirectToNextStep($currentStep)
+    {
+        switch ($currentStep) {
+            case 'step1':
+                return redirect()->route('step1.show', ['user_id' => Auth::id()]);
+            case 'step2':
+                return redirect()->route('step2.show', ['user_id' => Auth::id()]);
+            case 'step3':
+                return redirect()->route('step3.show', ['user_id' => Auth::id()]);
+            case 'proofPayment':
+                return redirect()->route('proofPayment.show', ['user_id' => Auth::id()]);
+            case 'resultPage':
+                return redirect()->route('resultPage', ['user_id' => Auth::id()]);
+            default:
+                return redirect()->route('step1.show'); // Default to Step 1
+        }
+    }
+
     // Show Step 1 form
     public function showStep1()
     {
@@ -77,6 +111,7 @@ class RegistrationController extends Controller
             'kabupaten_sekolah' => 'nullable|string|max:255',
             'nisn' => 'nullable|string|max:255',
             'tanggal_sktb' => 'nullable|date',
+            'nomor_sktb' => 'nullable|max:255',
             'lama_tk' => 'nullable|string|max:255',
         ]);
 
@@ -84,16 +119,14 @@ class RegistrationController extends Controller
         $validatedData['user_id'] = Auth::id();
         $validatedData['form_id'] = $formId;
 
-        // Use updateOrCreate to handle both creating and updating the registration
         $registration = Registration::updateOrCreate(
             ['user_id' => Auth::id()],
-            $validatedData
+            array_merge($validatedData, ['step' => 'step2']) // Update step to 'step2'
         );
 
 
         // Redirect to the next step with a success message if the record is created/updated
-        return redirect()->route('step2.show', ['user_id' => Auth::id()])
-            ->with('success', 'Data saved successfully. Proceed to the next step.');
+        return redirect()->route('step2.show', ['user_id' => Auth::id()]);
     }
 
 
@@ -160,11 +193,10 @@ class RegistrationController extends Controller
 
         // Update registrati// Find the existing registration record and update with Step Two data
         $registration = Registration::where('user_id', $user_id)->first();
-        $registration->update($validatedData);
+        $registration->update(array_merge($validatedData, ['step' => 'step3']));
 
         // Redirect to Step Three (final step)
-        return redirect()->route('step3.show', ['user_id' => $user_id])
-            ->with('success', 'Data successfully saved.');
+        return redirect()->route('step3.show', ['user_id' => $user_id]);
     }
 
 
@@ -199,10 +231,9 @@ class RegistrationController extends Controller
         ]);
 
         $registration = Registration::where('user_id', $user_id)->first();
-        $registration->update($validatedData);
+        $registration->update(array_merge($validatedData, ['step' => 'proofPayment']));
 
-        return redirect()->route('proofPayment.show', ['user_id' => $user_id])
-            ->with('success', 'Data Wali successfully saved.');
+        return redirect()->route('proofPayment.show', ['user_id' => $user_id]);
     }
 
 
@@ -215,14 +246,12 @@ class RegistrationController extends Controller
         return view('proof_payment', compact('registration', 'user_id'));
     }
 
-
     // Handle proof of payment upload
     public function postProofPayment(Request $request, $user_id)
     {
         $validatedData = $request->validate([
             'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-
 
         $registration = Registration::where('user_id', $user_id)->firstOrFail();
 
@@ -235,15 +264,20 @@ class RegistrationController extends Controller
             // Store the new file
             $filePath = $request->file('bukti_pembayaran')->move('proof_payments/', $request->bukti_pembayaran->getClientOriginalName());
 
+            // Update the registration record with the new file path and set payment status
+            $registration->update([
+                'bukti_pembayaran' => $filePath,
+                'proof_payment_uploaded' => true,
+                'step' => 'resultPage' // Update step to result to direct to result page next time
+            ]);
+
+
             // Update the registration record with the new file path
             $registration->update(['bukti_pembayaran' => $filePath]);
         }
 
-        return redirect()->route('profile.edit')->with('success', 'Bukti pembayaran berhasil diunggah.');
+        return redirect()->route('resultPage')->with('success', 'Bukti pembayaran berhasil diunggah.');
     }
-
-
-
 
     public function updateStatus(Request $request, $id)
     {

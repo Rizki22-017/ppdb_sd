@@ -10,43 +10,43 @@ Route::get('/', function () {
     return view('index');
 })->name('home');
 
-// Success page route (public)
-Route::get('/profile', function () {
-    return view('profile.edit');
-})->name('profilePage');
-
-// Registration routes for multi-step form with authentication middleware
+// Routes for registration process, requiring authentication
 Route::middleware('auth')->group(function () {
-    // Step 1: Show and submit Step 1 form data
-    Route::get('/pendaftaran', [RegistrationController::class, 'showStep1'])->name('step1.show');
-    Route::post('/pendaftaran/step1', [RegistrationController::class, 'postStep1'])->name('step1.post');
+    // Start Registration and dynamic next step
+    Route::get('/pendaftaran', [RegistrationController::class, 'startRegistration'])->name('registration.start');
 
-    // Step 2: Show and submit Step 2 form data
-    Route::get('/pendaftaran/step2/{user_id}', [RegistrationController::class, 'showStep2'])->name('step2.show');
-    Route::post('/pendaftaran/step2/{user_id}', [RegistrationController::class, 'postStep2'])->name('step2.post');
+    // Step routes with middleware for restricting access if user is at result step
+    Route::middleware('check.step')->group(function () {
+        Route::get('/pendaftaran/step1', [RegistrationController::class, 'showStep1'])->name('step1.show');
+        Route::post('/pendaftaran/step1', [RegistrationController::class, 'postStep1'])->name('step1.post');
 
-    // Step 3: Show and submit Step 3 form data
-    Route::get('/pendaftaran/step3/{user_id}', [RegistrationController::class, 'showStep3'])->name('step3.show');
-    Route::post('/pendaftaran/step3/{user_id}', [RegistrationController::class, 'postStep3'])->name('step3.post');
+        Route::get('/pendaftaran/step2/{user_id}', [RegistrationController::class, 'showStep2'])->name('step2.show');
+        Route::post('/pendaftaran/step2/{user_id}', [RegistrationController::class, 'postStep2'])->name('step2.post');
 
-    // Proof of Payment Upload: Show and handle file upload
-    Route::get('/pendaftaran/proof_payment/{user_id}', [RegistrationController::class, 'showProofPayment'])->name('proofPayment.show');
-    Route::post('/pendaftaran/proof_payment/{user_id}', [RegistrationController::class, 'postProofPayment'])->name('proofPayment.post');
-});
+        Route::get('/pendaftaran/step3/{user_id}', [RegistrationController::class, 'showStep3'])->name('step3.show');
+        Route::post('/pendaftaran/step3/{user_id}', [RegistrationController::class, 'postStep3'])->name('step3.post');
 
-// Profile management routes for all authenticated users
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/profile/download-pdf', [ProfileController::class, 'downloadPdf'])->name('profile.downloadPdf');
+        Route::get('/pendaftaran/proof_payment/{user_id}', [RegistrationController::class, 'showProofPayment'])->name('proofPayment.show');
+        Route::post('/pendaftaran/proof_payment/{user_id}', [RegistrationController::class, 'postProofPayment'])->name('proofPayment.post');
+        // Result page for users who have completed registration
+        Route::get('/result', [ProfileController::class, 'result'])->name('resultPage');
+        Route::get('/result/download-pdf', [ProfileController::class, 'downloadPdf'])->name('result.downloadPdf');
+    });
+
+
+
+    // Profile management for authenticated users
+    Route::prefix('profile')->group(function () {
+        Route::get('/', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/', [ProfileController::class, 'destroy'])->name('profile.destroy');
+        Route::get('/download-pdf', [ProfileController::class, 'downloadPdf'])->name('profile.downloadPdf');
+    });
 });
 
 // Dashboard routes restricted to admin users
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
-    // Registration management routes for the dashboard
     Route::prefix('dashboard/registration')->group(function () {
         Route::get('{id}', [DashboardController::class, 'show'])->name('registration.show');
         Route::get('{id}/edit', [DashboardController::class, 'edit'])->name('registration.edit');
@@ -55,9 +55,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::patch('{id}/status', [DashboardController::class, 'updateStatus'])->name('registration.updateStatus');
     });
 
-    // Additional admin routes
     Route::post('/dashboard/reset', [DashboardController::class, 'reset'])->name('dashboard.reset');
     Route::put('/registrations/{id}/update-status', [DashboardController::class, 'updateStatus'])->name('registrations.updateStatus');
+    Route::get('/dashboard/registration/{id}/download-pdf', [DashboardController::class, 'downloadPdf'])
+        ->name('registration.downloadPdf');
+    Route::get('/dashboard/export-excel', [DashboardController::class, 'exportExcel'])->name('dashboard.exportExcel');
 });
 
 // Authentication routes
